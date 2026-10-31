@@ -1,0 +1,12 @@
+{
+  "name": "portfolio-browser-tests",
+  "private": true,
+  "description": "Cross-browser smoke test for the portfolio (Chrome + Edge, 5 viewport sizes).",
+  "scripts": {
+    "test": "node browser-test.js all",
+    "test:shots": "node browser-test.js all --shots"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^23.0.0"
+  }
+}
