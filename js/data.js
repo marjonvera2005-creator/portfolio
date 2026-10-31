@@ -11,7 +11,7 @@ var PROJECTS = [
   {
     id:'intelliguide', title:'IntelliGuide', tag:'Assistive mobile app',
     context:'Thesis project',
-    role:'My thesis. I am developing the mobile app and its on-device detection pipeline that warns visually impaired users about obstacles in their path.',
+    role:'Team Leader: Eliza Marie Rosario<br>Assistant Team Leader: Christine Elaine Oliverio<br>Developer: Marjon Vera<br>Assistant Developer: Carl Marco Vaporoso',
     shot:'Images/web/shot-intelliguide.jpg',
     shotAlt:'IntelliGuide camera screen detecting a motorcycle at 2.4 m and a chair at 2.5 m with labelled bounding boxes.',
     studyLabel:'Thesis title',
