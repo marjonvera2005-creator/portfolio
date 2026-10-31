@@ -285,7 +285,7 @@ section[tabindex='-1']:focus { outline:none; }
 }
 
 /* ═══ HERO ════════════════════════════════════════════════════════════ */
-/* Phone + tablet: intro stacked above the portrait, centred.
+/* Phone + tablet: portrait stacked above the intro, centred.
    Desktop (1024+): intro on the left, portrait on the right. */
 .hero {
   position:relative; min-height:100svh; overflow:hidden;
@@ -328,7 +328,7 @@ section[tabindex='-1']:focus { outline:none; }
 .hero__award b { display:block; font:500 11.5px/1.4 var(--mono); letter-spacing:.12em; text-transform:uppercase; color:var(--accent); }
 .hero__award span span { display:block; font-size:14px; font-weight:600; line-height:1.35; }
 
-.hero__photo { position:relative; z-index:1; width:min(300px,70vw); margin-bottom:clamp(28px,5vh,48px); }
+.hero__photo { order:-1; position:relative; z-index:1; width:min(300px,70vw); margin-bottom:clamp(28px,5vh,48px); }
 /* Circular frame, matching the About headshot: an accent ring, a thin gap
    that shows the page behind it, then the portrait on a solid disc.
    hero.webp has its background cut out, so the disc colour shows around
@@ -352,7 +352,7 @@ section[tabindex='-1']:focus { outline:none; }
   }
   .hero__intro { align-items:flex-start; text-align:left; padding:0; margin-bottom:clamp(56px,10vh,110px); max-width:30rem; }
   .hero__cta { justify-content:flex-start; }
-  .hero__photo { width:min(440px,36vw); margin-right:clamp(0px,4vw,60px); margin-bottom:clamp(56px,10vh,110px); }
+  .hero__photo { order:0; width:min(440px,36vw); margin-right:clamp(0px,4vw,60px); margin-bottom:clamp(56px,10vh,110px); }
 }
 
 /* ═══ SLIDER ══════════════════════════════════════════════════════════ */
