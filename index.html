@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marjon C. Vera — Developer Portfolio</title>
+<meta name="description" content="Marjon C. Vera — frontend and backend developer from Naval, Biliran. QR attendance systems, assistive mobile apps, YOLOv8 computer vision, and a plastic-recycling startup.">
+<meta name="author" content="Marjon C. Vera">
+<meta name="theme-color" content="#0A0A0A">
+<meta name="color-scheme" content="dark light">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Marjon C. Vera — Developer Portfolio">
+<meta property="og:description" content="Systems that watch, verify, and guide.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230A0A0A'/%3E%3Ctext x='50' y='70' font-family='Archivo,Arial' font-size='58' font-weight='800' fill='%23fff' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+
+<!-- ?v= makes browsers fetch the new file after a change; bump it on every update -->
+<link rel="stylesheet" href="css/styles.css?v=20261031a">
+</head>
+
+<body class="no-js">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="contours" aria-hidden="true">
+  <svg viewBox="0 0 1440 900" preserveAspectRatio="none">
+    <path d="M-50 180 C 260 120, 520 250, 780 200 S 1240 90, 1500 170"/>
+    <path d="M-50 320 C 280 250, 540 400, 800 330 S 1250 220, 1500 300"/>
+    <path d="M-50 470 C 300 400, 560 550, 820 470 S 1260 370, 1500 450"/>
+    <path d="M-50 620 C 260 560, 540 700, 800 620 S 1250 520, 1500 600"/>
+    <path d="M-50 770 C 300 700, 560 850, 820 770 S 1260 660, 1500 750"/>
+  </svg>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<header class="nav">
+  <div class="nav__in">
+    <a class="brand" href="#top" aria-label="Marjon C. Vera — back to top">
+      <span class="brand__m" aria-hidden="true">M</span><span class="brand__t">MARJON</span>
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="Sections">
+      <a href="#work">Work</a><a href="#capabilities">Skills</a><a href="#about">About</a>
+      <a href="#awards">Awards</a><a href="#trainings">Trainings</a><a href="#beyond">Beyond</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="nav__right">
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch to light theme">
+        <svg aria-hidden="true" class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg>
+        <svg aria-hidden="true" class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 13.2A9 9 0 1 1 10.8 3a7 7 0 0 0 10.2 10.2Z"/></svg>
+      </button>
+      <button class="icon-btn burger" id="burger" type="button" aria-expanded="false" aria-controls="sheet" aria-label="Open menu">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <a class="hire" href="#contact">Hire Me</a>
+    </div>
+  </div>
+</header>
+
+<div class="scrim" id="scrim" aria-hidden="true"></div>
+<nav class="sheet" id="sheet" aria-label="Sections (mobile)">
+  <a href="#work">Work</a><a href="#capabilities">Skills</a><a href="#about">About</a>
+  <a href="#awards">Awards</a><a href="#trainings">Trainings</a><a href="#beyond">Beyond</a><a href="#contact">Contact</a>
+</nav>
+
+<main id="main">
+  <span id="top"></span>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" aria-labelledby="heroName">
+    <div class="hero__type" aria-hidden="true">
+      <span>MARJON VERA — MARJON VERA — </span><span>MARJON VERA — MARJON VERA — </span>
+    </div>
+    <div class="hero__intro">
+      <h1 class="hero__h1" id="heroName">Marjon C. Vera</h1>
+      <p class="hero__role">Full-stack · Mobile · Computer vision</p>
+      <p class="hero__lede">I build systems that watch, verify, and guide, from QR attendance records to on-device obstacle detection.</p>
+      <div class="hero__cta">
+        <a class="btn btn--solid" href="#work">View my work
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+      <a class="hero__award" href="#awards">
+        <span class="hero__award-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 3h8v5a4 4 0 0 1-8 0V3Z"/><path d="M8 5H5v2a3 3 0 0 0 3 3M16 5h3v2a3 3 0 0 1-3 3"/><path d="M12 12v4M9 21h6l-.7-3.4H9.7L9 21Z"/></svg></span>
+        <span><b>International award, 2026</b><span>Best Emerging Markets Machine Learning Architect</span></span>
+      </a>
+    </div>
+    <div class="hero__photo">
+      <img src="Images/web/hero.webp" width="1120" height="897" fetchpriority="high" decoding="async"
+           alt="Portrait of Marjon C. Vera in a dark suit and tie.">
+    </div>
+  </section>
+
+  <!-- ═══ WORK ═══ -->
+  <section class="sec wrap" id="work">
+    <div class="sec__head" data-rv>
+      <h2 class="h2" data-type>Selected work</h2>
+      <p class="lede">Six projects across web systems, mobile apps, computer vision, and a recycling startup. Open any of them for the full case study.</p>
+    </div>
+    <!-- Cards are rendered from PROJECTS in js/data.js. The slideshow is a
+         native scroll-snap row; js/main.js adds the buttons and counter. -->
+    <div class="slider slider--work" data-slider data-autoplay="5000" data-noun="projects" data-rv role="region" aria-roledescription="carousel" aria-label="Selected work">
+      <ul class="work slider__track" id="workList"></ul>
+      <div class="slider__nav">
+        <button class="slider__btn slider__play" type="button" data-play aria-label="Pause slideshow">
+          <svg class="i-pause" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+          <svg class="i-play" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.4-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5Z"/></svg></button>
+        <button class="slider__btn" type="button" data-dir="-1" aria-label="Previous projects">
+          <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M11 19l-7-7 7-7"/></svg></button>
+        <button class="slider__btn" type="button" data-dir="1" aria-label="Next projects">
+          <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+        <p class="slider__count"><span data-count aria-hidden="true"></span><span class="sr-only" data-live aria-live="polite"></span></p>
+        <span class="slider__bar" aria-hidden="true"><span></span></span>
+      </div>
+    </div>
+    <!-- Without JavaScript the cards can't render, so list the projects plainly -->
+    <noscript>
+      <ul class="nojs-list">
+        <li><b>IntelliGuide</b>: assistive mobile app that detects obstacles for visually impaired users (thesis).</li>
+        <li><b>Tingi</b>: our startup&rsquo;s recycling rewards app, launching in Palo, Leyte.</li>
+        <li><b>QuiteScan</b>: QR-based attendance system, live at <a href="https://quitescan.onrender.com">quitescan.onrender.com</a>.</li>
+        <li><b>CocoScan</b>: mobile app that checks a coconut leaf&rsquo;s condition from a photo.</li>
+        <li><b>CassavaCare</b>: mobile app that identifies cassava leaf diseases from a photo.</li>
+        <li><b>Banana Detector</b>: YOLOv8 system that grades banana ripeness.</li>
+      </ul>
+    </noscript>
+  </section>
+
+  <!-- ═══ CAPABILITIES ═══ -->
+  <section class="sec sec--band wrap" id="capabilities">
+    <div class="sec__head" data-rv>
+      <h2 class="h2" data-type>What I can do</h2>
+      <p class="lede">I combine interface work, server-side logic, and computer vision to build systems that record what happened and act on what they see.</p>
+    </div>
+    <div class="skills">
+      <div class="skill" data-rv>
+        <h3 class="skill__t"><span class="skill__ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m9 10-2 2 2 2M15 10l2 2-2 2"/></svg></span>Web &amp; systems</h3>
+        <ul class="pills">
+          <li class="pill"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 4h32l-3 34-13 4-13-4L8 4Z" fill="#E44D26"/><path d="M24 8v32l10.5-3.2L37 8H24Z" fill="#F16529"/><path d="M15 14h18l-.4 4H19.4l.3 4h12.9l-1.1 12.4L24 36.4l-7.5-2-.5-5.4h3.7l.26 2.8L24 32.9l4-1.1.4-4.6H15.9L15 14Z" fill="#fff"/></svg><span>HTML5</span></li>
+          <li class="pill"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 4h32l-3 34-13 4-13-4L8 4Z" fill="#1572B6"/><path d="M24 8v32l10.5-3.2L37 8H24Z" fill="#33A9DC"/><path d="M24 14h9.5l-.35 4H24v4h8.8l-1.1 12.4L24 36.4V32l4-1.1.4-4.6H15.6l-.6-6.3H24v-6Z" fill="#fff"/><path d="M24 14v4h-8.6l-.4-4H24Z" fill="#EBEBEB"/></svg><span>CSS3</span></li>
+          <li class="pill"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="4" y="4" width="40" height="40" rx="4" fill="#F7DF1E"/><path d="M21 33.5c.8 1.4 1.9 2.4 3.9 2.4 1.6 0 2.7-.8 2.7-1.9 0-1.3-1.1-1.8-2.9-2.6l-1-.4c-2.9-1.2-4.8-2.7-4.8-6 0-3 2.3-5.3 5.9-5.3 2.5 0 4.4.9 5.7 3.2l-3.1 2c-.7-1.2-1.4-1.7-2.6-1.7-1.2 0-1.9.7-1.9 1.7 0 1.2.7 1.7 2.4 2.4l1 .4c3.4 1.5 5.3 2.9 5.3 6.3 0 3.6-2.9 5.6-6.7 5.6-3.8 0-6.2-1.8-7.4-4.1l3.5-2ZM10.5 33.8c.6 1.1 1.2 2 2.5 2 1.3 0 2.1-.5 2.1-2.5V19.6h4v13.8c0 4.1-2.4 6-5.9 6-3.2 0-5-1.6-5.9-3.6l3.2-2Z" fill="#222"/></svg><span>JavaScript</span></li>
+          <li class="pill"><svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="24" rx="22" ry="12" fill="#6181B6"/><ellipse cx="24" cy="24" rx="19" ry="9.6" fill="#8993BE"/><g fill="#fff"><path d="M11 18h6.4c3.4 0 4.6 1.7 4.1 4.4-.5 2.9-2.3 4.4-5.3 4.4h-2.4l-.7 3.4H10L11 18Zm3.2 2.6-.9 4.2h1.6c1.7 0 2.7-.6 3-2.2.3-1.5-.4-2-2-2h-1.7Z"/><path d="M23.7 14.4h3l-.7 3.6h2.6c2.9 0 3.9 1.4 3.5 3.5l-1.4 8.7h-3l1.3-8c.2-1.1 0-1.7-1.1-1.7h-2.3l-1.6 9.7h-3l2.7-15.8Z"/><path d="M35 18h6.4c3.4 0 4.6 1.7 4.1 4.4-.5 2.9-2.3 4.4-5.3 4.4H37.8l-.7 3.4H34L35 18Zm3.2 2.6-.9 4.2h1.6c1.7 0 2.7-.6 3-2.2.3-1.5-.4-2-2-2h-1.7Z"/></g></svg><span>PHP</span></li>
+          <li class="pill"><svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="11" rx="15" ry="6" fill="#00758F"/><path d="M9 11v9c0 3.3 6.7 6 15 6s15-2.7 15-6v-9c0 3.3-6.7 6-15 6S9 14.3 9 11Z" fill="#00546B"/><path d="M9 22v9c0 3.3 6.7 6 15 6s15-2.7 15-6v-9c0 3.3-6.7 6-15 6S9 25.3 9 22Z" fill="#00758F"/><path d="M9 33v4c0 3.3 6.7 6 15 6s15-2.7 15-6v-4c0 3.3-6.7 6-15 6S9 36.3 9 33Z" fill="#00546B"/></svg><span>MySQL</span></li>
+          <li class="pill pill--plain">Schema design</li>
+          <li class="pill pill--plain">REST APIs</li>
+          <li class="pill pill--plain">Auth &amp; sessions</li>
+          <li class="pill pill--plain">Append-only logs</li>
+          <li class="pill pill--plain">QR encode / decode</li>
+        </ul>
+      </div>
+      <div class="skill rv-d1" data-rv>
+        <h3 class="skill__t"><span class="skill__ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span>Mobile</h3>
+        <ul class="pills">
+          <li class="pill"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M28 4 8 24l6 6L40 4H28Z" fill="#47C5FB"/><path d="M28 22 17 33l6 6 5-5 12-12H28Z" fill="#47C5FB"/><path d="m23 39 5 5h12L28 32l-5 7Z" fill="#00569E"/><path d="m17 33 6-6 5 5-6 6-5-5Z" fill="#00B5F8"/></svg><span>Flutter</span></li>
+          <li class="pill"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4 8 13v22l16 9 16-9V13L24 4Z" fill="none" stroke="#FF6F00" stroke-width="2.4"/><path d="M22 16v18l-5-3V19l5-3Z" fill="#FF6F00"/><path d="M26 14v6l6-3.5V11L26 14Z" fill="#FFA000"/><path d="M26 22v14l6-3.5V18.5L26 22Z" fill="#FFA000"/></svg><span>TensorFlow Lite</span></li>
+          <li class="pill"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4c-8 0-14 6.5-14 14 0 10 14 26 14 26s14-16 14-26c0-7.5-6-14-14-14Z" fill="none" stroke="#7EBC6F" stroke-width="3"/><circle cx="24" cy="18" r="5.5" fill="#7EBC6F"/></svg><span>OpenStreetMap</span></li>
+          <li class="pill pill--plain">On-device inference</li>
+          <li class="pill pill--plain">Offline-first</li>
+          <li class="pill pill--plain">GPS &amp; location</li>
+          <li class="pill pill--plain">Hive storage</li>
+        </ul>
+      </div>
+      <div class="skill rv-d2" data-rv>
+        <h3 class="skill__t"><span class="skill__ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8V5a2 2 0 0 1 2-2h3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/><rect x="7.5" y="8" width="9" height="8" rx="1"/></svg></span>AI &amp; vision</h3>
+        <ul class="pills">
+          <li class="pill"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M23.6 4c-9 0-8.4 3.9-8.4 3.9v4h8.6v1.2H11.8S6 12.4 6 21.5s5.1 8.8 5.1 8.8h3v-4.2s-.2-5.1 5-5.1h8.5s4.8.1 4.8-4.7V8.8S33.1 4 23.6 4Zm-4.7 2.7a1.55 1.55 0 1 1 0 3.1 1.55 1.55 0 0 1 0-3.1Z" fill="#3776AB"/><path d="M24.3 44c9 0 8.4-3.9 8.4-3.9v-4h-8.6v-1.2h12s5.8.7 5.8-8.4-5.1-8.8-5.1-8.8h-3v4.2s.2 5.1-5 5.1h-8.5s-4.8-.1-4.8 4.7v7.5S14.8 44 24.3 44Zm4.7-2.7a1.55 1.55 0 1 1 0-3.1 1.55 1.55 0 0 1 0 3.1Z" fill="#FFD43B"/></svg><span>Python</span></li>
+          <li class="pill"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="9" width="38" height="30" rx="4" fill="none" stroke="currentColor" stroke-width="2.4"/><rect x="12" y="16" width="15" height="12" stroke="currentColor" stroke-width="2.4" fill="none"/><rect x="26" y="23" width="12" height="10" stroke="currentColor" stroke-width="2.4" fill="none" opacity=".55"/></svg><span>YOLOv8</span></li>
+          <li class="pill"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="12" r="8" fill="none" stroke="#E4322B" stroke-width="5"/><circle cx="14" cy="30" r="8" fill="none" stroke="#4CAF50" stroke-width="5"/><circle cx="34" cy="30" r="8" fill="none" stroke="#2196F3" stroke-width="5"/></svg><span>OpenCV</span></li>
+          <li class="pill"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M17 24a7 7 0 0 1 7-7h9a7 7 0 0 1 0 14h-9a7 7 0 0 1-7-7Z" fill="none" stroke="#F9AB00" stroke-width="5" stroke-linecap="round"/><path d="M31 24a7 7 0 0 1-7 7h-9a7 7 0 0 1 0-14h9" fill="none" stroke="#E8710A" stroke-width="5" stroke-linecap="round"/></svg><span>Google Colab</span></li>
+          <li class="pill pill--plain">YOLO26 Nano</li>
+          <li class="pill pill--plain">Dataset annotation</li>
+          <li class="pill pill--plain">Model evaluation</li>
+          <li class="pill pill--plain">Kaggle</li>
+          <li class="pill pill--plain">PyTorch → ONNX → TFLite</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section class="sec wrap" id="about">
+    <div class="sec__head" data-rv>
+      <h2 class="h2" data-type>Builder. Problem solver.</h2>
+    </div>
+
+    <div class="ab__top rv-d1" data-rv>
+      <div class="ab__pic"><img src="Images/web/avatar.jpg" width="260" height="208" loading="lazy" decoding="async" alt="Headshot of Marjon C. Vera."></div>
+      <div>
+        <p class="ab__name">MARJON C. VERA</p>
+        <dl class="ab__stats">
+          <div><dt>Projects</dt><dd>6</dd></div>
+          <div><dt>Certificates</dt><dd>5</dd></div>
+          <div><dt>Intl. award</dt><dd>1</dd></div>
+          <div><dt>Based in</dt><dd>Naval, Biliran</dd></div>
+        </dl>
+        <p class="ab__bio">I'm a BS Computer Science student who ended up on <b>both sides of the stack</b> because the projects I cared about needed both. The work I return to has a common shape: a judgement a person has to make in the moment, quickly and with incomplete information — is this student coming in or going out, what is in the path ahead and how far away, is this banana still worth keeping. Software is good at the repetition and the measuring; the interesting part is deciding how much of the judgement to take over, and where to leave the person in the loop. I received the <b>Best Emerging Markets Machine Learning Architect Award (International)</b> for academic excellence in my third year at Biliran Province State University, and I've completed training in IT immersion at the University of Danang and Cisco's Networking Basics.</p>
+        <p class="ab__res">Want the one-page version? <a href="cv/Marjon-Vera-CV.pdf" target="_blank" rel="noopener">Download my CV (PDF)</a></p>
+      </div>
+    </div>
+
+    <div class="ab__bottom rv-d2" data-rv>
+      <div>
+        <h3 class="now__label">Currently</h3>
+        <div class="now">
+          <div class="now__i"><span class="now__ic" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg></span><span><b>Building</b><span>IntelliGuide</span></span></div>
+          <div class="now__i"><span class="now__ic" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg></span><span><b>Exploring</b><span>On-device computer vision</span></span></div>
+          <div class="now__i"><span class="now__ic" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6.5 12 3l9 3.5-9 3.5-9-3.5Z"/><path d="M7 11v5c0 1.7 2.2 3 5 3s5-1.3 5-3v-5"/></svg></span><span><b>Improving</b><span>Full-stack development</span></span></div>
+        </div>
+      </div>
+      <div class="trait" id="trait"></div>
+    </div>
+  </section>
+
+  <!-- ═══ AWARDS ═══ -->
+  <section class="sec sec--band wrap" id="awards">
+    <div class="sec__head" data-rv>
+      <h2 class="h2" data-type>Awards and achievements</h2>
+      <p class="lede">Recognition for academic excellence in BS Computer Science, with the certificate and photos from the ceremony.</p>
+    </div>
+
+    <article class="feat" data-rv>
+      <button class="feat__cert" type="button" data-cert="ml" data-title="Best Emerging Markets Machine Learning Architect Award (International)" data-sub="Biliran Province State University · 25 May 2026" aria-label="View the ML Architect Award certificate">
+        <img src="Images/web/cert-ml.jpg" data-certkey="ml" width="1100" height="792" alt="Certificate for the Best Emerging Markets Machine Learning Architect Award, awarded to Marjon C. Vera." loading="lazy" decoding="async">
+      </button>
+      <div class="feat__body">
+        <p class="feat__meta">International · 25 May 2026</p>
+        <h3 class="feat__t">Best Emerging Markets Machine Learning Architect Award</h3>
+        <p class="feat__p">Given for achieving Academic Excellence in the third year level of the BS Computer Science programme, at the Biliran Province State University Recognition Program.</p>
+        <button class="link" type="button" data-cert="ml" data-title="Best Emerging Markets Machine Learning Architect Award (International)" data-sub="Biliran Province State University · 25 May 2026">View certificate <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></button>
+        <ul class="feat__photos">
+            <li><button type="button" data-cert="award-1" data-title="Best Emerging Markets Machine Learning Architect Award (International)" data-sub="With fellow awardees at BiPSU Recognition Day · BiPSU, May 2026" aria-label="View photo: With fellow awardees at BiPSU Recognition Day"><img src="Images/web/award-1.jpg" data-certkey="award-1" width="750" height="1000" alt="Marjon C. Vera with fellow awardees holding their certificates at BiPSU Recognition Day." loading="lazy" decoding="async"></button></li>
+            <li><button type="button" data-cert="award-2" data-title="Best Emerging Markets Machine Learning Architect Award (International)" data-sub="Receiving the award on stage · BiPSU, May 2026" aria-label="View photo: Receiving the award on stage"><img src="Images/web/award-2.jpg" data-certkey="award-2" width="563" height="1000" alt="Marjon C. Vera receiving the award on stage." loading="lazy" decoding="async"></button></li>
+            <li><button type="button" data-cert="award-3" data-title="Best Emerging Markets Machine Learning Architect Award (International)" data-sub="The award announced on the Recognition Day screen · BiPSU, May 2026" aria-label="View photo: The award announced on the Recognition Day screen"><img src="Images/web/award-3.jpg" data-certkey="award-3" width="750" height="1000" alt="Recognition Day screen announcing Marjon C. Vera as Best in Emerging Markets Machine Learning Architect." loading="lazy" decoding="async"></button></li>
+            <li><button type="button" data-cert="award-4" data-title="Best Emerging Markets Machine Learning Architect Award (International)" data-sub="The Recognition Day award card · BiPSU, May 2026" aria-label="View photo: The Recognition Day award card"><img src="Images/web/award-4.jpg" data-certkey="award-4" width="750" height="1000" alt="The Recognition Day award card naming Marjon C. Vera." loading="lazy" decoding="async"></button></li>
+        </ul>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ═══ TRAININGS ═══ -->
+  <section class="sec wrap" id="trainings">
+    <div class="sec__head" data-rv>
+      <h2 class="h2" data-type>Trainings &amp; certifications</h2>
+      <p class="lede">Programs and courses that shaped my technical foundation, each with its certificate.</p>
+    </div>
+
+    <div class="slider slider--tr" data-slider data-depth data-noun="trainings" data-rv role="region" aria-roledescription="carousel" aria-label="Trainings and certifications">
+      <div class="tr slider__track">
+        <div class="tr__slide"><article class="tr__row">
+          <div class="tr__txt">
+            <div class="tr__head">
+              <h3 class="tr__t">Immersion Program in Information Technology</h3>
+              <span class="tr__date">02–15 Mar 2026</span>
+            </div>
+            <p class="tr__org">Software Development Centre · The University of Danang, Vietnam</p>
+            <p class="tr__p">A two-week international immersion program at the Software Development Centre, University of Danang. Two weeks of working alongside a different engineering culture, which is the fastest way to notice which of your habits are actually just local convention.</p>
+            <button class="link" type="button" data-cert="sdc" data-title="Immersion Program in Information Technology" data-sub="Software Development Centre, The University of Danang · March 2026">
+              Certificate of completion
+              <svg aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </button>
+          </div>
+          <button class="tr__img" type="button" data-cert="sdc" data-title="Immersion Program in Information Technology" data-sub="Software Development Centre, The University of Danang · March 2026" aria-label="View the Danang immersion certificate">
+            <img src="Images/web/cert-sdc.jpg" data-certkey="sdc" width="1100" height="773" alt="Certificate of completion for the Immersion Program in Information Technology, University of Danang." loading="lazy" decoding="async">
+          </button>
+        </article></div>
+
+        <div class="tr__slide"><article class="tr__row">
+          <div class="tr__txt">
+            <div class="tr__head">
+              <h3 class="tr__t">Networking Basics</h3>
+              <span class="tr__date">09 May 2026</span>
+            </div>
+            <p class="tr__org">Cisco Networking Academy</p>
+            <p class="tr__p">Student-level credential covering network communication and types, standards and protocols, Ethernet, IPv4 and IPv6 addressing, routing between networks, connectivity troubleshooting, and configuring a wireless router securely. I took it because a system that runs on one laptop and a system that runs on a network are not the same system.</p>
+            <button class="link" type="button" data-cert="cisco" data-title="Networking Basics — Course Completion" data-sub="Cisco Networking Academy · 09 May 2026">
+              Certificate of completion
+              <svg aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </button>
+          </div>
+          <button class="tr__img" type="button" data-cert="cisco" data-title="Networking Basics — Course Completion" data-sub="Cisco Networking Academy · 09 May 2026" aria-label="View the Cisco Networking Basics certificate">
+            <img src="Images/web/cert-cisco.jpg" data-certkey="cisco" width="1100" height="826" alt="Cisco Networking Academy course completion certificate for Networking Basics." loading="lazy" decoding="async">
+          </button>
+        </article></div>
+
+        <div class="tr__slide"><article class="tr__row">
+          <div class="tr__txt">
+            <div class="tr__head">
+              <h3 class="tr__t">Networking Basics Certificate</h3>
+              <span class="tr__date">09 May 2026</span>
+            </div>
+            <p class="tr__org">Cisco Networking Academy</p>
+            <p class="tr__p">The certificate awarded by Cisco Networking Academy for completing Networking Basics through the Cisco Networking Academy program, signed by its director and carrying its own certificate ID, so anyone can check it.</p>
+            <button class="link" type="button" data-cert="cisco-award" data-title="Networking Basics Certificate" data-sub="Cisco Networking Academy · 09 May 2026">
+              View certificate
+              <svg aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </button>
+          </div>
+          <button class="tr__img" type="button" data-cert="cisco-award" data-title="Networking Basics Certificate" data-sub="Cisco Networking Academy · 09 May 2026" aria-label="View the Cisco Networking Basics certificate awarded to Marjon Vera">
+            <img src="Images/web/cert-cisco-award.jpg" data-certkey="cisco-award" width="1100" height="737" alt="Cisco Networking Academy certificate awarded to Marjon Vera for completing Networking Basics, 09 May 2026." loading="lazy" decoding="async">
+          </button>
+        </article></div>
+
+        <div class="tr__slide"><article class="tr__row">
+          <div class="tr__txt">
+            <div class="tr__head">
+              <h3 class="tr__t">Integrated OS — Be More Digi-TALINO</h3>
+              <span class="tr__date">05 Sep 2025</span>
+            </div>
+            <p class="tr__org">Integrated Office Solutions, Inc.</p>
+            <p class="tr__p">A digital literacy webinar on productivity applications, digital communication, conducting smart research, and data safety and security — the operational habits that sit underneath any technical work.</p>
+            <button class="link" type="button" data-cert="ios" data-title="Integrated OS — Be More Digi-TALINO" data-sub="Integrated Office Solutions, Inc. · 05 September 2025">
+              Certificate of participation
+              <svg aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </button>
+          </div>
+          <button class="tr__img" type="button" data-cert="ios" data-title="Integrated OS — Be More Digi-TALINO" data-sub="Integrated Office Solutions, Inc. · 05 September 2025" aria-label="View the Integrated OS certificate">
+            <img src="Images/web/cert-ios.jpg" data-certkey="ios" width="1100" height="772" alt="Certificate of participation for the Integrated OS Be More Digi-TALINO webinar." loading="lazy" decoding="async">
+          </button>
+        </article></div>
+
+        <div class="tr__slide"><article class="tr__row">
+          <div class="tr__txt">
+            <div class="tr__head">
+              <h3 class="tr__t">Introduction to AI Literacy and Responsible Use</h3>
+              <span class="tr__date">14 Sep 2026</span>
+            </div>
+            <p class="tr__org">CHED ACHIEVE · Mapúa University, in collaboration with Arizona State University</p>
+            <p class="tr__p">A CHED-endorsed micro-credential on foundational AI literacy and the ethical, responsible use of AI systems — the kind of baseline literacy that matters directly to someone building on-device ML for people who can't verify its output themselves.</p>
+            <button class="link" type="button" data-cert="ailit" data-title="Introduction to AI Literacy and Responsible Use" data-sub="CHED ACHIEVE · Mapúa University, in collaboration with Arizona State University · 14 September 2026">
+              Certificate of completion
+              <svg aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </button>
+          </div>
+          <button class="tr__img" type="button" data-cert="ailit" data-title="Introduction to AI Literacy and Responsible Use" data-sub="CHED ACHIEVE · Mapúa University, in collaboration with Arizona State University · 14 September 2026" aria-label="View the AI Literacy and Responsible Use certificate">
+            <img src="Images/web/cert-ai-literacy.jpg" data-certkey="ailit" width="1100" height="776" alt="Certificate of completion for Introduction to AI Literacy and Responsible Use." loading="lazy" decoding="async">
+          </button>
+        </article></div>
+      </div>
+      <div class="slider__nav">
+        <button class="slider__btn" type="button" data-dir="-1" aria-label="Previous training">
+          <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M11 19l-7-7 7-7"/></svg></button>
+        <button class="slider__btn" type="button" data-dir="1" aria-label="Next training">
+          <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+        <p class="slider__count"><span data-count aria-hidden="true"></span><span class="sr-only" data-live aria-live="polite"></span></p>
+        <span class="slider__bar" aria-hidden="true"><span></span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BEYOND THE CODE ═══ -->
+  <section class="sec sec--band wrap" id="beyond">
+    <div class="sec__head" data-rv>
+      <h2 class="h2" data-type>Beyond the code</h2>
+      <p class="lede">Away from the keyboard: my trip to Da Nang, Vietnam, chasing waterfalls, and time in the gym. Select any photo to see it full size.</p>
+    </div>
+    <!-- Photos are rendered from BEYOND in js/data.js; js/main.js adds the
+         filters and runs the reel: a frame turned in 3D whose photos drift
+         sideways without stopping (see BEYOND THE CODE in styles.css). -->
+    <div class="bc" data-rv>
+      <div class="bc__filters" id="bcFilters" role="group" aria-label="Filter photos"></div>
+      <div class="reel" id="bcReel" role="region" aria-roledescription="carousel" aria-label="Beyond the code photos">
+        <div class="reel__stage">
+          <div class="reel__plane" id="bcPlane">
+            <div class="reel__inner" id="bcInner"><ul class="reel__track" id="bcGrid"></ul></div>
+            <span class="reel__blur" aria-hidden="true"></span><span class="reel__blur" aria-hidden="true"></span><span class="reel__blur" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div class="slider__nav">
+          <button class="slider__btn slider__play" type="button" data-play aria-label="Pause slideshow">
+            <svg class="i-pause" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+            <svg class="i-play" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.4-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5Z"/></svg></button>
+          <button class="slider__btn" type="button" data-dir="-1" aria-label="Previous photo">
+            <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M11 19l-7-7 7-7"/></svg></button>
+          <button class="slider__btn" type="button" data-dir="1" aria-label="Next photo">
+            <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+          <p class="slider__count" id="bcCount" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+    <noscript><p class="nojs-list">Turn on JavaScript to see the photo gallery.</p></noscript>
+  </section>
+
+  <!-- ═══ CONTACT ═══ -->
+  <section class="sec wrap" id="contact">
+    <div class="ct__grid">
+      <div class="rv-d1" data-rv>
+        <h2 class="ct__big" data-type>Let's work<br>together</h2>
+        <p class="ct__sub">Looking for the next problem worth solving.</p>
+        <p class="ct__p">I'm open to internships and junior developer roles where I can contribute to web systems, mobile apps, and computer-vision work.</p>
+        <div class="ct__cta">
+          <a class="btn btn--solid" href="mailto:marjonvera2005@gmail.com?subject=Portfolio%20enquiry">Email me directly
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></a>
+        </div>
+      </div>
+
+      <div class="rv-d2" data-rv>
+        <ul class="ct__list" id="ctList"></ul>
+        <noscript>
+          <ul class="nojs-list">
+            <li>Email: <a href="mailto:marjonvera2005@gmail.com">marjonvera2005@gmail.com</a></li>
+            <li>GitHub: <a href="https://github.com/marjonvera2005-creator">github.com/marjonvera2005-creator</a></li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/marjon-vera-372a663b5/">linkedin.com/in/marjon-vera-372a663b5</a></li>
+          </ul>
+        </noscript>
+        <button class="btn ct__send" id="msgOpen" type="button">Send me a message →</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap ftr__in">
+    <p>© <span id="yr">2026</span> Marjon C. Vera</p>
+    <p>Naval, Biliran · Philippines</p>
+    <p><a href="#top">Back to top ↑</a></p>
+  </div>
+</footer>
+
+<!-- ═══ MESSAGE PANEL ═══ -->
+<div class="msg" id="msg" role="dialog" aria-modal="false" aria-labelledby="msgT">
+  <div class="msg__bar">
+    <h2 class="msg__t" id="msgT">Send Me a Message</h2>
+    <button class="icon-btn icon-btn--sm" id="msgClose" type="button" aria-label="Close message panel">
+      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4l16 16M20 4L4 20"/></svg>
+    </button>
+  </div>
+  <form class="msg__body" id="msgForm" novalidate>
+    <div class="msg__f"><label for="mn">Full name</label><input id="mn" name="name" type="text" placeholder="Your full name" autocomplete="name" required></div>
+    <div class="msg__f"><label for="me">Email address</label><input id="me" name="email" type="email" placeholder="your.email@example.com" autocomplete="email" required></div>
+    <div class="msg__f"><label for="mm">Message</label><textarea id="mm" name="message" placeholder="Tell me about your project…" required></textarea></div>
+    <button class="btn btn--solid btn--block" type="submit">Send message →</button>
+    <p class="msg__note" id="msgNote">Opens your email app with the message ready — nothing is stored here.</p>
+  </form>
+  <p class="sr-only" role="status" aria-live="polite" id="msgLive"></p>
+</div>
+
+<!-- ═══ PROJECT DETAIL ═══ -->
+<div class="detail" id="detail" role="dialog" aria-modal="true" aria-labelledby="dTitle">
+  <div class="detail__bar"><div class="wrap">
+    <button class="btn" id="dBack" type="button">
+      <svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M11 19l-7-7 7-7"/></svg>Back
+    </button>
+    <p class="crumb">Home &nbsp;/&nbsp; Work &nbsp;/&nbsp; <b id="dCrumb"></b></p>
+  </div></div>
+  <div class="wrap detail__grid" id="dBody"></div>
+</div>
+
+<!-- ═══ LIGHTBOX ═══ -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lbT" hidden>
+  <div class="lb__scrim" id="lbScrim" aria-hidden="true"></div>
+  <div class="lb__stage" id="lbStage">
+    <div class="lb__fig" id="lbFig"><p class="lb__load" id="lbLoad">Loading…</p></div>
+    <div class="lb__bar">
+      <div><p class="lb__t" id="lbT"></p><p class="lb__s" id="lbS"></p></div>
+      <button class="btn lb__close" id="lbClose" type="button">Close
+        <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 4l16 16M20 4L4 20"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MOCHI — PORTFOLIO ASSISTANT ═══ -->
+<!-- Answers live in js/chat-data.js, behaviour in js/chat.js -->
+<div class="bot" id="bot" data-open="0">
+  <p class="bot__hint" id="botHint" aria-hidden="true"><small>Mochi · Assistant</small><b>Hi! Need help? Ask me here 👋</b></p>
+  <button class="bot__fab" id="botFab" type="button" aria-expanded="false" aria-controls="botPanel" aria-label="Chat with Mochi, the portfolio assistant">
+    <span class="bot__badge" id="botBadge" aria-hidden="true">1</span>
+    <svg class="mochi" viewBox="0 0 120 152" width="72" height="91" aria-hidden="true">
+      <ellipse class="mo-shadow" cx="60" cy="146" rx="26" ry="4"/>
+      <path class="mo-ant" d="M60 24V11"/><circle class="mo-glow" cx="60" cy="8" r="4.5"/>
+      <path class="mo-limb" d="M40 100c-8 6-12 14-12 21"/><circle class="mo-hand" cx="28" cy="124" r="5.5"/>
+      <path class="mo-limb" d="M50 124v9M70 124v9"/>
+      <rect class="mo-shoe" x="40" y="131" width="19" height="9" rx="4.5"/><rect class="mo-glow" x="40" y="137" width="19" height="4" rx="2"/>
+      <rect class="mo-shoe" x="61" y="131" width="19" height="9" rx="4.5"/><rect class="mo-glow" x="61" y="137" width="19" height="4" rx="2"/>
+      <rect class="mo-body" x="37" y="88" width="46" height="38" rx="15"/>
+      <rect class="mo-tag" x="51" y="98" width="18" height="16" rx="4"/>
+      <path class="mo-tagm" d="M55 110v-8l5 5 5-5v8"/>
+      <rect class="mo-ear" x="12" y="44" width="9" height="22" rx="3.5"/><rect class="mo-ear" x="99" y="44" width="9" height="22" rx="3.5"/>
+      <rect class="mo-shell" x="18" y="24" width="84" height="64" rx="24"/>
+      <rect class="mo-visor" x="28" y="35" width="64" height="42" rx="15"/>
+      <path class="mo-glint" d="M34 42c4-4 10-5 18-5h6c-14 2-20 6-24 12Z"/>
+      <g class="mo-eyes"><rect class="mo-glow" x="43" y="47" width="10" height="18" rx="5"/><rect class="mo-glow" x="67" y="47" width="10" height="18" rx="5"/></g>
+      <g class="mo-wave"><path class="mo-limb" d="M82 100c10-3 19-11 24-24"/><circle class="mo-hand" cx="107" cy="72" r="5.5"/></g>
+    </svg>
+  </button>
+
+  <section class="bot__panel" id="botPanel" role="dialog" aria-modal="false" aria-labelledby="botT">
+    <div class="bot__bar">
+      <svg class="mochi bot__ava" viewBox="10 14 100 80" width="36" height="29" aria-hidden="true">
+        <rect class="mo-shell" x="18" y="24" width="84" height="64" rx="24"/>
+        <rect class="mo-visor" x="28" y="35" width="64" height="42" rx="15"/>
+        <g class="mo-eyes"><rect class="mo-glow" x="43" y="47" width="10" height="18" rx="5"/><rect class="mo-glow" x="67" y="47" width="10" height="18" rx="5"/></g>
+      </svg>
+      <div class="bot__who">
+        <h2 class="bot__t" id="botT">Mochi</h2>
+        <p class="bot__s">Answers from this portfolio</p>
+      </div>
+      <button class="icon-btn icon-btn--sm" id="botClose" type="button" aria-label="Close chat">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20"/></svg>
+      </button>
+    </div>
+    <div class="bot__log" id="botLog" role="log" aria-live="polite" aria-label="Conversation with Mochi"></div>
+    <form class="bot__form" id="botForm">
+      <label class="sr-only" for="botIn">Ask Mochi a question</label>
+      <input id="botIn" name="q" type="text" maxlength="200" autocomplete="off" placeholder="Ask about projects, skills…">
+      <button class="bot__send" type="submit" aria-label="Send question">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </form>
+  </section>
+</div>
+
+<script src="js/data.js?v=20261031a"></script>
+<script src="js/main.js?v=20261031a"></script>
+<script src="js/chat-data.js?v=20261031a"></script>
+<script src="js/chat.js?v=20261031a"></script>
+</body>
+</html>

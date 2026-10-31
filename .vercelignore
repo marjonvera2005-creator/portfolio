@@ -1,0 +1,11 @@
+# Files that stay in the repository but are not published on the live site
+docs/
+tests/
+ref/
+.impeccable/
+README.md
+*.docx
+*.mp4
+Images/*.jpg
+Images/web/hero.jpg
+Images/Beyond the Code/

@@ -1,0 +1,18 @@
+# Dependencies and test output
+node_modules/
+tests/shots/
+
+# Working material — not part of the published site
+ref/
+.impeccable/
+Personal_Website_Project_Rubric.docx
+coconut.docx
+docs/DEFENSE-NOTES.md
+docs/DEFENSE-QA.md
+
+# Original source photos (the site uses the optimised copies in Images/web/)
+Images/*.jpg
+Images/web/hero.jpg
+Images/Beyond the Code/
+# Reference videos
+*.mp4
