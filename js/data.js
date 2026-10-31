@@ -1,0 +1,350 @@
+/* ══════════════════════════════════════════════════════════════════════
+   PROJECT CONTENT
+   Case-study data for the Work gallery and the project detail panel.
+   Kept apart from main.js so content edits never touch behaviour.
+   Strings may contain inline HTML (<b>, <em>, entities); they are
+   authored here, never taken from user input.
+   ══════════════════════════════════════════════════════════════════════ */
+'use strict';
+
+var PROJECTS = [
+  {
+    id:'intelliguide', title:'IntelliGuide', tag:'Assistive mobile app',
+    context:'Thesis project',
+    role:'My thesis. I am developing the mobile app and its on-device detection pipeline that warns visually impaired users about obstacles in their path.',
+    shot:'Images/web/shot-intelliguide.jpg',
+    shotAlt:'IntelliGuide camera screen detecting a motorcycle at 2.4 m and a chair at 2.5 m with labelled bounding boxes.',
+    studyLabel:'Thesis title',
+    study:'IntelliGuide: A YOLOv8n-Based Real-Time Obstacle Detection System with Multimodal Feedback for Visually Impaired Persons',
+    // Screens shown under the case study. Each opens full size in the lightbox.
+    // Real detection outputs, shown as a thumbnail grid (no captions).
+    detections:[
+      { src:'Images/web/intelliguide/detections/hole.jpg', w:540, h:816, label:'Hole', dist:'1.6', side:'L' },
+      { src:'Images/web/intelliguide/detections/speed-bump.jpg', w:540, h:816, label:'Speed bump', dist:'1.0', side:'C' },
+      { src:'Images/web/intelliguide/detections/sign-post.jpg', w:540, h:816, label:'Sign post', dist:'2.5', side:'C' },
+      { src:'Images/web/intelliguide/detections/post.jpg', w:540, h:816, label:'Post', dist:'2.4', side:'C' },
+      { src:'Images/web/intelliguide/detections/tree.jpg', w:540, h:816, label:'Tree', dist:'3.4', side:'R' },
+      { src:'Images/web/intelliguide/detections/rock.jpg', w:540, h:940, label:'Rock', dist:'1.2', side:'C' },
+      { src:'Images/web/intelliguide/detections/wall.jpg', w:540, h:816, label:'Wall', dist:'3.0', side:'R' },
+      { src:'Images/web/intelliguide/detections/car.jpg', w:540, h:816, label:'Car', dist:'2.7', side:'C' },
+      { src:'Images/web/intelliguide/detections/motorcycle.jpg', w:540, h:816, label:'Motorcycle', dist:'2.0', side:'C' },
+      { src:'Images/web/intelliguide/detections/trash-can.jpg', w:360, h:627, label:'Trash can', dist:'3.2', side:'L' },
+      { src:'Images/web/intelliguide/detections/stairs.jpg', w:540, h:816, label:'Stairs', dist:'1.1', side:'L' },
+      { src:'Images/web/intelliguide/detections/door.jpg', w:540, h:861, label:'Door', dist:'2.1', side:'R' },
+      { src:'Images/web/intelliguide/detections/chair.jpg', w:540, h:861, label:'Chair', dist:'2.0', side:'C' },
+      { src:'Images/web/intelliguide/detections/table.jpg', w:540, h:861, label:'Table', dist:'1.5', side:'C' },
+      { src:'Images/web/intelliguide/detections/pail.jpg', w:540, h:861, label:'Pail', dist:'2.2', side:'L' },
+      { src:'Images/web/intelliguide/detections/drawer.jpg', w:540, h:861, label:'Drawer', dist:'1.2', side:'R' },
+      { src:'Images/web/intelliguide/detections/refrigerator.jpg', w:540, h:816, label:'Refrigerator', dist:'2.3', side:'C' },
+      { src:'Images/web/intelliguide/detections/bed.jpg', w:540, h:816, label:'Bed', dist:'0.9', side:'C' },
+      { src:'Images/web/intelliguide/detections/toilet-bowl.jpg', w:540, h:816, label:'Toilet bowl', dist:'2.9', side:'R' }
+    ],
+    galleryTitle:'Inside the app',
+    gallery:[
+      { src:'Images/web/shot-intelliguide.jpg', w:415, h:900, title:'Obstacle detection',
+        text:'The camera labels each obstacle with its type and distance (here a motorcycle at 2.4 m and a chair at 2.5 m) and turns it into vibration and voice warnings.',
+        alt:'IntelliGuide camera screen detecting a motorcycle at 2.4 m and a chair at 2.5 m with labelled bounding boxes.' },
+      { src:'Images/web/intelliguide/02-map.jpg', w:600, h:1173, title:'Navigation map',
+        text:'Built on OpenStreetMap. Saved places appear as pins and as one-tap shortcuts under the map, and the GPS accuracy is shown at the top so the user knows how far to trust the position.',
+        alt:'IntelliGuide Navigation Map on OpenStreetMap with saved places Home, School and a custom place shown as pins and shortcut buttons.' },
+      { src:'Images/web/intelliguide/03-save-location.jpg', w:600, h:1174, title:'Save a place',
+        text:'The current position can be saved with an optional name and a category: Home, School, Work, Hospital, or Custom.',
+        alt:'IntelliGuide Save Location sheet with a name field, category buttons for Home, School, Work, Hospital and Custom, and a Save Current Location button.' },
+      { src:'Images/web/intelliguide/04-history.jpg', w:600, h:1173, title:'Location history',
+        text:'Arrivals at saved places are logged, for example “Arrived at Home”, and can be exported or cleared. The place name and coordinates are blurred here for privacy.',
+        alt:'IntelliGuide Location History screen with one entry reading Arrived at Home; the place name and coordinates are blurred.' },
+      { src:'Images/web/intelliguide/05-settings.jpg', w:600, h:1173, title:'Settings',
+        text:'Voice guidance in English, Tagalog, or Bisaya (Cebuano). Location history is kept on the phone only.',
+        alt:'IntelliGuide Settings screen with voice language options English, Tagalog and Bisaya, and a Location History entry kept on this phone only.' }
+    ],
+    short:'An assistive app that detects obstacles, estimates distance and direction, and gives real-time vibration and voice guidance — fully offline, with a three-stage on-device detection pipeline.',
+    lede:'An assistive mobile application designed to help visually impaired users detect obstacles, estimate their distance, and receive real-time audio and vibration guidance while navigating their surroundings.',
+    meta:[['Project','Thesis'],['Role','Developer'],['Type','Mobile application'],['Status','In development']],
+    chips:['Flutter','YOLOv8 Nano','CNN+ViT Verifier','YOLO26 Nano','TensorFlow Lite','GPS','OpenStreetMap','Hive'],
+    blocks:[
+      { h:'The problem', p:['Visually impaired individuals may encounter obstacles while walking but cannot always identify what is in their path or determine how close it is. The main challenge is <strong>providing useful warnings early enough for the user to react safely</strong>.'] },
+      { h:'The approach', p:['IntelliGuide uses the smartphone camera and computer vision to detect obstacles in real time. The primary detection system uses <strong>YOLOv8 Nano</strong>, trained to recognize 19 specific obstacle classes. When it is confident, its result is used directly.','When YOLOv8 is not confident, the same cropped detection is checked by a second, on-device <strong>CNN+ViT classifier</strong> &mdash; a hybrid of a convolutional network and a vision transformer &mdash; before anything is announced.','If the two disagree, a third on-device model, <strong>YOLO26 Nano</strong>, is asked for a second opinion on the same camera frame. YOLO26 also runs whenever YOLOv8 finds nothing at all, covering 22 additional common obstacles from the COCO dataset that fall outside the 19 trained classes. If it identifies the same object with high confidence, its name <strong>replaces</strong> the disputed one &mdash; this is what stops an obstacle outside the 19 trained classes from being announced as the closest-looking trained class instead. <strong>All three models run locally, so obstacle detection works with no internet connection.</strong>'],
+        list:['<b>Local detection first</b> — YOLOv8 Nano handles the 19 trained obstacle classes.','<b>On-device verification</b> — a hybrid CNN+ViT classifier double-checks any detection YOLOv8 was unsure about, before it reaches the user.','<b>On-device fallback and override</b> — YOLO26 Nano covers 22 obstacles outside the 19 trained classes, and corrects a disputed detection when it finds a confident, overlapping match for the same object.','<b>Distance awareness</b> — bounding box height is used to estimate how far away an obstacle is; only obstacles within 3 meters are announced.','<b>Directional guidance</b> — obstacles are reported as left, center, or right based on their position in the frame.','<b>Immediate feedback</b> — vibration fires first, followed by a voice announcement such as <em>&ldquo;Warning. Chair on your left.&rdquo;</em> Vibration comes first so the user feels the alert before the sentence finishes.','<b>Multilingual speech</b> — announcements in English, Tagalog, and Bisaya.','<b>Camera safety checks</b> — if the lens is covered or the scene is too dark to detect reliably, detection is suspended and the user is told, rather than being given a guess.','<b>Location assistance</b> — GPS and OpenStreetMap provide location and surrounding-area information.','<b>Barangay detection</b> — official barangay boundary polygons are bundled with the app and resolved by point-in-polygon, so the correct barangay is identified offline.','<b>Location history</b> — Hive stores location history locally on the device.'] },
+      { h:'Detection flow', flow:{ steps:['Camera frame captured','YOLOv8 Nano checks its 19 trained classes','Confident? &rarr; use that result directly','Not confident &rarr; CNN+ViT verifies the same crop','Agrees &rarr; keep the YOLOv8 result','Disagrees, or nothing found at all &rarr; YOLO26 Nano checks the same frame','YOLO26 finds a confident match &rarr; its name replaces the disputed one'] },
+        after:['This lets IntelliGuide keep fast local detection for its 19 trained classes, catch its own uncertain guesses before they reach the user, and still cover common obstacles outside the dataset &mdash; all without depending on a network connection.'] },
+      { h:'Where it stands', p:['IntelliGuide is actively in development. The core YOLOv8 Nano obstacle-detection system is being developed alongside the CNN+ViT verification stage, distance estimation, directional guidance, vibration and voice feedback, location services, OpenStreetMap integration, offline barangay detection, Hive-based location history, and the on-device YOLO26 Nano fallback.'] },
+      { h:'Core technology', pipes:['Camera <b>&rarr;</b> YOLOv8 Nano <b>&rarr;</b> confident <b>&rarr;</b> Distance + direction <b>&rarr;</b> Vibration + voice','YOLOv8 unsure <b>&rarr;</b> CNN+ViT verifies <b>&rarr;</b> agrees <b>&rarr;</b> Distance + direction <b>&rarr;</b> Vibration + voice','CNN+ViT disagrees, or YOLOv8 finds nothing <b>&rarr;</b> YOLO26 Nano (on-device, 22 COCO classes) <b>&rarr;</b> confident match <b>&rarr;</b> name replaces the disputed one','GPS <b>&rarr;</b> Barangay polygons (offline) + OpenStreetMap <b>&rarr;</b> Location information','Hive <b>&rarr;</b> Local location history','Flutter <b>&rarr;</b> Mobile application UI'] }
+    ],
+    features:['19 trained obstacle classes','On-device CNN+ViT double-checks uncertain detections','On-device YOLO26 Nano fallback and override, +22 classes','Works fully offline — no network needed','Distance from bounding box height, 3 m cutoff','Left / center / right direction','Vibration first, then voice','English, Tagalog, and Bisaya','Suspends on covered lens or low light','Offline barangay via point-in-polygon']
+  },
+  {
+    id:'tingi', title:'Tingi', tag:'Startup · Mobile app',
+    context:'Our startup',
+    role:'Our startup, launching in Palo, Leyte. I am part of the founding team building the Tingi mobile app.',
+    shot:'Images/web/tingi/01-home.jpg',
+    shotAlt:'Tingi home screen greeting Marjon, with the Tingi mascot, a 420-point balance, 12.4 kg of plastic recycled, and a pickup in progress.',
+    galleryTitle:'Inside the app',
+    gallery:[
+      { src:'Images/web/tingi/01-home.jpg', w:600, h:1256, title:'Home',
+        text:'The balance, kilograms recycled, and collections at a glance, with shortcuts to recycle, redeem, and show your Tingi QR.',
+        alt:'Tingi home screen with the mascot, a 420-point balance, 12.4 kg recycled across 4 collections, and pickup TG-2048 in progress.' },
+      { src:'Images/web/tingi/02-recycle.jpg', w:600, h:1256, title:'Recycle &amp; earn',
+        text:'Request a pickup and see what each plastic type is worth per kilogram, from PET bottles at 10 points to flexible plastics at 3.',
+        alt:'Tingi Recycle and earn screen with a Request a pickup button and points per kilogram: PET 10, HDPE 8, rigid plastics 6, flexible plastics 3.' },
+      { src:'Images/web/tingi/03-wallet.jpg', w:600, h:1256, title:'Wallet',
+        text:'Every point is traceable: each collection and redemption is listed with its weight, date, and transaction ID.',
+        alt:'Tingi Wallet showing 420 available points, 680 earned, 260 redeemed, and a points history of collections and a tote bag redemption.' },
+      { src:'Images/web/tingi/04-rewards.jpg', w:600, h:1256, title:'Rewards',
+        text:'Points are redeemed for eco products, filtered by category, with the price and stock shown on every item.',
+        alt:'Tingi rewards marketplace with a 420-point balance and items including a reusable tumbler, bamboo cutlery, a steel straw set, and beeswax wraps.' },
+      { src:'Images/web/tingi/05-profile.jpg', w:600, h:1256, title:'Profile',
+        text:'Each resident has a Tingi ID and QR code, plus recycling guidelines and help in one place.',
+        alt:'Tingi profile for Marjon Vera with links to My Tingi ID and QR code, personal information, notifications, help, and recycling guidelines.' }
+    ],
+    short:'<em>Small plastics. Big change.</em> A recycling rewards app: residents book a pickup for clean plastics, every verified kilogram earns Tingi Points, and points buy eco products.',
+    lede:'<em>Small plastics. Big change.</em> Tingi is our startup&rsquo;s mobile app that turns clean household plastics into reward points. Residents book a pickup, a collector weighs what they hand over, and the verified weight becomes points they can spend on eco products.',
+    meta:[['Project','Startup'],['Location','Palo, Leyte'],['Type','Mobile application'],['Status','Demo v1.0, launching in Palo']],
+    chips:['Mobile app','Pickup requests','Points wallet','Rewards marketplace','Resident QR ID','Pickup tracking'],
+    blocks:[
+      { h:'The problem', p:['Small plastics such as bottles, containers, and wrappers are easy to throw away and take effort to recycle, and recycling them gives a household nothing back. Tingi gives that effort a <strong>visible, countable reward</strong>.'] },
+      { h:'How it works', flow:{ steps:['A resident requests a pickup for clean plastics','A collector is assigned and the pickup can be tracked','The plastics are weighed and verified by type','Points are credited to the Tingi Wallet','Points are redeemed for eco products in the marketplace'] } },
+      { h:'Points per kilogram', p:['Each plastic type has its own rate, so the more valuable plastics earn more. Points are the verified weight times the rate, rounded down: 3.2 kg of HDPE earns 25 points.'],
+        list:['<b>PET bottles</b> &mdash; 10 points per kg','<b>HDPE containers</b> &mdash; 8 points per kg','<b>Rigid plastics</b> &mdash; 6 points per kg','<b>Flexible plastics</b> &mdash; 3 points per kg'],
+        after:['Tingi Points are reward points, not cash.'] }
+    ],
+    features:['Request a plastic pickup','Track each pickup from request to collection','Points per kilogram by plastic type','Wallet with full points history and transaction IDs','Rewards marketplace with categories and stock','Personal Tingi ID and QR code']
+  },
+  {
+    id:'quitescan', title:'QuiteScan', tag:'Web system',
+    context:'Individual university project',
+    role:'My final project for Application Development and Emerging Technologies (3rd year, 1st semester), built on my own, end to end: the web interface, the PHP back end, the MySQL database, and QR generation and scanning.',
+    shot:'Images/web/shot-quitescan.jpg',
+    shotAlt:'QuiteScan home page reading “Welcome to QUITESCAN”, with buttons to scan a QR code, register as a student, or log in as an administrator.',
+    live:'https://quitescan.onrender.com',
+    // Screens shown under the case study. Each opens full size in the lightbox.
+    galleryTitle:'Inside the system',
+    gallery:[
+      { src:'Images/web/quitescan/01-admin-login.jpg', w:1400, h:686, title:'Admin access',
+        text:'Attendance records and student data sit behind an admin password, kept apart from the public scan page.',
+        alt:'QuiteScan Admin Access page with a password field and a Login as Admin button.' },
+      { src:'Images/web/quitescan/02-scan.jpg', w:1400, h:763, title:'QR scanner',
+        text:'The gate scanner reads a student’s QR code through the camera and records an IN or OUT automatically, based on their last recorded movement.',
+        alt:'QuiteScan Scan QR Code page with the camera viewfinder and a Start Camera button.' },
+      { src:'Images/web/quitescan/03-dashboard.jpg', w:681, h:799, title:'Admin dashboard',
+        text:'Totals at a glance (registered students, who is in right now, today’s logs, yearly check-ins), plus shortcuts to students, QR codes and reports, and recent activity searchable by name, ID and month.',
+        alt:'QuiteScan Admin Dashboard showing total students, currently in, today’s logs and yearly check-ins, with Student List, QR Codes and Reports shortcuts.' },
+      { src:'Images/web/quitescan/04-student-list.jpg', w:670, h:876, title:'Student list',
+        text:'Every registered student with department, registration date, status and QR code, ready to download or copy. Names and contact details are blurred here for privacy.',
+        alt:'QuiteScan Student List page: a searchable grid of student cards, each with a QR code and Download QR button. Personal details are blurred.' },
+      { src:'Images/web/quitescan/05-qr-codes.jpg', w:648, h:784, title:'Printable QR codes',
+        text:'A print-ready sheet of every active student’s QR code, with the code ID for manual entry if a code will not scan. Blurred here for privacy.',
+        alt:'QuiteScan Student QR Codes page: a grid of QR code cards with a Print All QR Codes button. Personal details are blurred.' },
+      { src:'Images/web/quitescan/06-report.jpg', w:684, h:828, title:'Attendance report',
+        text:'Pick a date to see total students, who was present, the attendance rate, check-ins by department, and the latest monthly and weekly summaries.',
+        alt:'QuiteScan Attendance Report page with a date picker, attendance rate, and monthly and weekly summaries.' },
+      { src:'Images/web/quitescan/07-weekly.jpg', w:1400, h:802, title:'Weekly records',
+        text:'Unique students per week, filterable by month: the long-run view a paper sign-in sheet could never give.',
+        alt:'QuiteScan All Weekly Attendance Records table listing unique students per week.' }
+    ],
+    short:'Scan. Enter. Learn. Rest. — a QR-based attendance system for students studying, resting, or meeting, replacing the sign-in sheet with a searchable record.',
+    lede:'<em>Scan. Enter. Learn. Rest.</em> — a QR-based IN/OUT monitoring system that transforms a sign-in sheet into a searchable and structured attendance record for students studying, resting, or meeting.',
+    meta:[['Project','Final project, individual'],['Course','Application Development and Emerging Technologies'],['When','3rd year, 1st semester (finals)'],['Role','Sole developer'],['Users','Students &amp; Admin'],['Status','Live &amp; deployed']],
+    chips:['HTML','CSS','JavaScript','PHP','MySQL','QR generation &amp; scanning'],
+    blocks:[
+      { h:'The problem', p:['Traditional sign-in sheets at a campus entrance create several problems: they slow down the entry process, handwritten records can become difficult to read, and manually entering another student’s information makes the attendance record vulnerable to inaccurate or fraudulent entries.','The result is a process that is <strong>slow, difficult to manage, and difficult to verify</strong>.'] },
+      { h:'What I built', list:['<b>Student registration</b> — creates a unique student record that serves as the identity reference for attendance transactions.','<b>QR code generation</b> — generates a unique QR code associated with each registered student.','<b>QR scanning</b> — provides a camera-based scanning interface for gate staff, eliminating the need to manually search or type student information.','<b>IN/OUT attendance logging</b> — records each student’s movement with a timestamp so gate staff can monitor and review attendance activity.','<b>Attendance management</b> — allows authorized staff to review recorded student movements through the system.'] },
+      { h:'The decision that mattered', p:['Instead of requiring the gate staff to manually select whether a student is entering or leaving, the system determines the student’s <strong>IN/OUT status based on their previous recorded movement</strong>. This reduces the possibility of an operator accidentally selecting the wrong direction.','The system also uses <strong>scan debouncing</strong> to prevent repeated QR detections. Because a QR code can remain visible to the camera for several frames, a short cooldown prevents a single scan from creating multiple attendance records.','The result is a faster and more consistent gate-monitoring process while maintaining a structured digital attendance history.'] },
+      { h:'System flow', flow:{ steps:['Student registration','QR code generated','Student presents QR code','Gate staff scans QR code','System identifies student','Check previous movement','Determine IN / OUT','Save timestamped attendance record'] } },
+      { h:'Technology', tech:[['Frontend','HTML, CSS, JavaScript'],['Backend','PHP'],['Database','MySQL'],['QR','Generation &amp; scanning']] }
+    ],
+    features:['Student registration','QR generation','QR scanning','Automatic IN/OUT detection','Timestamped attendance record']
+  },
+  {
+    id:'cocoscan', title:'CocoScan', tag:'Mobile app · Computer vision',
+    context:'Team final project',
+    role:'A 5-member final project for Design and Analysis of Algorithms (2nd semester, 2025). I built the CocoScan mobile app; as a team we trained and compared the models and wrote the research paper.',
+    shot:'Images/web/cocoscan/01-home.jpg',
+    studyLabel:'Research paper',
+    study:'Detection of Coconut Leaf Disease Using Machine Learning Techniques',
+    shotAlt:'CocoScan home screen titled Coconut Leaf Scanner, with Capture Photo and Upload Photo options and a Recent Scans list.',
+    galleryTitle:'Inside the app',
+    gallery:[
+      { src:'Images/web/cocoscan/01-home.jpg', w:600, h:1247, title:'Home',
+        text:'Scan a coconut leaf by taking a photo or uploading one, with recent scans one tap away.',
+        alt:'CocoScan home screen titled Coconut Leaf Scanner, with Capture Photo and Upload Photo options and a Recent Scans list.' },
+      { src:'Images/web/cocoscan/02-upload.jpg', w:600, h:1247, title:'Upload',
+        text:'Preview the leaf before scanning, then pick from the gallery, upload, or switch to the camera.',
+        alt:'CocoScan Upload Image screen previewing a coconut leaf, with Gallery, Upload, and Camera buttons.' },
+      { src:'Images/web/cocoscan/02b-capture.jpg', w:600, h:1214, title:'Take a photo',
+        text:'The live camera, with a grid to frame the leaf, a shutter, a camera switch, and a gallery shortcut. Shown here on real coconut leaves during the October 2026 re-test.',
+        alt:'CocoScan camera screen framing three real coconut leaves on a grid, with camera switch, shutter, and gallery buttons.' },
+      { src:'Images/web/cocoscan/03-result.jpg', w:600, h:1247, title:'Result',
+        text:'The verdict comes first, in plain words, above the scanned photo.',
+        alt:'CocoScan Scan Details screen reading Healthy Leaf, Your plant is in excellent condition, above a preview of the scanned leaf.' },
+      { src:'Images/web/cocoscan/04-details.jpg', w:600, h:1247, title:'What it means',
+        text:'Each result has a confidence score, an explanation, and recommended actions.',
+        alt:'CocoScan result information: Healthy at 100.00%, a description of the healthy leaf, and recommended actions such as regular watering.' },
+      { src:'Images/web/cocoscan/05-history.jpg', w:600, h:1250, title:'Still working, Oct 2026',
+        text:'Re-tested on 12 October 2026, more than a year after the project: three new scans read Yellowing (80.70%), Flaccidity (68.38%), and Healthy (98.21%). Every scan is saved, searchable, and filterable, with totals for healthy and diseased leaves.',
+        alt:'CocoScan Scan History dated 12 October 2026 with 3 scans, 1 healthy and 2 diseased: Yellowing 80.70%, Flaccidity 68.38%, and Healthy 98.21%.' }
+    ],
+    short:'A Flutter app backed by an EfficientNetB0 model (96.25% test accuracy) that tells from a photo whether a coconut leaf is healthy or shows caterpillar damage, yellowing, or flaccidity, and recommends what to do.',
+    lede:'A mobile app that checks a coconut leaf from a photo. Our team compared five CNN models and deployed the most accurate one, EfficientNetB0, to classify four leaf conditions: caterpillar infestation, healthy, yellowing, and flaccidity. Each result comes with a confidence score, an explanation, and recommended actions.',
+    meta:[['Project','Final project, team of 5'],['Course','Design and Analysis of Algorithms'],['When','2nd semester 2025 (finals)'],['My role','App developer'],['Model','EfficientNetB0 · 4 conditions'],['Status','Working, re-tested Oct 2026']],
+    chips:['Flutter','EfficientNetB0','ResNet-50','Python','Jupyter Notebook','Image classification'],
+    blocks:[
+      { h:'The problem', p:['Coconut leaves matter beyond the tree itself: they are used for roofing, weaving, wrapping food, and fuel. Caterpillar damage, yellowing, and flaccidity (drooping from nutrient deficiency) are easy to miss or confuse, and checking with an expert is slow.','The goal was an app that lets a farmer check a leaf on the spot and act early.'] },
+      { h:'The approach', p:['We collected <strong>over 800 coconut leaf images</strong> from Kaggle and field photos, balanced them across the four conditions, and split them 80% for training and 20% for testing. Images were normalized, resized to 224&times;224, and augmented with flips and rotations.','We then trained <strong>five CNN architectures</strong> and compared them on the same test set:'],
+        list:['<b>EfficientNetB0</b> &mdash; 96.25% accuracy (selected for the app)','<b>ResNet-50</b> &mdash; 95.63%','<b>LeNet-5</b> &mdash; 93.13%','<b>InceptionV3</b> &mdash; 92.50%','<b>MobileNet</b> &mdash; 91.87%'] },
+      { h:'How it works', flow:{ steps:['Take a photo of the leaf, or upload one','EfficientNetB0 classifies the leaf&rsquo;s condition','The result shows with its confidence score','An explanation and recommended actions follow','The scan is saved to the history'] } },
+      { h:'Hardest part', p:['The four conditions are not equally easy. Caterpillar damage is distinctive, but healthy, yellowing, and flaccid leaves can look alike, and almost every error any model made was between those three. Choosing a model meant comparing all five on the same held-out test set rather than trusting a single accuracy figure.'] },
+      { h:'Results', p:['EfficientNetB0 classified <strong>154 of 160 test leaves correctly (96.25%)</strong>: all 40 caterpillar leaves, and 38 of 40 in each of the other three classes.'] },
+      { h:'Details that matter', list:['<b>An honest &ldquo;Unknown&rdquo;</b> &mdash; a photo that isn&rsquo;t a coconut leaf is labelled Unknown instead of being forced into the closest condition.','<b>Confidence on every result</b> &mdash; each verdict shows how sure the model is, such as Yellowing at 96.44%.','<b>A history you can query</b> &mdash; search scans, filter by result and time, and see totals for healthy and diseased leaves.'] }
+    ],
+    features:['Four conditions: caterpillar, healthy, yellowing, flaccidity','EfficientNetB0 chosen from five CNNs (96.25%)','Capture or upload a leaf photo','Confidence, explanation, and recommended actions','Unknown label for non-leaf photos','Searchable, filterable scan history with statistics']
+  },
+  {
+    id:'cassavacare', title:'CassavaCare', tag:'Mobile app · Computer vision',
+    context:'Faculty project',
+    role:'A project given to me by one of our faculty instructors. I trained both models, the YOLOv8 Nano leaf detector and the hybrid ResNet50 + ViT-B/16 classifier, and integrated them into the Flutter app, including getting the classifier to run on the phone.',
+    shot:'Images/web/shot-cassavacare.jpg',
+    shotAlt:'CassavaCare home screen with Capture Photo and Upload Photo options and the five supported leaf conditions.',
+    // Screens shown under the case study. Each opens full size in the lightbox.
+    galleryTitle:'Inside the app',
+    gallery:[
+      { src:'Images/web/shot-cassavacare.jpg', w:1080, h:2340, title:'Home',
+        text:'Start a scan by taking a photo or uploading one; the five supported conditions are listed up front.',
+        alt:'CassavaCare home screen with Capture Photo and Upload Photo options and the five supported leaf conditions.' },
+      { src:'Images/web/cassavacare/02-capture.jpg', w:600, h:1179, title:'Take a photo',
+        text:'Frame a single leaf inside the guide. On-screen hints keep the photo to the leaf only, not roots or stems.',
+        alt:'CassavaCare camera screen with a framing guide and the hints Position the cassava leaf inside the frame and Leaf only, not roots or stems.' },
+      { src:'Images/web/cassavacare/03-upload.jpg', w:600, h:1179, title:'Upload a photo',
+        text:'Or pick an existing photo, with recent photos one tap away and a crop tool before uploading.',
+        alt:'CassavaCare Upload Photo screen with a selected cassava leaf and a grid of recent leaf photos.' },
+      { src:'Images/web/cassavacare/04-result.jpg', w:600, h:1179, title:'Result',
+        text:'The detector boxes the leaf (here at 0.86), then the classifier names its condition: Bacterial Blight at 97.3%, flagged Act soon.',
+        alt:'CassavaCare Detection Result showing the leaf boxed at 0.86 and the diagnosis Bacterial Blight with 97.3% confidence.' },
+      { src:'Images/web/cassavacare/05-what-to-do.jpg', w:600, h:1179, title:'What to do',
+        text:'What the signs look like and practical next steps, with a reminder to confirm with a local agricultural extension officer.',
+        alt:'CassavaCare result explaining the signs of Bacterial Blight and what to do next.' },
+      { src:'Images/web/cassavacare/06-all-classes.jpg', w:600, h:1179, title:'All five classes',
+        text:'Scores for every class, a softmax that sums to 100%, so a close call is visible instead of hidden.',
+        alt:'CassavaCare score breakdown: Bacterial Blight 97.3%, Healthy 2.1%, Brown Streak 0.4%, Green Mottle 0.2%, Mosaic 0.0%.' },
+      { src:'Images/web/cassavacare/07-history.jpg', w:600, h:1179, title:'History',
+        text:'Every scan is saved on the phone with its photo, date, result and confidence.',
+        alt:'CassavaCare Detection History listing 19 saved scans with photos, dates, results and confidence.' },
+      { src:'Images/web/cassavacare/08-settings.jpg', w:600, h:1179, title:'Settings',
+        text:'Shows which models are bundled (YOLOv8n at 640 x 640 and the hybrid ResNet50 + ViT at 224 x 224), scan history, and a How it works guide.',
+        alt:'CassavaCare Settings showing Model loaded with YOLOv8n and Hybrid ResNet50+ViT, plus Clear scan history and How it works.' }
+    ],
+    short:'A two-stage on-device system that finds a cassava leaf in a photo and classifies it as healthy or into one of four common diseases.',
+    lede:'A mobile app that helps identify cassava leaf diseases from a photo, built as a two-stage on-device pipeline: a detector finds the leaf, and a classifier names its condition.',
+    meta:[['Project','Given by a faculty instructor'],['Role','Developer'],['Model','Two-stage detection + classification'],['Status','Built &amp; Demonstrated']],
+    chips:['Flutter','YOLOv8 Nano','Hybrid ResNet50 + ViT-B/16','TensorFlow Lite','PyTorch','ONNX'],
+    blocks:[
+      { h:'The problem', p:['Cassava is a staple crop, and several of its most common leaf diseases &mdash; Bacterial Blight, Brown Streak Disease, Green Mottle, and Mosaic &mdash; look similar to an untrained eye in their early stages, which is exactly when treatment still has the best chance of working.','The goal was a way to check a leaf on the spot, from a phone, without waiting for an expert.'] },
+      { h:'The approach', p:['CassavaCare runs two models in sequence rather than one classifier over the whole photo. A <strong>YOLOv8 Nano</strong> detector first finds and crops the leaf out of the frame, so the second model only ever looks at leaf, not background. That crop is passed to a <strong>hybrid ResNet50 + ViT-B/16 classifier</strong>, which names the condition.'],
+        list:['<b>Leaf detection</b> &mdash; YOLOv8 Nano locates the leaf in the photo and crops it before classification.','<b>Condition classification</b> &mdash; a 110.9M-parameter hybrid of a ResNet50 CNN and a ViT-B/16 transformer names the disease from the cropped leaf.','<b>Five classes</b> &mdash; Bacterial Blight, Brown Streak Disease, Green Mottle, Healthy, Mosaic.','<b>Fully on-device</b> &mdash; both stages run locally in TensorFlow Lite, so a diagnosis needs no internet connection.'] },
+      { h:'Hardest part', p:['The classifier is a 110.9M-parameter hybrid of a CNN and a transformer, and getting it to run on a phone was harder than building the app around it. The checkpoint carried its weights but nothing else &mdash; no documented image size, preprocessing, or label order &mdash; so the correct preprocessing had to be recovered by testing combinations and checking which one reproduced the expected predictions.','Converting the model itself took a multi-stage export &mdash; PyTorch to ONNX to TensorFlow to TFLite &mdash; because the transformer half uses operations TensorFlow Lite does not support directly, and they had to be rewritten to equivalent, supported ones. Shrinking the model afterwards had its own trap: halving the convolutional layers to float16 was correct on the standard interpreter but silently wrong once Android&rsquo;s default accelerator was enabled, so only the fully-connected layers were halved in the end.'] },
+      { h:'Results', p:['Measured end-to-end through the full two-stage pipeline &mdash; detection, crop, then classification &mdash; the app correctly identified 34 of 41 test leaves (82.9%), predicting all five classes rather than collapsing onto the most common one. It runs on an Android phone with no network connection required.'] },
+      { h:'Technology', tech:[['Detector','YOLOv8 Nano'],['Classifier','Hybrid ResNet50 + ViT-B/16'],['Runtime','TensorFlow Lite, on-device'],['Conversion','PyTorch &rarr; ONNX &rarr; TensorFlow &rarr; TFLite'],['Application','Flutter']] }
+    ],
+    features:['Two-stage pipeline: detect the leaf, then classify it','Five classes: Bacterial Blight, Brown Streak, Green Mottle, Healthy, Mosaic','110.9M-parameter hybrid ResNet50 + ViT-B/16 classifier','82.9% correct end-to-end on a held-out test set','Fully on-device &mdash; no internet required','Preprocessing recovered by measurement from an undocumented checkpoint']
+  },
+  {
+    id:'banana', title:'Banana Detector', tag:'Computer vision',
+    context:'Immersion program · Vietnam',
+    role:'Developed during my international student immersion program at the University of Danang, Vietnam. I trained the YOLOv8 model and built the Banana Detector app around it.',
+    shot:'Images/web/shot-banana.jpg',
+    shotAlt:'Banana Detector app home screen with Take Photo and Upload Image buttons and the four ripeness categories.',
+    study:'YOLO-Based Visual Inspection of Banana Ripeness Stages',
+    // Screens shown under the case study. Each opens full size in the lightbox.
+    galleryTitle:'Inside the app',
+    gallery:[
+      { src:'Images/web/shot-banana.jpg', w:415, h:900, title:'Home',
+        text:'Take a photo or upload one; the four ripeness stages and what each one means are listed on the home screen.',
+        alt:'Banana Detector home screen with Take Photo and Upload Image buttons and the four ripeness categories.' },
+      { src:'Images/web/banana/02-unripe.jpg', w:600, h:1179, title:'Unripe bunch',
+        text:'Each green banana is detected on its own and labelled Unripe, with the advice to wait a few more days.',
+        alt:'Banana Detector result for a bunch of green bananas, labelled Unripe at 80.3% and 61.5% confidence.' },
+      { src:'Images/web/banana/03-unripe-list.jpg', w:600, h:1179, title:'One card per banana',
+        text:'Every detection gets its own result and confidence, here 80.3%, 61.5%, 54.5% and 51.4%.',
+        alt:'Banana Detector result list with four Unripe detections at 80.3%, 61.5%, 54.5% and 51.4%.' },
+      { src:'Images/web/banana/04-ripe.jpg', w:600, h:1179, title:'Ripe bunch',
+        text:'A crowded pile of yellow bananas, each detected and labelled Ripe: perfect for eating.',
+        alt:'Banana Detector result for a pile of yellow bananas, labelled Ripe at 69.6% and 65.6% confidence.' },
+      { src:'Images/web/banana/05-ripe-list.jpg', w:600, h:1179, title:'Less sure, deeper in',
+        text:'Bananas half hidden in the pile score lower (31.6% down to 25.4%), showing where the model is less certain.',
+        alt:'Banana Detector result list with Ripe detections at 31.6%, 29.1%, 27.5% and 25.4%.' },
+      { src:'Images/web/banana/06-ripe-rotten.jpg', w:600, h:1179, title:'Ripe and rotten together',
+        text:'Two stages in one photo: the yellow banana is Ripe (81.6%) and the dark one Rotten (50.6%), so each fruit gets its own advice.',
+        alt:'Banana Detector result for two bananas: one Ripe at 81.6% and one Rotten at 50.6%, advised to discard.' }
+    ],
+    short:'A YOLOv8 system that detects bananas in an image, sorts each one into unripe / ripe / overripe / rotten, and pairs every stage with an action.',
+    lede:'A YOLOv8-based computer vision system that detects bananas in an image and identifies their ripeness stage as unripe, ripe, overripe, or rotten — shipped as the Banana Detector app.',
+    meta:[['Project','Immersion program, Vietnam'],['Role','Developer'],['Model','YOLOv8 · 4 ripeness stages'],['Status','Built &amp; Demonstrated']],
+    chips:['YOLOv8','Python','OpenCV','Google Colab','Kaggle','Dataset annotation'],
+    blocks:[
+      { h:'The problem', p:['Banana ripeness is commonly evaluated through visual inspection, which can vary between people and environmental conditions. Differences in lighting, banana appearance, and individual judgement can make manual ripeness grading inconsistent.','The goal of the system is to provide a <strong>consistent and repeatable method for identifying banana ripeness</strong> using computer vision.'] },
+      { h:'Why detection, not classification', p:['A traditional image classifier answers a question such as <em>&ldquo;What is the ripeness of this image?&rdquo;</em> That becomes limiting when an image contains multiple bananas at different stages.','<strong>YOLOv8 performs object detection</strong>, providing both a bounding box and a class for each detected banana. This allows a single image to contain multiple results:'],
+        pipes:['Banana 1 <b>&rarr;</b> Unripe','Banana 2 <b>&rarr;</b> Ripe','Banana 3 <b>&rarr;</b> Overripe'],
+        after:['Each banana can therefore be evaluated independently.'] },
+      { h:'Pipeline',
+        figure:{ src:'Images/web/banana/methodology.jpg', w:825, h:543,
+          caption:'Methodology: images are collected, resized to 640 x 640, cleaned and labelled with bounding boxes, balanced by undersampling, split 70 / 20 / 10 into training, validation and test sets, augmented, then evaluated.',
+          alt:'Banana Detector methodology diagram: collect images, resize to 640x640, clean, label, undersample, draw bounding boxes, split into 70% training, 20% validation and 10% test, augment, and evaluate.' },
+        list:['<b>Dataset</b> — banana images representing different ripeness stages, with each banana annotated using a bounding box and one of four classes.','<b>Annotation</b> — images were labeled according to the corresponding ripeness stage.','<b>Training</b> — the YOLOv8 model was trained using Google Colab and Kaggle GPU environments.','<b>Evaluation</b> — model performance was evaluated using metrics such as precision, recall, and mAP, including performance across individual classes.','<b>Deployment</b> — the trained YOLOv8 model was integrated into the Banana Detector mobile app for image-based ripeness detection.'] },
+      { h:'From detection to decision', p:['The detection result provides more than a class label. The application can associate each ripeness stage with an appropriate recommendation.'], ripe:true },
+      { h:'Hardest part', p:['Ripeness is a <strong>continuous biological process</strong>, but the model must divide it into four discrete classes — which means three boundaries, and every one of them is soft. The hardest is <strong>overripe against rotten</strong>, because that is the boundary where the recommendation flips from <em>use it</em> to <em>throw it away</em>.','Lighting, camera conditions, banana variety, natural color variation, and background differences can also affect how the fruit appears.','Because of this, <strong>dataset quality and annotation consistency are just as important as the model architecture</strong>.'] },
+      { h:'Technology', tech:[['Model','YOLOv8'],['Language','Python'],['Computer vision','OpenCV'],['Training','Google Colab / Kaggle'],['Dataset','Annotated banana images'],['Application','Mobile application']] }
+    ],
+    features:['Each banana evaluated independently','Four stages: unripe, ripe, overripe, rotten','Per-class evaluation metrics','A recommendation per stage','Take a photo or upload an image','Shipped as the Banana Detector app']
+  }
+];
+
+var RIPE = [
+  ['unripe','Unripe','Green and firm, with less developed sweetness.','<b>Wait a few days.</b> Allow it to ripen if it is intended for sweet eating, or use appropriate unripe varieties for cooking.'],
+  ['ripe','Ripe','Yellow, sweet, and generally at its preferred eating stage.','<b>Ready to eat.</b> Eat, sell, or use while the fruit is still in good condition.'],
+  ['overripe','Overripe','Heavily spotted or brown, softer, and increasingly sweet.','<b>Use for baking.</b> Suitable for banana bread, smoothies, or other recipes where softer fruit works better.'],
+  ['rotten','Rotten','Dark and mushy, past the point where the fruit is usable.','<b>Discard.</b> Separating this from overripe is what stops good baking fruit from being thrown away with the spoiled fruit.']
+];
+
+/* Beyond the code: personal photos. Each has a 360×480 thumbnail in
+   Images/web/beyond/thumb/ and a full-size copy (long side 1600px) in
+   Images/web/beyond/ with the same file name. The first twelve show
+   before "Show all", so the order mixes the groups on purpose.
+   g: v = Vietnam, o = outdoors, f = fitness, c = campus. */
+var BEYOND_GROUPS = [['all','All'],['v','Vietnam'],['o','Outdoors'],['f','Fitness'],['c','Campus']];
+var BEYOND = [
+  { f:'golden-bridge', g:'v', t:'On the Golden Bridge', s:'Ba Na Hills, Da Nang', alt:'Marjon and a friend on the Golden Bridge in thick fog, with the giant stone hands rising behind them.' },
+  { f:'sea-overlook', g:'o', t:'Looking out over the sea', s:'Outdoors', alt:'Marjon in sunglasses and a palm-print shirt at a railing above green hills and the sea.' },
+  { f:'da-nang-cathedral', g:'v', t:'Da Nang Cathedral', s:'Da Nang, Vietnam', alt:'Marjon standing in front of the pink facade and bell tower of Da Nang Cathedral.' },
+  { f:'gym-session', g:'f', t:'Gym session', s:'Fitness', alt:'Marjon and a training partner standing beside a loaded barbell in a gym.' },
+  { f:'basket-boats', g:'v', t:'Basket boat ride', s:'Vietnam', alt:'View from a round basket boat on a palm-lined waterway, with more basket boats ahead.' },
+  { f:'da-nang-university', g:'v', t:'Da Nang University of Economics', s:'Da Nang, Vietnam', alt:'Marjon in a cream long-sleeved shirt in front of the Da Nang University of Economics sign.' },
+  { f:'han-river-night', g:'v', t:'The Han River at night', s:'Da Nang, Vietnam', alt:'Marjon on the riverside walk at night, with the lit-up city skyline and red heart-shaped lights behind him.' },
+  { f:'twin-falls', g:'o', t:'Twin waterfalls', s:'Outdoors', alt:'Marjon standing on the rocks at the foot of two tall waterfalls surrounded by forest.' },
+  { f:'lady-buddha', g:'v', t:'Lady Buddha statue', s:'Da Nang, Vietnam', alt:'Marjon walking with a friend on a temple plaza below a tall white Lady Buddha statue.' },
+  { f:'exhibit-booth', g:'c', t:'At an exhibit booth', s:'Campus', alt:'Marjon in his school uniform beside an exhibit board of portrait sketches and a hibiscus painting.' },
+  { f:'lantern-street', g:'v', t:'Lantern-lined street', s:'Vietnam', alt:'Marjon in sunglasses under green trees on a street hung with red lanterns.' },
+  { f:'garden-veranda', g:'o', t:'On a garden veranda', s:'Outdoors', alt:'Marjon leaning on a red railing on a yellow-walled veranda, with coconut palms and flowers beyond.' },
+  { f:'above-the-clouds', g:'v', t:'Above the clouds', s:'Ba Na Hills, Da Nang', alt:'Marjon on the gold-railed Golden Bridge, with fog hiding everything beyond the walkway.' },
+  { f:'fog-pavilion', g:'v', t:'Pavilion in the fog', s:'Ba Na Hills, Da Nang', alt:'Marjon in front of an ornate dark green pavilion on a foggy hilltop.' },
+  { f:'statue-garden', g:'v', t:'Statue and flower garden', s:'Ba Na Hills, Da Nang', alt:'Marjon in front of red tulip beds and a golden statue holding a torch, in light fog.' },
+  { f:'fountain-mist', g:'v', t:'Fountain in the mist', s:'Ba Na Hills, Da Nang', alt:'Marjon taking a photo beside a gilded fountain, with buildings fading into the mist.' },
+  { f:'grand-staircase', g:'v', t:'Grand staircase', s:'Vietnam', alt:'Marjon leaning on the white balustrade of a grand curved staircase under a domed iron roof.' },
+  { f:'temple-walkway', g:'v', t:'Temple garden walkway', s:'Vietnam', alt:'Marjon on a red-tiled walkway leading to a pagoda-roofed gate, under a blue sky.' },
+  { f:'banyan-tree', g:'v', t:'Under a banyan tree', s:'Vietnam', alt:'Marjon sitting on a stone ledge beneath a large banyan tree, with other visitors around.' },
+  { f:'museum-gallery', g:'v', t:'Museum gallery', s:'Vietnam', alt:'Marjon beside a glass display of specimen jars in a blue-lit museum gallery.' },
+  { f:'danang-museum', g:'v', t:'Danang Museum', s:'Da Nang, Vietnam', alt:'Marjon leaning against the wood-panelled wall bearing the Danang Museum sign.' },
+  { f:'history-exhibit', g:'v', t:'History exhibit', s:'Vietnam', alt:'Marjon, seen from behind, walking through a gallery of posters and photographs about the war in Vietnam.' },
+  { f:'visitor-center', g:'v', t:'Da Nang Visitor Center', s:'Da Nang, Vietnam', alt:'Marjon with his luggage in front of the Da Nang Visitor Center tourist information desk.' },
+  { f:'vincom-mall', g:'v', t:'Vincom mall', s:'Vietnam', alt:'Marjon sitting in front of large gold Vincom letters in a shopping mall.' },
+  { f:'han-river-dusk', g:'v', t:'Han River at dusk', s:'Da Nang, Vietnam', alt:'Marjon at a white railing by the river at dusk, with a bridge and city buildings across the water.' },
+  { f:'river-view', g:'v', t:'Watching the river', s:'Da Nang, Vietnam', alt:'Marjon, seen from behind, leaning on a railing and looking across the river toward a lit-up arched bridge.' },
+  { f:'dragon-carp', g:'v', t:'Dragon-carp statue', s:'Da Nang, Vietnam', alt:'Marjon by the river at night in front of a pink-lit dragon-carp statue spouting water.' },
+  { f:'horse-statue', g:'v', t:'Horse statue at night', s:'Vietnam', alt:'Marjon with arms open in front of red flower beds and a white rearing horse statue at night.' },
+  { f:'waiting-to-board', g:'v', t:'Waiting to board', s:'Travel day', alt:'Marjon in a teal hoodie with a lanyard, seated in a busy airport terminal.' },
+  { f:'between-flights', g:'v', t:'Between flights', s:'Travel day', alt:'Marjon in a teal hoodie standing at an airport window overlooking parked planes.' },
+  { f:'airport-gate', g:'v', t:'At the gate', s:'Travel day', alt:'Marjon sitting on a stool at a long window counter overlooking the airport runway.' },
+  { f:'river-pool', g:'o', t:'River pool', s:'Outdoors', alt:'Marjon wading in a clear green river pool between smooth rocks, with a small waterfall behind.' },
+  { f:'below-the-falls', g:'o', t:'Below the falls', s:'Outdoors', alt:'Marjon standing in a river pool below a small waterfall in the forest.' },
+  { f:'waterfall-sun', g:'o', t:'Waterfall in the afternoon sun', s:'Outdoors', alt:'Marjon, seen from behind, facing a waterfall as the sun breaks over the forest canopy.' },
+  { f:'suited-up', g:'c', t:'Suited up', s:'Campus', alt:'Marjon in a black suit leaning on a balcony ledge beside leafy trees.' },
+  { f:'in-uniform', g:'c', t:'In uniform', s:'Campus', alt:'Marjon in his light blue school uniform and ID lanyard, looking to the side.' }
+];
