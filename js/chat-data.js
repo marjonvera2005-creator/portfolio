@@ -85,7 +85,8 @@ var CHAT = {
         '<li><b>IntelliGuide:</b> Marjon’s thesis, building the app and detection pipeline</li>' +
         '<li><b>CocoScan:</b> a 5-member team project for Design and Analysis of Algorithms; Marjon built the app</li>' +
         '<li><b>CassavaCare:</b> a project given by one of Marjon&rsquo;s faculty instructors; Marjon trained both models and built the app</li>' +
-        '<li><b>Banana Detector:</b> built during an international immersion program in Vietnam</li></ul>',
+        '<li><b>Banana Detector:</b> built during an international immersion program in Vietnam</li>' +
+        '<li><b>Face Recognition Attendance:</b> a 6-member team project from 2nd year, 1st semester; Marjon was the assistant programmer</li></ul>',
       next: ['hardest', 'why', 'contact'] },
 
     { id: 'hardest',
@@ -127,7 +128,7 @@ var CHAT = {
     { id: 'unlisted',
       // Common tools that are NOT on Marjon's skills list. Listed before
       // "skills" so a tie ("does Marjon know React?") gets the honest answer.
-      keys: ['react', 'angular', 'vue', 'svelte', 'nextjs', 'node', 'nodejs', 'express', 'laravel', 'django', 'flask', 'spring', 'java', 'kotlin', 'swift', 'csharp', 'dotnet', 'typescript', 'ruby', 'rails', 'golang', 'rust', 'aws', 'azure', 'docker', 'kubernetes', 'firebase', 'mongodb', 'postgres', 'postgresql', 'wordpress', 'figma', 'unity'],
+      keys: ['react', 'angular', 'vue', 'svelte', 'nextjs', 'node', 'nodejs', 'express', 'laravel', 'flask', 'spring', 'java', 'kotlin', 'swift', 'csharp', 'dotnet', 'typescript', 'ruby', 'rails', 'golang', 'rust', 'aws', 'azure', 'docker', 'kubernetes', 'firebase', 'mongodb', 'postgres', 'postgresql', 'wordpress', 'figma', 'unity'],
       answer: 'That one isn’t on Marjon’s skills list, so I can’t confirm it. Marjon’s main tools are web (HTML, CSS, JavaScript, PHP, MySQL), Flutter and Dart, and Python computer vision. Ask Marjon directly about anything else.',
       actions: [{ type: 'goto', value: 'capabilities', label: 'See all skills' }, { type: 'message', label: 'Ask Marjon' }],
       next: ['skills', 'why'] },
@@ -213,7 +214,8 @@ var CHAT = {
     tingi: ['tingi', 'startup', 'start up', 'business', 'recycle', 'recycling', 'plastic', 'pickup', 'palo', 'leyte', 'tacloban', 'eco'],
     quitescan: ['quitescan', 'quite scan', 'qr', 'attendance', 'scan', 'scanner', 'gate'],
     cassavacare: ['cassavacare', 'cassava', 'leaf', 'leaves', 'disease', 'crop', 'plant'],
-    banana: ['banana', 'ripe', 'ripeness', 'rotten', 'fruit']
+    banana: ['banana', 'ripe', 'ripeness', 'rotten', 'fruit'],
+    faceattend: ['face', 'face recognition', 'facial', 'django', 'assistant programmer']
   },
 
   fallback: {

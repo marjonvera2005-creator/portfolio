@@ -20,7 +20,7 @@ Each browser/size combination checks the following:
 4. Every image loads, and every image has an `alt` attribute
 5. Navigation is reachable: desktop links at ≥1024px, menu button below that
 6. Mobile menu opens, and closes when a link is chosen
-7. All six project cards render, and each opens its case study
+7. All seven project cards render, and each opens its case study
 8. Project dialog opens, shows its screenshot, doesn't scroll sideways, and closes with Escape
 9. Certificate lightbox opens with the image and closes with Escape
 10. Contact form rejects an invalid email address with a visible message

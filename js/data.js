@@ -294,6 +294,41 @@ var PROJECTS = [
       { h:'Technology', tech:[['Model','YOLOv8'],['Language','Python'],['Computer vision','OpenCV'],['Training','Google Colab / Kaggle'],['Dataset','Annotated banana images'],['Application','Mobile application']] }
     ],
     features:['Each banana evaluated independently','Four stages: unripe, ripe, overripe, rotten','Per-class evaluation metrics','A recommendation per stage','Take a photo or upload an image','Shipped as the Banana Detector app']
+  },
+  {
+    id:'faceattend', title:'Face Recognition Attendance', tag:'Web system',
+    context:'Team project',
+    role:'A 6-member team project from my 2nd year, 1st semester. I was the assistant programmer, supporting the main programmer in building the system.',
+    shot:'Images/web/faceattend/01-login.jpg',
+    shotAlt:'Student Face Recognition Login page with a welcome message, a quote, and email and password fields over a face-scanning illustration.',
+    galleryTitle:'Inside the system',
+    gallery:[
+      { src:'Images/web/faceattend/01-login.jpg', w:1351, h:638, title:'Faculty login',
+        text:'Faculty sign in before they can take or review attendance. The email is blurred here for privacy.',
+        alt:'Student Face Recognition Login page with email and password fields and a Login button. The email is blurred.' },
+      { src:'Images/web/faceattend/02-dashboard.jpg', w:1333, h:629, title:'Dashboard',
+        text:'Take attendance for a class by program, year, section, and period, and add new students with their registration ID.',
+        alt:'Attendance Management System dashboard with a Take Attendance form (name, program, year, section, period) beside an Add Student form.' },
+      { src:'Images/web/faceattend/03-search.jpg', w:1341, h:638, title:'Search attendance',
+        text:'Find records by student, faculty, date, period, or year, then edit or delete an entry.',
+        alt:'Search Attendance page with filters for student, faculty, date, period and year, above a results table of two students marked Present.' },
+      { src:'Images/web/faceattend/04-student-profile.jpg', w:1340, h:641, title:'Student profile',
+        text:'Each student has a profile photo and their details, stored by program, year, and section.',
+        alt:'Student Profile page with a circular student photo and an Update Information form for name, registration ID, program, year, section and profile picture.' },
+      { src:'Images/web/faceattend/05-faculty-profile.jpg', w:1358, h:639, title:'Faculty profile',
+        text:'Faculty can update their own details and photo. The phone number and email are blurred here for privacy.',
+        alt:'Faculty Profile page with a circular faculty photo and an Update Information form. Phone and email are blurred.' }
+    ],
+    short:'A web-based student attendance system built around face recognition, with faculty accounts, class attendance by period, student records with photos, and searchable attendance history.',
+    lede:'A Student Face Recognition attendance system built by a team of six. Faculty sign in, take attendance for a class and period, manage student records with profile photos, and search the attendance history.',
+    meta:[['Project','Team project, 6 members'],['When','2nd year, 1st semester'],['My role','Assistant programmer'],['Users','Faculty'],['Status','Built &amp; Demonstrated']],
+    chips:['Python','Django','Face recognition','Web system'],
+    blocks:[
+      { h:'What the system does', list:['<b>Faculty accounts</b> &mdash; each faculty member signs in and manages their own profile.','<b>Taking attendance</b> &mdash; attendance is recorded by program, year, section, and period.','<b>Student records</b> &mdash; students are added with their registration ID and a profile photo.','<b>Attendance search</b> &mdash; records can be filtered by student, faculty, date, period, or year, and edited or deleted.'] },
+      { h:'My part', p:['This was one of my first team builds. As the assistant programmer, I worked alongside the main programmer on the system, in a team of six.'] },
+      { h:'Technology', tech:[['Framework','Django'],['Language','Python'],['Feature','Face recognition']] }
+    ],
+    features:['Faculty login and profiles','Attendance by program, year, section, and period','Student records with profile photos','Search, edit, and delete attendance records']
   }
 ];
 

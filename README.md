@@ -1,8 +1,8 @@
 # Marjon C. Vera — Developer Portfolio
 
 A personal portfolio website for Marjon C. Vera, a BS Computer Science student at
-Biliran Province State University. It presents six projects (IntelliGuide, Tingi, QuiteScan,
-CocoScan, CassavaCare, Banana Ripeness Detection), skills, awards, trainings, and contact details.
+Biliran Province State University. It presents seven projects (IntelliGuide, Tingi, QuiteScan,
+CocoScan, CassavaCare, Banana Ripeness Detection, Face Recognition Attendance), skills, awards, trainings, and contact details.
 
 **Live site:** _add the Vercel URL here after deployment_
 
