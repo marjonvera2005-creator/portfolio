@@ -523,7 +523,17 @@ section[tabindex='-1']:focus { outline:none; }
   padding:clamp(16px,2.4vw,28px); border-radius:20px;
   background:var(--surface); border:1px solid var(--line);
 }
-@media (min-width:1024px) { .feat { grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); } }
+@media (min-width:1024px) {
+  .feat { grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); }
+  /* The award card photo fills whatever height is left beside the
+     certificate, so its bottom lines up with the certificate's bottom.
+     contain:size keeps the photo from making the row taller. */
+  .feat__cert { align-self:end; }
+  .feat__body { align-self:stretch; display:flex; flex-direction:column; align-items:flex-start; }
+  .feat .feat__photos { flex:1 1 auto; min-height:200px; contain:size; grid-template-columns:none; grid-template-rows:100%; }
+  .feat .feat__photos li { height:100%; }
+  .feat .feat__photos button { height:100%; width:auto; }
+}
 .feat__cert { display:block; width:100%; padding:0; border-radius:12px; overflow:hidden; border:1px solid var(--line); transition:opacity var(--t-ui) var(--ease-soft); }
 .feat__cert:hover { opacity:.9; }
 .feat__cert img { width:100%; height:auto; }
