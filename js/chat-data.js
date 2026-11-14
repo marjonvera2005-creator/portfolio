@@ -128,15 +128,15 @@ var CHAT = {
       // Common tools that are NOT on Marjon's skills list. Listed before
       // "skills" so a tie ("does Marjon know React?") gets the honest answer.
       keys: ['react', 'angular', 'vue', 'svelte', 'nextjs', 'node', 'nodejs', 'express', 'laravel', 'django', 'flask', 'spring', 'java', 'kotlin', 'swift', 'csharp', 'dotnet', 'typescript', 'ruby', 'rails', 'golang', 'rust', 'aws', 'azure', 'docker', 'kubernetes', 'firebase', 'mongodb', 'postgres', 'postgresql', 'wordpress', 'figma', 'unity'],
-      answer: 'That one isn’t on Marjon’s skills list, so I can’t confirm it. Marjon’s main tools are web (HTML, CSS, JavaScript, PHP, MySQL), Flutter, and Python computer vision. Ask Marjon directly about anything else.',
+      answer: 'That one isn’t on Marjon’s skills list, so I can’t confirm it. Marjon’s main tools are web (HTML, CSS, JavaScript, PHP, MySQL), Flutter and Dart, and Python computer vision. Ask Marjon directly about anything else.',
       actions: [{ type: 'goto', value: 'capabilities', label: 'See all skills' }, { type: 'message', label: 'Ask Marjon' }],
       next: ['skills', 'why'] },
 
     { id: 'skills',
-      keys: ['skill', 'tech', 'technology', 'technologies', 'stack', 'language', 'programming', 'tool', 'know', 'can do', 'html', 'css', 'javascript', 'php', 'mysql', 'flutter', 'python', 'yolo', 'opencv', 'tensorflow', 'ai', 'ml', 'machine learning', 'frontend', 'backend', 'mobile', 'web'],
+      keys: ['skill', 'tech', 'technology', 'technologies', 'stack', 'language', 'programming', 'tool', 'know', 'can do', 'html', 'css', 'javascript', 'php', 'mysql', 'flutter', 'dart', 'python', 'yolo', 'opencv', 'tensorflow', 'ai', 'ml', 'machine learning', 'frontend', 'backend', 'mobile', 'web'],
       answer: 'Marjon’s skills fall into three groups:<ul>' +
         '<li><b>Web &amp; systems:</b> HTML5, CSS3, JavaScript, PHP, MySQL, schema design, REST APIs, auth &amp; sessions, QR encode/decode</li>' +
-        '<li><b>Mobile:</b> Flutter, TensorFlow Lite, OpenStreetMap, on-device inference, offline-first apps, GPS, Hive storage</li>' +
+        '<li><b>Mobile:</b> Flutter, Dart, TensorFlow Lite, OpenStreetMap, on-device inference, offline-first apps, GPS, Hive storage</li>' +
         '<li><b>AI &amp; vision:</b> Python, YOLOv8, YOLO26 Nano, OpenCV, Google Colab, Kaggle, dataset annotation, model evaluation, PyTorch → ONNX → TFLite</li></ul>',
       actions: [{ type: 'goto', value: 'capabilities', label: 'See all skills' }],
       next: ['projects', 'awards', 'availability'] },
