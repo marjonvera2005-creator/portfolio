@@ -500,8 +500,9 @@
         if (live.textContent !== say) live.textContent = say;
         prev.setAttribute('aria-disabled', String(loop ? n <= per : first <= 0));
         next.setAttribute('aria-disabled', String(loop ? n <= per : first + per >= n));
-        bar.style.width = (per / n * 100) + '%';
-        bar.style.transform = 'translateX(' + (first / per * 100) + '%)';
+        // The span spans the whole bar; scaleX sets the filled share and
+        // translateX (a share of the full bar) moves it, so only transform animates.
+        bar.style.transform = 'translateX(' + (first / n * 100) + '%) scaleX(' + (per / n) + ')';
         if (depth) front();
       }
       function queue() { if (!raf) raf = requestAnimationFrame(update); }

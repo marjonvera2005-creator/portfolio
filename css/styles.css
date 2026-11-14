@@ -387,7 +387,7 @@ section[tabindex='-1']:focus { outline:none; }
 /* Progress: the filled part is the share of slides in view, and it slides
    along the bar as the track scrolls. */
 .slider__bar { flex:1; max-width:260px; height:2px; border-radius:2px; background:var(--line); overflow:hidden; }
-.slider__bar span { display:block; height:100%; width:0; background:var(--accent); transition:transform var(--t-ui) var(--ease), width var(--t-ui) var(--ease); }
+.slider__bar span { display:block; height:100%; width:100%; transform:scaleX(0); transform-origin:0 50%; background:var(--accent); transition:transform var(--t-ui) var(--ease); }
 .slider__btn {
   width:44px; height:44px; flex:none; border-radius:999px; display:grid; place-items:center;
   border:1px solid var(--line-2); color:var(--text);
