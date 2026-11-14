@@ -124,7 +124,7 @@ const shots = process.argv.includes('--shots');
       // Closing must return to the project card, not jump to the top of the page
       c.returnsToCard = Math.abs(await page.evaluate(() => scrollY) - yBefore) < 5;
       // Lightbox
-      await page.evaluate(() => document.querySelector('[data-cert="award-2"]').click());
+      await page.evaluate(() => document.querySelector('[data-cert="award-4"]').click());
       await new Promise(r => setTimeout(r, 400));
       c.lightboxOpens = await page.evaluate(() => !document.getElementById('lb').hidden && document.getElementById('lbImg').naturalWidth > 0);
       await page.keyboard.press('Escape');

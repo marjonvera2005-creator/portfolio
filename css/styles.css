@@ -530,7 +530,7 @@ section[tabindex='-1']:focus { outline:none; }
 .feat__meta { font:500 11.5px/1.4 var(--mono); letter-spacing:.12em; text-transform:uppercase; color:var(--accent); }
 .feat__t { margin-top:10px; font-size:clamp(24px,2.8vw,34px); font-weight:800; letter-spacing:-.03em; line-height:1.1; text-wrap:balance; }
 .feat__p { margin-top:14px; color:var(--muted); font-size:16px; line-height:1.7; max-width:52ch; }
-.feat__photos { margin-top:24px; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; }
+.feat__photos { margin-top:24px; display:grid; grid-template-columns:minmax(0,200px); gap:8px; }
 .feat__photos button { display:block; width:100%; aspect-ratio:3/4; padding:0; border-radius:10px; overflow:hidden; border:1px solid var(--line); transition:opacity var(--t-ui) var(--ease-soft); }
 .feat__photos button:hover { opacity:.86; }
 .feat__photos img { width:100%; height:100%; object-fit:cover; }
