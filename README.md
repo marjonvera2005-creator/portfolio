@@ -13,7 +13,7 @@ Built with plain HTML5, CSS3, and JavaScript. No frameworks and no build step.
 | Section | What it contains |
 |---|---|
 | Hero | Name, role, one-line summary, "View my work" button, award highlight, portrait |
-| Work | Slideshow of 6 project cards (screenshot, summary, tech); each opens a full case study |
+| Work | Slideshow of 7 project cards (screenshot, summary, tech); each opens a full case study |
 | Skills | Labelled tools grouped into Web & systems, Mobile, and AI & vision |
 | About | Bio, quick stats, current focus |
 | Awards | The international ML award for academic excellence (certificate + ceremony photos) |
