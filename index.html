@@ -18,7 +18,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230A0A0A'/%3E%3Ctext x='50' y='70' font-family='Archivo,Arial' font-size='58' font-weight='800' fill='%23fff' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
 
 <!-- ?v= makes browsers fetch the new file after a change; bump it on every update -->
-<link rel="stylesheet" href="css/styles.css?v=20261127a">
+<link rel="stylesheet" href="css/styles.css?v=20261127b">
 </head>
 
 <body class="no-js">
@@ -79,6 +79,8 @@
         <a class="btn btn--solid" href="#work">View my work
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
         <a class="btn" href="#contact">Get in touch</a>
+        <a class="btn" href="cv/Marjon-Vera-CV.pdf" target="_blank" rel="noopener">Resume
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a>
       </div>
       <a class="hero__award" href="#awards">
         <span class="hero__award-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 3h8v5a4 4 0 0 1-8 0V3Z"/><path d="M8 5H5v2a3 3 0 0 0 3 3M16 5h3v2a3 3 0 0 1-3 3"/><path d="M12 12v4M9 21h6l-.7-3.4H9.7L9 21Z"/></svg></span>
@@ -97,21 +99,11 @@
       <h2 class="h2" data-type>Selected work</h2>
       <p class="lede">Nine projects across web systems, mobile apps, computer vision, and a recycling startup. Open any of them for the full case study.</p>
     </div>
-    <!-- Cards are rendered from PROJECTS in js/data.js. The slideshow is a
-         native scroll-snap row; js/main.js adds the buttons and counter. -->
-    <div class="slider slider--work" data-slider data-autoplay="5000" data-noun="projects" data-rv role="region" aria-roledescription="carousel" aria-label="Selected work">
-      <ul class="work slider__track" id="workList"></ul>
-      <div class="slider__nav">
-        <button class="slider__btn slider__play" type="button" data-play aria-label="Pause slideshow">
-          <svg class="i-pause" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
-          <svg class="i-play" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.4-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5Z"/></svg></button>
-        <button class="slider__btn" type="button" data-dir="-1" aria-label="Previous projects">
-          <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M11 19l-7-7 7-7"/></svg></button>
-        <button class="slider__btn" type="button" data-dir="1" aria-label="Next projects">
-          <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
-        <p class="slider__count"><span data-count aria-hidden="true"></span><span class="sr-only" data-live aria-live="polite"></span></p>
-        <span class="slider__bar" aria-hidden="true"><span></span></span>
-      </div>
+    <!-- Cards are rendered from PROJECTS in js/data.js: a grid that shows
+         the first four, and js/main.js adds the "Show all" button. -->
+    <div data-rv>
+      <ul class="work" id="workList"></ul>
+      <p class="work__more-wrap"><button class="btn work__all" id="workAll" type="button" aria-expanded="false" aria-controls="workList" hidden></button></p>
     </div>
     <!-- Without JavaScript the cards can't render, so list the projects plainly -->
     <noscript>
@@ -511,8 +503,8 @@
   </section>
 </div>
 
-<script src="js/data.js?v=20261127d"></script>
-<script src="js/main.js?v=20261127b"></script>
+<script src="js/data.js?v=20261127e"></script>
+<script src="js/main.js?v=20261127c"></script>
 <script src="js/chat-data.js?v=20261127b"></script>
 <script src="js/chat.js?v=20261031a"></script>
 </body>

@@ -253,36 +253,52 @@
     }
   }
 
-  /* ── Work cards — one per project, all visible at once so a visitor can
-     compare them at a glance. The title is the button; its ::after
-     stretches over the card so the whole card is one click target. ── */
+  /* ── Work cards — a grid of projects. Each screenshot sits on a panel
+     tinted in that project's own colours (tint in js/data.js). The first
+     SHOWN are visible; "Show all" reveals the rest. The title is the
+     button; its ::after stretches over the card so the whole card is one
+     click target. ── */
   (function () {
-    var host = $('#workList');
-    var ARROW = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>';
-    PROJECTS.forEach(function (p) {
-      var status = '';
-      p.meta.forEach(function (m) { if (m[0] === 'Status') status = m[1]; });
+    var host = $('#workList'), all = $('#workAll'), SHOWN = 4;
+    var ARROW = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>';
+    PROJECTS.forEach(function (p, i) {
       var li = document.createElement('li');
       li.className = 'work__item';
+      if (i >= SHOWN) li.hidden = true;
+      var t = p.tint || ['#3a3a3a', '#1c1c1c'];
       li.innerHTML =
-        '<article class="work__card">' +
+        '<article class="work__card" style="--t1:' + t[0] + ';--t2:' + t[1] + '">' +
           '<div class="work__shot">' + shotFor(p) + '</div>' +
           '<div class="work__body">' +
-            '<p class="work__tag">' + p.context + (status ? ' · ' + status : '') + '</p>' +
-            '<h3 class="work__t"><button class="work__open" type="button" data-id="' + p.id + '">' + p.title + '</button></h3>' +
-            '<p class="work__d">' + p.short + '</p>' +
-            roleFor(p) +
-            '<ul class="chips">' + p.chips.slice(0, 4).map(function (c) { return '<li>' + c + '</li>'; }).join('') + '</ul>' +
-            '<p class="work__foot"><span class="work__more" aria-hidden="true">Read case study ' + ARROW + '</span>' +
-              (p.live ? '<a class="work__live" href="' + p.live + '" target="_blank" rel="noopener noreferrer">' +
-                p.live.replace(/^https?:\/\//, '') + ' ' + ARROW + '</a>' : '') +
-            '</p>' +
+            '<div class="work__head">' +
+              '<h3 class="work__t"><button class="work__open" type="button" data-id="' + p.id + '">' + p.title + '</button></h3>' +
+              (p.live ? '<a class="work__live" href="' + p.live + '" target="_blank" rel="noopener noreferrer" aria-label="Visit the live ' + p.title + ' site">' + ARROW + '</a>' : '') +
+              (p.year ? '<p class="work__yr">' + p.year + '</p>' : '') +
+            '</div>' +
+            '<p class="work__sub">' + p.tag + '</p>' +
+            '<p class="work__tech">' + p.chips.slice(0, 4).join(', ') + '</p>' +
           '</div>' +
         '</article>';
       host.appendChild(li);
     });
     $$('.work__open', host).forEach(function (b) {
       b.addEventListener('click', function () { openDetail(b.getAttribute('data-id'), b); });
+    });
+
+    if (PROJECTS.length <= SHOWN) return;
+    var open = false;
+    function label() { all.textContent = open ? 'Show fewer projects' : 'Show all ' + PROJECTS.length + ' projects'; }
+    label();
+    all.hidden = false;
+    all.addEventListener('click', function () {
+      open = !open;
+      $$('.work__item', host).forEach(function (li, i) { if (i >= SHOWN) li.hidden = !open; });
+      all.setAttribute('aria-expanded', open ? 'true' : 'false');
+      label();
+      // Opening: move focus to the first newly shown project.
+      // Closing: bring the button back into view, since the page got shorter.
+      if (open) $$('.work__open', host)[SHOWN].focus();
+      else all.scrollIntoView({ block: 'center' });
     });
   })();
 

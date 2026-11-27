@@ -92,7 +92,7 @@ const shots = process.argv.includes('--shots');
       // Slideshows: Next moves the track and the counter, Previous brings it back.
       // Previous starts disabled, except on a looping (data-autoplay) slider, which has no start.
       c.sliders = [];
-      for (const sel of ['.slider--work', '.slider--tr']) {
+      for (const sel of ['.slider--tr']) {
         await page.evaluate(s => document.querySelector(s + ' .slider__nav').scrollIntoView({ block: 'center' }), sel);
         const s0 = await page.$eval(sel, r => ({ count: r.querySelector('[data-count]').textContent, prevOff: r.hasAttribute('data-autoplay') || r.querySelector('[data-dir="-1"]').getAttribute('aria-disabled') === 'true' }));
         await page.click(sel + ' [data-dir="1"]');
@@ -103,8 +103,15 @@ const shots = process.argv.includes('--shots');
         const x2 = await page.$eval(sel + ' .slider__track', t => t.scrollLeft);
         if (!(s0.prevOff && s1.x > 0 && s1.count !== s0.count && x2 < 2)) c.sliders.push(`${sel} ${s0.count}->${s1.count} x=${s1.x}->${x2}`);
       }
-      // Work cards: all nine rendered, the third opens its case study
+      // Work cards: all nine rendered, four shown until "Show all" reveals the rest
       c.workCards = await page.$$eval('.work__open', b => b.length);
+      c.workShowAll = await page.evaluate(() => {
+        const vis = () => [...document.querySelectorAll('.work__item')].filter(li => li.offsetParent !== null).length;
+        const btn = document.getElementById('workAll'), before = vis();
+        btn.click(); const after = vis(), open = btn.getAttribute('aria-expanded') === 'true';
+        btn.click(); return before === 4 && after === 9 && open && vis() === 4;
+      });
+      // The third card opens its case study
       await page.evaluate(() => document.querySelectorAll('.work__card')[2].scrollIntoView({ block: 'center' }));
       c.yBeforeDetail = await page.evaluate(() => scrollY);
       await page.evaluate(() => document.querySelectorAll('.work__open')[2].click());
@@ -197,7 +204,7 @@ const shots = process.argv.includes('--shots');
     if (c.burger && !(c.sheetOpens && c.sheetClosesOnLink)) bad.push('sheet broken');
     if (!c.heroIntro) bad.push('hero intro hidden/clipped');
     for (const k of ['sectionSwitch', 'detailOpens', 'detailImgOk', 'detailNoHScroll', 'detailClosesEsc', 'lightboxOpens', 'lightboxCloses', 'formRejectsBadEmail', 'deepLink', 'returnsToCard',
-      'botVisible', 'botOpens', 'botPanelFits', 'botChipAnswers', 'botTypedAnswers', 'botProjectAnswers', 'botWhyHire', 'botHonestUnknown', 'botFallback', 'botClosesEsc', 'botYieldsToMsg']) if (!c[k]) bad.push(k + ' FAILED');
+      'workShowAll', 'botVisible', 'botOpens', 'botPanelFits', 'botChipAnswers', 'botTypedAnswers', 'botProjectAnswers', 'botWhyHire', 'botHonestUnknown', 'botFallback', 'botClosesEsc', 'botYieldsToMsg']) if (!c[k]) bad.push(k + ' FAILED');
     if (c.workCards !== 9) bad.push('work cards ' + c.workCards);
     if (c.sliders.length) bad.push('slideshow broken: ' + c.sliders.join(', '));
     if (!c.themeToggles) bad.push('theme toggle FAILED');

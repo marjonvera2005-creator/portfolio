@@ -31,10 +31,11 @@ Each browser/size combination checks the following:
 15. Mochi: the button is on screen, the chat opens with suggested questions, and the panel fits the screen with no sideways scroll
 16. Mochi answers a suggested question, a typed question, a named project, and "why should we hire Marjon?"; says it doesn't know a fact the portfolio doesn't state (graduation date); and gives the fallback reply to an unrelated question
 17. Mochi closes with Escape, and opening the message form closes Mochi so the two corner panels never overlap
-18. Both slideshows (Work and Trainings): Previous starts disabled, Next moves the slides and updates the counter, and Previous brings them back. Slides waiting off to the side are excluded from check 1; the slideshow track itself is still checked for overflow.
+18. Trainings slideshow: Previous starts disabled, Next moves the slides and updates the counter, and Previous brings them back. Slides waiting off to the side are excluded from check 1; the slideshow track itself is still checked for overflow.
 19. Section switch: a menu link lands its section's heading just under the nav bar, updates the address, and moves focus to the section
+20. Work grid: all nine projects render, four show at first, "Show all" reveals all nine, and pressing it again goes back to four
 
-**Latest result (15 Oct 2026, after adding the slideshows and the section switch): 10/10 combinations PASS.**
+**Latest result (27 Nov 2026, after replacing the Work slideshow with a project grid): 10/10 combinations PASS.**
 
 ```
 chrome phone-360     PASS      edge phone-360     PASS

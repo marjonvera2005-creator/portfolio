@@ -12,8 +12,8 @@ Built with plain HTML5, CSS3, and JavaScript. No frameworks and no build step.
 
 | Section | What it contains |
 |---|---|
-| Hero | Name, role, one-line summary, "View my work" button, award highlight, portrait |
-| Work | Slideshow of 9 project cards (screenshot, summary, tech); each opens a full case study |
+| Hero | Name, role, one-line summary, "View my work", "Get in touch" and "Resume" buttons, award highlight, portrait |
+| Work | Grid of 9 project cards (screenshot on a tinted panel, year, type, tech); 4 show until "Show all"; each opens a full case study |
 | Skills | Labelled tools grouped into Web & systems, Mobile, and AI & vision |
 | About | Bio, quick stats, current focus |
 | Awards | The international ML award for academic excellence (certificate + ceremony photos) |
@@ -54,13 +54,12 @@ Open `index.html` in a browser. Everything works straight from disk, with no ser
 - **Section switch:** clicking a menu link (or the logo, hero buttons, or Back to top) changes section
   like changing pages: the content fades out, the page jumps, and the section's heading and content
   rise back in. Under reduced motion it jumps instantly.
-- **Slideshows for Work and Trainings:** the longest sections scroll sideways instead of down
-  (3 projects at a time on desktop, 2 on tablet, 1 on phones). They use native CSS scroll-snap, so
-  swiping, trackpads, and Tab all work, with arrow buttons, a counter, and arrow keys on top.
-  Work slides on its own every 5 seconds and loops forward
-  without rewinding, with a
-  pause button; they hold still while a slide has keyboard focus, a dialog is open, the slider is off
-  screen, or reduced motion is on. Trainings only moves when clicked.
+- **Project grid (Work):** two columns on tablet and desktop, one on phones. Each screenshot sits on
+  a panel tinted in that project's own colours (`tint` in `js/data.js`), with the title, year, type,
+  and tech below. The first four show; "Show all 9 projects" reveals the rest.
+- **Slideshow for Trainings:** the certificates scroll sideways instead of down. It uses native CSS
+  scroll-snap, so swiping, trackpads, and Tab all work, with arrow buttons, a counter, and arrow keys
+  on top. It only moves when clicked.
 - **Photo reel (Beyond the code):** the photos sit in a frame turned in 3D and drift sideways at a
   steady speed, looping forever, with the far edge faded and the near edge softly blurred. Arrows
   nudge one photo; Pause stops the drift. Under reduced motion it lies flat and starts paused.

@@ -356,10 +356,10 @@ section[tabindex='-1']:focus { outline:none; }
 }
 
 /* ═══ SLIDER ══════════════════════════════════════════════════════════ */
-/* Work and Trainings scroll sideways instead of down. The track is a
+/* Trainings scrolls sideways instead of down. The track is a
    native scroll-snap row, so swipe, trackpad and Tab work with no script;
-   main.js only adds the buttons, the counter and arrow keys. Work and the
-   Beyond photos (data-autoplay) move on their own, with a pause button.
+   main.js only adds the buttons, the counter and arrow keys. The Beyond
+   photos (data-autoplay) move on their own, with a pause button.
    Phones show one slide with the next one peeking in, which says "swipe"
    without words. From 768px, --per slides fit exactly. */
 .slider__track {
@@ -376,9 +376,7 @@ section[tabindex='-1']:focus { outline:none; }
 .slider__track > * { scroll-snap-align:start; }
 @media (min-width:768px) {
   .slider__track { grid-auto-columns:calc((100% - (var(--per) - 1) * var(--sl-gap)) / var(--per)); }
-  .slider--work .slider__track { --per:2; }
 }
-@media (min-width:1024px) { .slider--work .slider__track { --per:3; } }
 
 /* Arrows sit on the left, so the Mochi button (fixed bottom-right) can
    never cover them. */
@@ -404,46 +402,53 @@ section[tabindex='-1']:focus { outline:none; }
 .slider__play[data-playing='0'] .i-play { display:block; }
 
 /* ═══ WORK ════════════════════════════════════════════════════════════ */
-/* One card per project, shown as slides (see SLIDER above). */
-.work__card {
-  position:relative; height:100%; display:flex; flex-direction:column;
-  border-radius:18px; overflow:hidden; background:var(--surface); border:1px solid var(--line);
-  transition:border-color var(--t-ui) var(--ease-soft), box-shadow var(--t-ui) var(--ease-soft);
+/* A grid of projects: the screenshot on a panel tinted in the project's own
+   colours (--t1 glow, --t2 base, set per card from js/data.js), then the
+   title, year, type and tech below it. Phones: one column; 768+: two. */
+.work { display:grid; grid-template-columns:1fr; gap:clamp(32px,4vw,48px) clamp(20px,3vw,32px); }
+@media (min-width:768px) { .work { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+.work__item[hidden] { display:none; }
+.work__card { position:relative; height:100%; display:flex; flex-direction:column; }
+/* Screenshots keep their true aspect: several are portrait phone shots,
+   which cover-cropping would cut to a thin band. */
+.work__shot {
+  aspect-ratio:16/10; overflow:hidden; border-radius:22px; padding:clamp(18px,3vw,34px);
+  border:1px solid color-mix(in srgb, var(--t1) 30%, var(--line));
+  background:
+    radial-gradient(120% 90% at 50% 115%, color-mix(in srgb, var(--t1) 55%, transparent), transparent 70%),
+    linear-gradient(160deg, color-mix(in srgb, var(--t2) 70%, var(--surface)), color-mix(in srgb, var(--t2) 35%, var(--bg)));
+  transition:border-color var(--t-ui) var(--ease-soft);
 }
-/* Border only: the slider track would clip a drop shadow to a hard edge. */
-.work__card:hover { border-color:var(--line-2); }
-/* Screenshots keep their true aspect on a plinth: three are portrait phone
-   shots, which cover-cropping would cut to a thin band. */
-/* overflow:hidden stops a tall portrait screenshot from growing the box past 16:10. */
-.work__shot { aspect-ratio:16/10; overflow:hidden; background:var(--bg-2); border-bottom:1px solid var(--line); padding:14px; }
-.shot { width:100%; height:100%; object-fit:contain; transition:transform 420ms var(--ease); }
+.work__card:hover .work__shot { border-color:color-mix(in srgb, var(--t1) 70%, var(--line-2)); }
+.shot { width:100%; height:100%; object-fit:contain; border-radius:8px; filter:drop-shadow(0 14px 24px rgba(0,0,0,.35)); transition:transform 420ms var(--ease); }
 .work__card:hover .shot { transform:scale(1.03); }
-.dshot .shot { max-height:min(560px, 60vh); }
-.work__body { flex:1; display:flex; flex-direction:column; padding:20px 22px 22px; }
-.work__tag { font:500 11.5px/1.4 var(--mono); letter-spacing:.12em; text-transform:uppercase; color:var(--accent); }
-.work__t { margin-top:8px; font-size:clamp(21px,2.2vw,26px); font-weight:700; letter-spacing:-.02em; line-height:1.15; }
+.dshot .shot { max-height:min(560px, 60vh); border-radius:0; filter:none; }
+.work__body { padding:18px 2px 0; }
+.work__head { display:flex; align-items:baseline; gap:10px; }
+.work__t { font-size:clamp(21px,2.2vw,25px); font-weight:700; letter-spacing:-.02em; line-height:1.2; }
+.work__yr { margin-left:auto; font-size:clamp(17px,1.8vw,20px); color:var(--faint); font-variant-numeric:tabular-nums; }
+.work__sub { margin-top:6px; font-size:17px; color:var(--text); opacity:.85; }
+.work__tech { margin-top:6px; font-size:15px; color:var(--faint); }
 /* The title button's ::after covers the card: one big, honest click target. */
 .work__open { text-align:left; }
-.work__open::after { content:''; position:absolute; inset:0; z-index:1; border-radius:inherit; }
+.work__open::after { content:''; position:absolute; inset:0; z-index:1; border-radius:22px; }
 .work__open:focus-visible { outline:none; }
-.work__card:has(.work__open:focus-visible) { outline:2px solid var(--text); outline-offset:3px; }
-.work__d { margin-top:10px; color:var(--muted); font-size:16px; line-height:1.6; }
-.work__body .chips { margin-top:16px; }
-/* "My role" note: a quiet inset panel, used on cards and in the case study. */
+.work__card:has(.work__open:focus-visible) .work__shot { outline:2px solid var(--text); outline-offset:3px; }
+.work__card:hover .work__t { color:var(--accent); }
+/* "My role" note: a quiet inset panel in the case study. */
 .role { margin-top:16px; padding:12px 14px; border-radius:10px; background:var(--surface-2); border:1px solid var(--line); }
 .role__k { font:500 11.5px/1.4 var(--mono); letter-spacing:.14em; text-transform:uppercase; color:var(--faint); }
 .role__v { margin-top:4px; font-size:15px; line-height:1.6; color:var(--text); }
 .detail__lede + .role { margin-top:20px; max-width:58ch; }
-.work__body .chips li { background:var(--surface-2); }
-.work__foot { margin-top:auto; padding-top:20px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 16px; font-size:14px; font-weight:700; }
-.work__more { display:inline-flex; align-items:center; gap:7px; }
-.work__card:hover .work__more { color:var(--accent); }
-/* Sits above the stretched title button so it stays independently clickable. */
+/* Live-site arrow beside the title; sits above the stretched title button
+   so it stays independently clickable. */
 .work__live {
-  position:relative; z-index:2; display:inline-flex; align-items:center; gap:6px;
-  font:400 13px/1 var(--mono); color:var(--muted); transition:color var(--t-ui) var(--ease-soft);
+  position:relative; z-index:2; display:inline-grid; place-items:center; width:30px; height:30px; border-radius:999px;
+  color:var(--faint); transition:color var(--t-ui) var(--ease-soft), background var(--t-ui) var(--ease-soft);
 }
-.work__live:hover { color:var(--text); }
+.work__live:hover { color:var(--text); background:var(--surface-2); }
+.work__more-wrap { margin-top:clamp(32px,4vw,44px); }
+.work__all { width:100%; justify-content:center; padding-block:16px; border-radius:16px; }
 
 /* ═══ SKILLS ══════════════════════════════════════════════════════════ */
 /* One card per group: icon + title, then a wrap of pills. Logo pills name
