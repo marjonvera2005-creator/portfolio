@@ -284,7 +284,8 @@
       var t = p.tint || ['#3a3a3a', '#1c1c1c'];
       li.innerHTML =
         '<article class="work__card" style="--t1:' + t[0] + ';--t2:' + t[1] + '">' +
-          '<div class="work__shot">' + shotFor(p) + '</div>' +
+          '<div class="work__shot">' + shotFor(p) +
+            '<span class="work__peek" aria-hidden="true">View case study ' + ARROW + '</span></div>' +
           '<div class="work__body">' +
             '<div class="work__head">' +
               '<h3 class="work__t"><button class="work__open" type="button" data-id="' + p.id + '">' + p.title + '</button></h3>' +
@@ -293,6 +294,8 @@
             '</div>' +
             '<p class="work__sub">' + p.tag + '</p>' +
             '<p class="work__tech">' + p.chips.slice(0, 4).join(', ') + '</p>' +
+            // A visible cue that the card opens, for touch screens with no hover
+            '<p class="work__cta" aria-hidden="true">View case study ' + ARROW + '</p>' +
           '</div>' +
         '</article>';
       host.appendChild(li);

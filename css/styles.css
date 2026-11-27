@@ -537,6 +537,22 @@ section[tabindex='-1']:focus { outline:none; }
 .work__open:focus-visible { outline:none; }
 .work__card:has(.work__open:focus-visible) .work__shot { outline:2px solid var(--text); outline-offset:3px; }
 .work__card:hover .work__t { color:var(--accent); }
+/* Cues that a card opens: a pointer, an always-visible "View case study"
+   line (touch screens have no hover), and on hover a pill over the shot. */
+.work__card { cursor:pointer; }
+.work__shot { position:relative; }
+.work__cta { display:inline-flex; align-items:center; gap:6px; margin-top:12px; font-size:15px; font-weight:700; color:var(--accent); }
+.work__cta svg { transition:transform var(--t-ui) var(--ease); }
+.work__card:hover .work__cta svg { transform:translate(2px,-2px); }
+.work__peek {
+  position:absolute; left:50%; bottom:18px; z-index:1; display:inline-flex; align-items:center; gap:6px;
+  padding:9px 16px; border-radius:999px; font-size:14px; font-weight:700; white-space:nowrap;
+  background:var(--inv-bg); color:var(--inv-tx); box-shadow:0 10px 24px -10px rgba(0,0,0,.6);
+  opacity:0; transform:translate(-50%,8px); transition:opacity var(--t-ui) var(--ease-soft), transform var(--t-ui) var(--ease);
+}
+@media (hover:hover) {
+  .work__card:hover .work__peek, .work__card:has(.work__open:focus-visible) .work__peek { opacity:1; transform:translate(-50%,0); }
+}
 /* "My role" note: a quiet inset panel in the case study. */
 .role { margin-top:16px; padding:12px 14px; border-radius:10px; background:var(--surface-2); border:1px solid var(--line); }
 .role__k { font:500 11.5px/1.4 var(--mono); letter-spacing:.14em; text-transform:uppercase; color:var(--faint); }
