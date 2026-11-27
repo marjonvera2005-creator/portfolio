@@ -76,7 +76,7 @@ var PROJECTS = [
   {
     id:'tindahantrack', title:'TindahanTrack', tag:'Mobile app · Offline-first',
     year:'2026', tint:['#e0b324','#1b3d2b'],
-    context:'Personal project',
+    context:'Freelance project',
     role:'Built alone, in four roles:<br>Product owner and designer<br>Project lead<br>Backend setup (Supabase)<br>Tester',
     shot:'Images/web/tindahantrack/01-home.jpg',
     shotAlt:'TindahanTrack home screen with today’s sales of 12 pesos, low stock and out of stock counts, utang, the restock list, and Add product and Record sale buttons.',
@@ -123,13 +123,13 @@ var PROJECTS = [
     ],
     short:'A stock and sales app for sari-sari stores that works even without signal: sales, utang, tingi, restocking, and reports, saved on the phone first and backed up to the cloud.',
     lede:'A stock and sales app for sari-sari stores that works even without signal. Everything is saved on the phone first and backs up to the cloud by itself when there is internet.',
-    meta:[['Project','Personal project'],['Built by','Me, alone'],['Users','Sari-sari store owners'],['Backend','Supabase'],['Status','In use by a real store']],
+    meta:[['Project','Freelance, paid by a sari-sari store'],['Built by','Me, alone'],['Users','Sari-sari store owners'],['Backend','Supabase'],['Status','In use by a real store']],
     chips:['Mobile app','Offline-first','Supabase','Barcode scanner','Taglish'],
     blocks:[
       { h:'What it does', list:['<b>Record a sale</b> &mdash; scan a barcode or pick the product; the app shows the stock before and after and works out the change.','<b>Utang (listahan)</b> &mdash; sell on credit, record partial payments, and send a polite reminder.','<b>Tingi</b> &mdash; buy by the box, sell by the piece (&ldquo;1 box = 20 pcs&rdquo;).','<b>Products and stock</b> &mdash; price, cost, stock, and an alert level for each product, or import a whole list at once.','<b>Count stock</b> &mdash; type the shelf counts for many products, then save once.','<b>Restock list</b> &mdash; what to buy and how much, ready to send to the supplier.','<b>Reports</b> &mdash; daily, weekly, and monthly sales, profit, best sellers, and stock value.'] },
       { h:'Works without signal', p:['Everything is saved on the phone first, so the store keeps running when there is no signal. When there is internet, it backs up to the cloud by itself, and two phones signed in to the same account stay up to date.','There is also a backup file the owner can keep in Google Drive, and a PIN lock for the phone.'] },
       { h:'Details that matter', list:['<b>Mistakes are reversed, never erased</b> &mdash; every sale keeps its receipt, and stock history shows every restock, sale, and correction.','<b>A new barcode is learned once</b> &mdash; the app asks which product it is the first time, then sells it on every scan after.','<b>Stock alerts</b> &mdash; a phone notification when something runs low, even offline.','<b>A selling streak</b> &mdash; the owner&rsquo;s photo with a day count, so recording sales becomes a habit.','<b>Taglish</b> &mdash; the whole app can switch between English and Taglish.'] },
-      { h:'My part', p:['I built TindahanTrack alone, in four roles:'], list:['<b>Product owner and designer</b> &mdash; decided all the features (utang, tingi, the barcode scanner, two phones on one account, the selling streak, returns) and how the screens should look and work.','<b>Project lead</b> &mdash; planned the work in phases and approved each one before it started.','<b>Backend setup</b> &mdash; created the Supabase project and ran its SQL setup.','<b>Tester</b> &mdash; tested every version on a real phone and reported problems to fix.'] }
+      { h:'My part', p:['A sari-sari store paid me to build TindahanTrack, and the store uses it now. I built it alone, in four roles:'], list:['<b>Product owner and designer</b> &mdash; decided all the features (utang, tingi, the barcode scanner, two phones on one account, the selling streak, returns) and how the screens should look and work.','<b>Project lead</b> &mdash; planned the work in phases and approved each one before it started.','<b>Backend setup</b> &mdash; created the Supabase project and ran its SQL setup.','<b>Tester</b> &mdash; tested every version on a real phone and reported problems to fix.'] }
     ],
     features:['Works offline, backs up to the cloud','Sales with change, by scan or pick','Utang with partial payments and reminders','Tingi: buy by the box, sell by the piece','Stock history; mistakes reversed, never erased','Daily, weekly, and monthly reports','Restock list to share with the supplier','Stock alerts, PIN lock, and Taglish']
   },
@@ -176,9 +176,9 @@ var PROJECTS = [
         alt:'Cuisina My Bookings screen with In progress, Completed, and Cancelled groups and booking cards marked Rejected.' }
     ],
     short:'A catering booking platform: customers build a package, menu, and styling with a live price, pick an open date, and pin the venue on a map, while caterers run their business from a web portal.',
-    lede:'A catering booking platform with three sides: a mobile app where customers find a caterer and build their booking, a web portal where caterers manage packages, menus, and booking requests, and an admin portal that verifies businesses before they go live.',
-    meta:[['Project','Team project, 4 members'],['My role','Developer'],['Type','Mobile app + web portals'],['Users','Customers, caterers, admin']],
-    chips:['Mobile app','Caterer web portal','Admin portal','OpenStreetMap','MapTiler','Leaflet'],
+    lede:'A catering booking platform built by a team of four for Parallel and Distributed Computing, with three sides: a mobile app where customers find a caterer and build their booking, a web portal where caterers manage packages, menus, and booking requests, and an admin portal that verifies businesses before they go live.',
+    meta:[['Project','Team project, 4 members'],['Course','Parallel and Distributed Computing'],['When','October 2026'],['My role','Developer'],['Type','Mobile app + web portals'],['Users','Customers, caterers, admin']],
+    chips:['Flutter','Supabase','OpenStreetMap','Leaflet','MapTiler'],
     blocks:[
       { h:'How a customer books', flow:{ steps:['Find a caterer by search or event type','Pick a package and the number of guests','Choose the menu, add-ons, and styling, with a live estimate','Pick an open date and pin the event location on the map','Review the booking while the date is held','Track it in My Bookings and Notifications'] } },
       { h:'For caterers (owners)',

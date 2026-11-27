@@ -87,8 +87,8 @@ var CHAT = {
         '<li><b>CassavaCare:</b> a project given by one of Marjon&rsquo;s faculty instructors; Marjon trained both models and built the app</li>' +
         '<li><b>Banana Detector:</b> built during an international immersion program in Vietnam</li>' +
         '<li><b>Face Recognition Attendance:</b> a 6-member team project from 2nd year, 1st semester; Marjon was the assistant programmer</li>' +
-        '<li><b>Cuisina:</b> a 4-member team project, a catering booking platform; Marjon was the developer</li>' +
-        '<li><b>TindahanTrack:</b> built alone, as product owner and designer, project lead, backend setup, and tester</li></ul>',
+        '<li><b>Cuisina:</b> a 4-member team project for Parallel and Distributed Computing, a catering booking platform built with Flutter and Supabase; Marjon was the developer</li>' +
+        '<li><b>TindahanTrack:</b> paid freelance work for a sari-sari store, built alone, as product owner and designer, project lead, backend setup, and tester</li></ul>',
       next: ['hardest', 'why', 'contact'] },
 
     { id: 'hardest',
