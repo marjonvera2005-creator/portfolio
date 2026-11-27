@@ -18,7 +18,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230A0A0A'/%3E%3Ctext x='50' y='70' font-family='Archivo,Arial' font-size='58' font-weight='800' fill='%23fff' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
 
 <!-- ?v= makes browsers fetch the new file after a change; bump it on every update -->
-<link rel="stylesheet" href="css/styles.css?v=20261128g">
+<link rel="stylesheet" href="css/styles.css?v=20261128h">
 <!-- Apply the remembered sidebar state before the first paint, so it doesn't jump -->
 <script>try { if (localStorage.getItem('mv_side') === 'collapsed') document.documentElement.setAttribute('data-side', 'collapsed'); } catch (e) {}</script>
 </head>
@@ -55,10 +55,11 @@
       <a href="#work" title="Work"><span class="nav__no" aria-hidden="true">01</span><span class="nav__lbl">Work</span></a>
       <a href="#capabilities" title="Skills"><span class="nav__no" aria-hidden="true">02</span><span class="nav__lbl">Skills</span></a>
       <a href="#about" title="About"><span class="nav__no" aria-hidden="true">03</span><span class="nav__lbl">About</span></a>
-      <a href="#awards" title="Awards"><span class="nav__no" aria-hidden="true">04</span><span class="nav__lbl">Awards</span></a>
-      <a href="#trainings" title="Trainings"><span class="nav__no" aria-hidden="true">05</span><span class="nav__lbl">Trainings</span></a>
-      <a href="#beyond" title="Beyond"><span class="nav__no" aria-hidden="true">06</span><span class="nav__lbl">Beyond</span></a>
-      <a href="#contact" title="Contact"><span class="nav__no" aria-hidden="true">07</span><span class="nav__lbl">Contact</span></a>
+      <a href="#journey" title="Journey"><span class="nav__no" aria-hidden="true">04</span><span class="nav__lbl">Journey</span></a>
+      <a href="#awards" title="Awards"><span class="nav__no" aria-hidden="true">05</span><span class="nav__lbl">Awards</span></a>
+      <a href="#trainings" title="Trainings"><span class="nav__no" aria-hidden="true">06</span><span class="nav__lbl">Trainings</span></a>
+      <a href="#beyond" title="Beyond"><span class="nav__no" aria-hidden="true">07</span><span class="nav__lbl">Beyond</span></a>
+      <a href="#contact" title="Contact"><span class="nav__no" aria-hidden="true">08</span><span class="nav__lbl">Contact</span></a>
     </nav>
     <!-- Desktop sidebar only: availability and local time in Naval -->
     <div class="nav__status">
@@ -90,7 +91,7 @@
 <div class="scrim" id="scrim" aria-hidden="true"></div>
 <nav class="sheet" id="sheet" aria-label="Sections (mobile)">
   <a href="#work">Work</a><a href="#capabilities">Skills</a><a href="#about">About</a>
-  <a href="#awards">Awards</a><a href="#trainings">Trainings</a><a href="#beyond">Beyond</a><a href="#contact">Contact</a>
+  <a href="#journey">Journey</a><a href="#awards">Awards</a><a href="#trainings">Trainings</a><a href="#beyond">Beyond</a><a href="#contact">Contact</a>
 </nav>
 
 <main id="main">
@@ -234,6 +235,62 @@
       </div>
       <div class="trait" id="trait"></div>
     </div>
+  </section>
+
+  <!-- ═══ JOURNEY ═══ -->
+  <!-- One row per year: the year in outline type, what happened, and the
+       projects from that year (each opens its case study). -->
+  <section class="sec wrap" id="journey">
+    <div class="sec__head" data-rv>
+      <h2 class="h2" data-type>How I got here</h2>
+      <p class="lede">From a first-year student to a developer a real store pays: the path so far, year by year.</p>
+    </div>
+    <ol class="jr">
+      <li class="jr__row" data-rv>
+        <p class="jr__yr" aria-hidden="true">2023</p>
+        <div class="jr__body">
+          <p class="jr__when">2023</p>
+          <h3 class="jr__t">Started BS Computer Science</h3>
+          <p class="jr__p-txt">Enrolled at Biliran Province State University in Naval, Biliran, and started learning to build software.</p>
+        </div>
+      </li>
+      <li class="jr__row" data-rv>
+        <p class="jr__yr" aria-hidden="true">2024</p>
+        <div class="jr__body">
+          <p class="jr__when">2024 · 2nd year</p>
+          <h3 class="jr__t">First team build</h3>
+          <p class="jr__p-txt">Assistant programmer in a team of six on a Django attendance system with face recognition: my first time shipping software with other people.</p>
+          <div class="jr__ps"><button class="jr__p" type="button" data-open-project="faceattend">Face Recognition Attendance</button></div>
+        </div>
+      </li>
+      <li class="jr__row" data-rv>
+        <p class="jr__yr" aria-hidden="true">2025</p>
+        <div class="jr__body">
+          <p class="jr__when">2025 · 2nd and 3rd year</p>
+          <h3 class="jr__t">Apps that work for real</h3>
+          <p class="jr__p-txt">Built the CocoScan app in a team of five, where our model read 154 of 160 test leaves correctly, then built QuiteScan alone, end to end, and put it online.</p>
+          <div class="jr__ps"><button class="jr__p" type="button" data-open-project="cocoscan">CocoScan</button><button class="jr__p" type="button" data-open-project="quitescan">QuiteScan</button></div>
+        </div>
+      </li>
+      <li class="jr__row" data-rv>
+        <p class="jr__yr" aria-hidden="true">2026</p>
+        <div class="jr__body">
+          <p class="jr__when">2026 · 3rd and 4th year</p>
+          <h3 class="jr__t">From class projects to paid work</h3>
+          <p class="jr__p-txt">IT immersion at the University of Danang, the Best Emerging Markets Machine Learning Architect Award in May, and Cisco and AI literacy certificates. Started my thesis, joined the Tingi founding team, built Cuisina with my team, and delivered TindahanTrack, my first paid app, now used by a sari-sari store.</p>
+          <div class="jr__ps"><button class="jr__p" type="button" data-open-project="banana">Banana Detector</button><button class="jr__p" type="button" data-open-project="intelliguide">IntelliGuide</button><button class="jr__p" type="button" data-open-project="tingi">Tingi</button><button class="jr__p" type="button" data-open-project="cuisina">Cuisina</button><button class="jr__p" type="button" data-open-project="tindahantrack">TindahanTrack</button></div>
+        </div>
+      </li>
+      <li class="jr__row jr__row--next" data-rv>
+        <p class="jr__yr" aria-hidden="true">Next</p>
+        <div class="jr__body">
+          <p class="jr__when">Next</p>
+          <h3 class="jr__t">A software developer job</h3>
+          <p class="jr__p-txt">A team where I can keep building systems that watch, verify, and guide, for people who use them every day.</p>
+          <div class="jr__ps"><a class="btn btn--solid" href="#contact">Let's talk</a></div>
+        </div>
+      </li>
+    </ol>
   </section>
 
   <!-- ═══ AWARDS ═══ -->
@@ -533,7 +590,7 @@
 </div>
 
 <script src="js/data.js?v=20261127f"></script>
-<script src="js/main.js?v=20261128e"></script>
+<script src="js/main.js?v=20261128f"></script>
 <script src="js/chat-data.js?v=20261127c"></script>
 <script src="js/chat.js?v=20261031a"></script>
 </body>

@@ -933,6 +933,11 @@
     if (m && PROJECTS.some(function (p) { return p.id === m[1]; })) openDetail(m[1], null);
   })();
 
+  /* ── Journey: each project button opens its case study ─────────────── */
+  $$('[data-open-project]').forEach(function (b) {
+    b.addEventListener('click', function () { openDetail(b.getAttribute('data-open-project'), b); });
+  });
+
   /* ── Certificate lightbox — FLIP out of whatever was clicked ───────── */
   (function () {
     var lb = $('#lb'), stage = $('#lbStage'), load = $('#lbLoad'),

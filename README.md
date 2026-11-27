@@ -16,6 +16,7 @@ Built with plain HTML5, CSS3, and JavaScript. No frameworks and no build step.
 | Work | Grid of 9 project cards (screenshot on a tinted panel, year, type, tech); 4 show until "Show all"; each opens a full case study |
 | Skills | Labelled tools grouped into Web & systems, Mobile, and AI & vision |
 | About | Bio, quick stats, current focus |
+| Journey | Year-by-year path from 2023 to now, with the projects from each year (each opens its case study), and what comes next |
 | Awards | The international ML award for academic excellence (certificate + ceremony photos) |
 | Trainings | Slideshow of 5 certificates from 4 trainings, each viewable full size, coming forward in 3D |
 | Beyond the code | 36 personal photos (Vietnam, outdoors, fitness, campus) in a 3D reel that drifts sideways without stopping, with filters |
@@ -55,7 +56,7 @@ Open `index.html` in a browser. Everything works straight from disk, with no ser
   like changing pages: the content fades out, the page jumps, and the section's heading and content
   rise back in. Under reduced motion it jumps instantly.
 - **Sidebar navigation:** on laptops and desktops (1024px and up) the menu is a panel on the left that
-  reads like an editorial index: the M mark, the sections numbered 01-07 with an orange rule on the
+  reads like an editorial index: the M mark, the sections numbered 01-08 with an orange rule on the
   current one, a status card ("Available for work" and the time in Naval), then "Chat with Mochi", the
   CV, the theme, and the profiles as icons. Its collapse button shrinks it to the numbers, and the
   choice is remembered. Phones and tablets keep a top bar with a menu button.

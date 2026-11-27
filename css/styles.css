@@ -257,7 +257,7 @@ ul,ol { list-style:none; }
     .nav__right { gap:8px; margin-top:10px; }
     .nav__row .nav__sq { height:38px; }
   }
-  @media (max-height:640px) { .nav__social { display:none; } }
+  @media (max-height:640px) { .nav__social { display:none; } .nav__links a { padding-block:5px; } }
 
   /* Collapsed: the numbers only */
   :root[data-side='collapsed'] .brand__t,
@@ -627,6 +627,36 @@ section[tabindex='-1']:focus { outline:none; }
 .trait button { position:absolute; inset:0; width:100%; border-radius:14px; background:var(--surface); border:1px solid var(--line); box-shadow:var(--shadow); display:grid; align-content:center; padding:0 20px; text-align:left; transition:transform 320ms var(--ease), opacity 260ms var(--ease-soft); }
 .trait small { font:500 11.5px/1 var(--mono); letter-spacing:.2em; text-transform:uppercase; color:var(--faint); }
 .trait b { font-size:17px; font-weight:700; letter-spacing:-.01em; margin-top:7px; }
+
+/* ═══ JOURNEY ═════════════════════════════════════════════════════════ */
+/* One row per year, separated by rules like the sidebar index. The year
+   is set large in outline type, the same treatment as the hero name.
+   Phones: the small year label above each entry instead. */
+.jr { border-top:1px solid var(--line); }
+.jr__row { display:grid; grid-template-columns:1fr; gap:6px 40px; padding:clamp(22px,3vw,34px) 0; border-bottom:1px solid var(--line); }
+.jr__yr { display:none; }
+.jr__when { font:500 11.5px/1.4 var(--mono); letter-spacing:.14em; text-transform:uppercase; color:var(--accent); }
+.jr__t { margin-top:6px; font-size:clamp(20px,2.2vw,24px); font-weight:700; letter-spacing:-.02em; line-height:1.2; }
+.jr__p-txt { margin-top:8px; color:var(--muted); font-size:16px; line-height:1.7; max-width:62ch; }
+.jr__ps { margin-top:14px; display:flex; flex-wrap:wrap; gap:8px; }
+.jr__p {
+  padding:7px 14px; border-radius:999px; border:1px solid var(--line-2); font-size:14px; font-weight:600; color:var(--text);
+  transition:border-color var(--t-ui) var(--ease-soft), color var(--t-ui) var(--ease-soft);
+}
+.jr__p:hover { border-color:var(--accent); color:var(--accent); }
+@media (min-width:768px) {
+  .jr__row { grid-template-columns:minmax(150px,.32fr) minmax(0,1fr); align-items:start; }
+  .jr__yr {
+    display:block; font-size:clamp(56px,7vw,92px); font-weight:900; line-height:.9; letter-spacing:-.02em;
+    color:transparent; -webkit-text-stroke:1.4px var(--line-2);
+    transition:-webkit-text-stroke-color var(--t-ui) var(--ease-soft);
+  }
+  .jr__row:hover .jr__yr { -webkit-text-stroke-color:var(--accent); }
+  .jr__when { display:none; }
+  .jr__t { margin-top:4px; }
+}
+@supports not ((-webkit-text-stroke: 1px red)) { .jr__yr { color:var(--line-2); } }
+.jr__row--next .jr__yr { -webkit-text-stroke-color:var(--accent); }
 
 /* ═══ AWARDS ══════════════════════════════════════════════════════════ */
 /* The international award is featured: certificate + story + photos. */
