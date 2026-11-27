@@ -171,109 +171,100 @@ ul,ol { list-style:none; }
 
 /* Brand + collapse button. On phones the button is hidden and this is just the brand. */
 .nav__top { display:flex; align-items:center; gap:8px; }
-.nav__fold, .nav__me, .nav__grp, .nav__count, .nav__badge, .nav__tool, .nav__social { display:none; }
-.nav__links svg, .hire__ic { display:none; }
+.nav__fold, .nav__idx, .nav__no, .nav__status, .nav__mochi, .nav__social { display:none; }
+.nav__row { display:contents; }
+.nav__row a.nav__sq, .hire__ic { display:none; }
 
 /* ── Desktop sidebar ──────────────────────────────────────────────────
    From 1024px the menu is a floating panel down the left edge, and the
-   page makes room for it (body padding). Top: photo, name and role. Then
-   the sections in small groups, each with an icon and a count. Bottom:
-   Ask Mochi (Alt+K), the resume, the theme, and the profiles.
-   The collapse button shrinks it to a strip of icons; the labels stay in
-   the page for screen readers, and each link's title names it on hover.
-   The choice is kept in localStorage (mv_side) and applied in <head>
-   before the first paint. */
+   page makes room for it (body padding). It reads like an editorial
+   index: the M mark, the sections numbered 01-07 in the mono face with an
+   orange rule on the current one, a status card (available for work, and
+   the time in Naval), then Mochi, the CV, the theme, and the profiles as
+   icons. The collapse button shrinks it to the numbers; the labels stay
+   in the page for screen readers, and each link's title names it on
+   hover. The choice is kept in localStorage (mv_side) and applied in
+   <head> before the first paint. */
 @media (min-width:1024px) {
-  :root { --side:276px; }
-  :root[data-side='collapsed'] { --side:78px; }
+  :root { --side:244px; }
+  :root[data-side='collapsed'] { --side:80px; }
   html { scroll-padding-top:56px; }
   body { padding-left:calc(var(--side) + 16px); }
 
   .nav { top:16px; bottom:16px; left:16px; right:auto; width:var(--side); padding:0; }
   .nav__in {
     height:100%; max-width:none; flex-direction:column; align-items:stretch; gap:0;
-    padding:14px 12px 12px; border-radius:24px; overflow:hidden;
+    padding:16px 14px 14px; border-radius:20px; overflow:hidden;
   }
-
-  /* Who: photo, name and role */
-  .nav__top { justify-content:space-between; padding:2px 2px 14px 4px; margin-bottom:6px; border-bottom:1px solid var(--line); }
-  .brand { display:none; }
-  .nav__me { display:flex; align-items:center; gap:11px; min-width:0; }
-  .nav__me img { width:42px; height:42px; flex:none; border-radius:50%; object-fit:cover; object-position:50% 18%; border:1px solid var(--line-2); }
-  .nav__who { display:flex; flex-direction:column; min-width:0; line-height:1.25; }
-  .nav__who b { font-size:15px; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .nav__who span { font-size:13px; color:var(--faint); }
+  .nav__top { justify-content:space-between; padding:0 0 0 2px; }
   .nav__fold { display:grid; flex:none; }
   .nav__fold svg { transition:transform var(--t-ui) var(--ease); }
 
-  /* Sections: scroll inside the panel if the screen is short */
-  .nav__links { flex:1 1 auto; min-height:0; flex-direction:column; align-items:stretch; gap:1px; margin:0; overflow-y:auto; scrollbar-width:thin; }
-  .nav__grp { display:block; margin:12px 12px 4px; font-size:12px; color:var(--faint); letter-spacing:.02em; }
-  .nav__grp:first-child { margin-top:6px; }
+  /* The index */
+  .nav__idx { display:block; margin:26px 4px 8px; font:500 11px/1 var(--mono); letter-spacing:.2em; text-transform:uppercase; color:var(--faint); }
+  .nav__links { flex:1 1 auto; min-height:0; flex-direction:column; align-items:stretch; gap:0; margin:0; overflow-y:auto; scrollbar-width:none; }
   .nav__links a {
-    display:flex; align-items:center; gap:13px; padding:9px 12px; border-radius:12px;
-    font-size:15px; font-weight:500; letter-spacing:0; text-transform:none; color:var(--muted);
+    display:flex; align-items:baseline; gap:14px; padding:10px 4px 10px 14px; border-radius:0;
+    font-size:15px; font-weight:600; letter-spacing:.01em; text-transform:none; color:var(--muted);
+    border-bottom:1px solid var(--line);
   }
-  .nav__links svg { display:block; flex:none; }
-  .nav__links a:hover { background:var(--surface-2); }
-  .nav__links a[aria-current='true'] { background:var(--surface-2); color:var(--text); font-weight:700; }
-  .nav__links a::after { display:none; }
-  .nav__count { display:block; margin-left:auto; font:500 12px/1 var(--mono); color:var(--faint); font-variant-numeric:tabular-nums; }
-  .nav__badge {
-    display:inline-flex; align-items:center; gap:6px; margin-left:auto; padding:4px 10px; border-radius:999px;
-    font-size:12px; font-weight:600; color:#3fcf7a; background:color-mix(in srgb, #3fcf7a 14%, transparent);
-  }
-  :root[data-theme='light'] .nav__badge { color:#17703c; background:color-mix(in srgb, #17703c 12%, transparent); }
-  .nav__badge i { width:7px; height:7px; border-radius:50%; background:currentColor; }
+  .nav__no { display:inline; font:500 12px/1 var(--mono); letter-spacing:.06em; color:var(--faint); transition:color var(--t-ui) var(--ease-soft); }
+  .nav__links a:hover { color:var(--text); }
+  .nav__links a[aria-current='true'] { color:var(--text); }
+  .nav__links a[aria-current='true'] .nav__no { color:var(--accent); }
+  /* Current section: an orange rule down the left edge */
+  .nav__links a::after { left:0; right:auto; top:9px; bottom:9px; width:2px; height:auto; border-radius:2px; transform:scaleY(0); transform-origin:50% 50%; }
+  .nav__links a[aria-current='true']::after { transform:scaleY(1); }
 
-  /* Tools: Ask Mochi on its own row, then Resume and the theme side by side */
-  .nav__right { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:stretch; gap:8px; margin:10px 0 0; padding-top:12px; border-top:1px solid var(--line); }
-  .nav__tool {
-    display:flex; align-items:center; gap:12px; min-width:0; padding:11px 12px; border-radius:14px;
-    background:var(--surface-2); border:1px solid var(--line); font-size:15px; font-weight:500; color:var(--text);
-    transition:border-color var(--t-ui) var(--ease-soft), background var(--t-ui) var(--ease-soft);
+  /* Status card */
+  .nav__status { display:block; margin-top:14px; padding:12px 14px; border-radius:14px; border:1px dashed var(--line-2); }
+  .nav__avail { display:flex; align-items:center; gap:9px; font-size:14px; font-weight:600; }
+  .nav__avail i { width:8px; height:8px; flex:none; border-radius:50%; background:#3fcf7a; box-shadow:0 0 0 4px color-mix(in srgb, #3fcf7a 22%, transparent); }
+  .nav__time { margin-top:6px; font:500 12px/1.3 var(--mono); letter-spacing:.04em; color:var(--faint); }
+
+  /* Mochi, the CV and the theme, then the profiles */
+  .nav__right { display:flex; flex-direction:column; align-items:stretch; gap:10px; margin:12px 0 0; }
+  .nav__mochi {
+    --mochi:var(--accent); display:flex; align-items:center; gap:10px; padding:8px 12px 8px 8px; border-radius:14px;
+    background:var(--inv-bg); color:var(--inv-tx); font-size:14px; font-weight:700; text-align:left;
+    transition:opacity var(--t-ui) var(--ease-soft), transform var(--t-press) var(--ease-soft);
   }
-  .nav__tool:hover { border-color:var(--line-2); }
-  .nav__ask { grid-column:1 / -1; gap:10px; text-align:left; }
-  .nav__tool .nav__lbl { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .nav__ask svg { color:var(--accent); flex:none; }
-  .nav__kbd { margin-left:auto; padding:1px 5px; border-radius:6px; border:1px solid var(--line); font:500 11px/1.3 var(--mono); color:var(--faint); }
-  .nav__kbd + .nav__kbd { margin-left:4px; }
-  .nav__ext { margin-left:auto; color:var(--faint); }
-  .nav__right #themeBtn { width:auto; height:auto; min-height:46px; padding:0 16px; border-radius:14px; background:var(--surface-2); border:1px solid var(--line); }
+  .nav__mochi:hover { opacity:.88; }
+  .nav__mochi:active { transform:scale(.97); }
+  .nav__mochi .mochi { flex:none; }
+  .nav__row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .nav__row a.nav__sq { display:grid; }
+  .nav__sq {
+    place-items:center; width:auto; height:42px; border-radius:12px; border:1px solid var(--line-2);
+    font:600 12px/1 var(--mono); letter-spacing:.14em; color:var(--muted);
+    transition:color var(--t-ui) var(--ease-soft), border-color var(--t-ui) var(--ease-soft), background var(--t-ui) var(--ease-soft);
+  }
+  .nav__sq:hover { color:var(--text); border-color:var(--text); background:none; }
   .nav__right .hire { display:none; }
+  .nav__social { display:flex; justify-content:space-between; padding:2px 2px 0; }
+  .nav__social a { display:grid; place-items:center; width:38px; height:38px; border-radius:10px; color:var(--faint); transition:color var(--t-ui) var(--ease-soft), background var(--t-ui) var(--ease-soft); }
+  .nav__social a:hover { color:var(--text); background:var(--surface-2); }
+  .nav__social svg { width:16px; height:16px; }
 
-  /* Profiles */
-  .nav__social { display:grid; grid-template-columns:1fr 1fr; gap:2px 8px; margin-top:10px; }
-  .nav__social a { display:flex; align-items:center; justify-content:center; gap:7px; padding:7px 4px; border-radius:10px; font-size:13px; color:var(--faint); transition:color var(--t-ui) var(--ease-soft); }
-  .nav__social a:hover { color:var(--text); }
-  .nav__social svg { width:14px; height:14px; flex:none; }
+  /* Short laptop screens: drop the time so the index keeps its room */
+  @media (max-height:740px) { .nav__time { display:none; } .nav__idx { margin-top:18px; } }
 
-  /* Short laptop screens: drop the profiles so the sections keep their room */
-  @media (max-height:760px) { .nav__social { display:none; } }
-
-  /* Collapsed: icons only */
-  :root[data-side='collapsed'] .nav__top { flex-direction:column; padding-inline:0; }
-  :root[data-side='collapsed'] .nav__who,
-  :root[data-side='collapsed'] .nav__grp,
-  :root[data-side='collapsed'] .nav__count,
-  :root[data-side='collapsed'] .nav__kbd,
-  :root[data-side='collapsed'] .nav__ext,
+  /* Collapsed: the numbers only */
+  :root[data-side='collapsed'] .brand__t,
+  :root[data-side='collapsed'] .nav__idx,
+  :root[data-side='collapsed'] .nav__time,
   :root[data-side='collapsed'] .nav__social { display:none; }
+  :root[data-side='collapsed'] .nav__top { flex-direction:column; gap:10px; padding:0; }
   :root[data-side='collapsed'] .nav__fold svg { transform:scaleX(-1); }
-  :root[data-side='collapsed'] .nav__links { padding-top:6px; }
-  :root[data-side='collapsed'] .nav__links a,
-  :root[data-side='collapsed'] .nav__tool { justify-content:center; padding-inline:0; position:relative; }
-  :root[data-side='collapsed'] .nav__lbl,
-  :root[data-side='collapsed'] .nav__badge {
+  :root[data-side='collapsed'] .nav__links { margin-top:14px; }
+  :root[data-side='collapsed'] .nav__links a { justify-content:center; padding-inline:0; }
+  :root[data-side='collapsed'] .nav__no { font-size:13px; }
+  :root[data-side='collapsed'] .nav__lbl {
     position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;
   }
-  /* "Open to work" shrinks to a green dot on the Contact icon */
-  :root[data-side='collapsed'] .nav__links a[href='#contact']::before {
-    content:''; position:absolute; top:8px; right:14px; width:7px; height:7px; border-radius:50%; background:#3fcf7a;
-  }
-  :root[data-side='collapsed'] .nav__right { grid-template-columns:1fr; }
-  :root[data-side='collapsed'] .nav__right #themeBtn { height:42px; padding:0; }
+  :root[data-side='collapsed'] .nav__status { padding:12px 0; display:flex; justify-content:center; }
+  :root[data-side='collapsed'] .nav__mochi { justify-content:center; padding-inline:0; }
+  :root[data-side='collapsed'] .nav__row { grid-template-columns:1fr; }
 }
 
 /* origin-aware mobile sheet */
