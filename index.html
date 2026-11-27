@@ -44,12 +44,38 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230A0A0A'/%3E%3Ctext x='50' y='70' font-family='Archivo,Arial' font-size='58' font-weight='800' fill='%23fff' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
 
 <!-- ?v= makes browsers fetch the new file after a change; bump it on every update -->
-<link rel="stylesheet" href="css/styles.css?v=20261128h">
+<link rel="stylesheet" href="css/styles.css?v=20261128i">
 <!-- Apply the remembered sidebar state before the first paint, so it doesn't jump -->
 <script>try { if (localStorage.getItem('mv_side') === 'collapsed') document.documentElement.setAttribute('data-side', 'collapsed'); } catch (e) {}</script>
+<!-- Without JavaScript the loading screen could never leave, so it never shows -->
+<noscript><style>.loader { display:none !important; }</style></noscript>
 </head>
 
 <body class="no-js">
+<!-- ═══ LOADING SCREEN ═══ -->
+<!-- The M mark and name while the page loads, about a second at most on a
+     fast connection, then it fades away. Never shown under reduced motion,
+     and it removes itself after a few seconds whatever happens. -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__in">
+    <span class="loader__m">M</span>
+    <span class="loader__name">MARJON</span>
+    <span class="loader__bar"><i></i></span>
+  </div>
+</div>
+<script>
+(function () {
+  var l = document.getElementById('loader'), t0 = Date.now(), gone = false;
+  function hide() {
+    if (gone) return; gone = true;
+    l.classList.add('is-done');
+    setTimeout(function () { if (l.parentNode) l.parentNode.removeChild(l); }, 500);
+  }
+  function ready() { setTimeout(hide, Math.max(0, 1000 - (Date.now() - t0))); }
+  if (document.readyState === 'complete') ready(); else addEventListener('load', ready);
+  setTimeout(hide, 2600);   // slow connection: show the page anyway
+})();
+</script>
 <a class="skip" href="#main">Skip to content</a>
 
 <div class="contours" aria-hidden="true">
