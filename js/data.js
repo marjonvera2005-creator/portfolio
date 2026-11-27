@@ -329,6 +329,69 @@ var PROJECTS = [
       { h:'Technology', tech:[['Framework','Django'],['Language','Python'],['Feature','Face recognition']] }
     ],
     features:['Faculty login and profiles','Attendance by program, year, section, and period','Student records with profile photos','Search, edit, and delete attendance records']
+  },
+  {
+    id:'cuisina', title:'Cuisina', tag:'Mobile app · Web system',
+    context:'Team project',
+    role:'Team Leader: Eliza Marie Rosario<br>Assistant Team Leader: Christine Elaine Oliverio<br>Developer: Marjon Vera<br>Assistant Developer: Carl Marco Vaporoso',
+    shot:'Images/web/cuisina/01-home.jpg',
+    shotAlt:'Cuisina home screen reading Find your perfect caterer, with a search bar, a Weddings worth remembering banner, and Featured Caterers below.',
+    // Screens shown under the case study. Each opens full size in the lightbox.
+    // Screens with customers' phone numbers, emails or complaints are left out.
+    galleryTitle:'Inside the app',
+    gallery:[
+      { src:'Images/web/cuisina/01-home.jpg', w:600, h:1168, title:'Home',
+        text:'Search caterers or menus, browse by event type, and see featured caterers with their starting price per person.',
+        alt:'Cuisina home screen with a search bar, a Weddings worth remembering banner with an Explore Caterers button, and Featured Caterers.' },
+      { src:'Images/web/cuisina/02-discover.jpg', w:600, h:1168, title:'Discover',
+        text:'Filter caterers by event type, such as Wedding or Holiday Gathering, and compare their location and price from.',
+        alt:'Cuisina Discover screen with event type filters and two caterers, RS Catering from 320 pesos and Marjon’s cater from 350 pesos per person.' },
+      { src:'Images/web/cuisina/03-package.jpg', w:600, h:1168, title:'Pick a package',
+        text:'Each package lists what it includes. Pick the number of guests first, and the price is worked out on the spot.',
+        alt:'Cuisina package screen for Package 1, Simple Celebration, at 350 pesos per person, with 50 pax selected for a total of 17,500 pesos.' },
+      { src:'Images/web/cuisina/04-menu.jpg', w:600, h:1168, title:'Choose your menu',
+        text:'Pick dishes from the caterer’s menu, such as 4 of 8 main dishes, with the estimated total kept at the bottom.',
+        alt:'Cuisina Choose your menu screen, step 1 of 2, with guest count options and a main dish checklist including Fried Chicken and Pork Menudo.' },
+      { src:'Images/web/cuisina/05-add-ons.jpg', w:600, h:1168, title:'Add-ons',
+        text:'Extra dishes are priced per guest, and customers can note allergies or other requirements.',
+        alt:'Cuisina Booking details screen, step 2 of 2, with food add-ons beef steak at 150 pesos and paksiw at 80 pesos per guest.' },
+      { src:'Images/web/cuisina/06-styling.jpg', w:600, h:1168, title:'Design &amp; styling',
+        text:'Optional event designs and themes from the caterer, each added to the estimate as it is picked.',
+        alt:'Cuisina Design and styling options: a Wedding event design at 15,000 pesos and a Royal Bloom Garden theme at 50,000 pesos.' },
+      { src:'Images/web/cuisina/07-availability.jpg', w:600, h:1168, title:'Availability',
+        text:'The caterer’s calendar shows which dates are open. Bookings must be made at least 2 days ahead.',
+        alt:'Cuisina availability calendar for November 2026 with available dates in green and unavailable dates crossed out in red.' },
+      { src:'Images/web/cuisina/08-location.jpg', w:600, h:1168, title:'Event location',
+        text:'Type the barangay, then tap the map on the exact event place.',
+        alt:'Cuisina Event location screen with barangay and street fields above a map of Biliran showing the caterer’s pin.' },
+      { src:'Images/web/cuisina/09-review.jpg', w:600, h:1168, title:'Review your booking',
+        text:'The date is held while the customer reviews the booking, with a countdown to confirm before it is released.',
+        alt:'Cuisina Review your booking screen with a notice that the date is held for 9:55, and the event details and chosen menu.' },
+      { src:'Images/web/cuisina/10-my-bookings.jpg', w:600, h:1168, title:'My bookings',
+        text:'Bookings are grouped into in progress, completed, and cancelled, with each one’s package, date, and price.',
+        alt:'Cuisina My Bookings screen with In progress, Completed, and Cancelled groups and booking cards marked Rejected.' }
+    ],
+    short:'A catering booking platform: customers build a package, menu, and styling with a live price, pick an open date, and pin the venue on a map, while caterers run their business from a web portal.',
+    lede:'A catering booking platform with three sides: a mobile app where customers find a caterer and build their booking, a web portal where caterers manage packages, menus, and booking requests, and an admin portal that verifies businesses before they go live.',
+    meta:[['Project','Team project, 4 members'],['My role','Developer'],['Type','Mobile app + web portals'],['Users','Customers, caterers, admin']],
+    chips:['Mobile app','Caterer web portal','Admin portal','OpenStreetMap','MapTiler','Leaflet'],
+    blocks:[
+      { h:'How a customer books', flow:{ steps:['Find a caterer by search or event type','Pick a package and the number of guests','Choose the menu, add-ons, and styling, with a live estimate','Pick an open date and pin the event location on the map','Review the booking while the date is held','Track it in My Bookings and Notifications'] } },
+      { h:'For caterers',
+        p:['Caterers register through the caterer portal, and an administrator reviews their details and documents before their business appears in the app. From the dashboard they see pending requests, upcoming events, total bookings, and estimated earnings.'],
+        figure:{ src:'Images/web/cuisina/caterer-dashboard.jpg', w:1400, h:642,
+          caption:'The caterer dashboard: pending requests, upcoming events, total bookings, estimated earnings, and the most booked package.',
+          alt:'Cuisina caterer dashboard for Marjon Vera with booking stat cards, a booking requests chart for the last six months, and the top package.' },
+        list:['<b>Booking requests</b> &mdash; accept, suggest changes, or reject each request, which expires if not answered within 48 hours.','<b>Calendar</b> &mdash; see bookings by day and mark dates as not available.','<b>Menu &amp; offerings</b> &mdash; food add-ons, event designs, themes, and color motifs, each with its own price.'] },
+      { h:'Packages and pricing',
+        p:['Each caterer sets the guest counts they serve (30, 50, 70, or 100 pax) and builds packages around them. The price is the rate per person times the number of guests, plus any add-ons, so a 350-peso package for 50 guests comes to 17,500 pesos.'],
+        figure:{ src:'Images/web/cuisina/caterer-packages.jpg', w:1400, h:819,
+          caption:'Packages in the caterer portal, with the pax options at the top and each live package&rsquo;s price, courses, and event types.',
+          alt:'Cuisina caterer Packages page with pax options 30, 50, 70 and 100, and three live packages priced at 350, 450 and 550 pesos per guest.' } },
+      { h:'For administrators', list:['<b>Business verification</b> &mdash; approve, reject, or suspend caterers.','<b>All bookings and users</b> &mdash; one view across every caterer.','<b>Complaints</b> &mdash; customers and caterers can report a problem, and the administrator replies in their notifications.','<b>Platform settings</b> &mdash; event categories and an audit log.'] },
+      { h:'Details that matter', list:['<b>A held date</b> &mdash; the chosen date is held while the customer reviews, so two people cannot book the same slot.','<b>A new-customer warning</b> &mdash; caterers see a customer&rsquo;s booking history and are told to call a new customer before accepting.','<b>Distance to the venue</b> &mdash; each request shows the route and driving time from the caterer.','<b>Your own idea</b> &mdash; customers can describe a decoration idea with inspiration photos, and the caterer sends a price for it.'] }
+    ],
+    features:['Customer app, caterer portal, and admin portal','Packages priced per person by guest count','Menu, add-ons, and styling with a live estimate','Availability calendar, booked at least 2 days ahead','Event location pinned on the map','Caterers verified by an administrator','Booking requests answered within 48 hours','Report a problem, answered in notifications']
   }
 ];
 

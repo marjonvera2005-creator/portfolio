@@ -16,3 +16,5 @@ Images/web/hero.jpg
 Images/Beyond the Code/
 # Reference videos
 *.mp4
+# Original Cuisina screenshots (some show phone numbers and emails); the site uses Images/web/cuisina/
+Images/Cuisina/

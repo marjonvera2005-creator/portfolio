@@ -86,7 +86,8 @@ var CHAT = {
         '<li><b>CocoScan:</b> a 5-member team project for Design and Analysis of Algorithms; Marjon built the app</li>' +
         '<li><b>CassavaCare:</b> a project given by one of Marjon&rsquo;s faculty instructors; Marjon trained both models and built the app</li>' +
         '<li><b>Banana Detector:</b> built during an international immersion program in Vietnam</li>' +
-        '<li><b>Face Recognition Attendance:</b> a 6-member team project from 2nd year, 1st semester; Marjon was the assistant programmer</li></ul>',
+        '<li><b>Face Recognition Attendance:</b> a 6-member team project from 2nd year, 1st semester; Marjon was the assistant programmer</li>' +
+        '<li><b>Cuisina:</b> a 4-member team project, a catering booking platform; Marjon was the developer</li></ul>',
       next: ['hardest', 'why', 'contact'] },
 
     { id: 'hardest',
@@ -215,7 +216,8 @@ var CHAT = {
     quitescan: ['quitescan', 'quite scan', 'qr', 'attendance', 'scan', 'scanner', 'gate'],
     cassavacare: ['cassavacare', 'cassava', 'leaf', 'leaves', 'disease', 'crop', 'plant'],
     banana: ['banana', 'ripe', 'ripeness', 'rotten', 'fruit'],
-    faceattend: ['face', 'face recognition', 'facial', 'django', 'assistant programmer']
+    faceattend: ['face', 'face recognition', 'facial', 'django', 'assistant programmer'],
+    cuisina: ['cuisina', 'catering', 'caterer', 'caterers', 'cater', 'event booking', 'wedding', 'debut', 'menu']
   },
 
   fallback: {
