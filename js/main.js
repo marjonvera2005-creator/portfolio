@@ -268,7 +268,7 @@
         '<article class="work__card">' +
           '<div class="work__shot">' + shotFor(p) + '</div>' +
           '<div class="work__body">' +
-            '<p class="work__tag">' + p.context + ' · ' + status + '</p>' +
+            '<p class="work__tag">' + p.context + (status ? ' · ' + status : '') + '</p>' +
             '<h3 class="work__t"><button class="work__open" type="button" data-id="' + p.id + '">' + p.title + '</button></h3>' +
             '<p class="work__d">' + p.short + '</p>' +
             roleFor(p) +

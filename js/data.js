@@ -334,8 +334,8 @@ var PROJECTS = [
     id:'cuisina', title:'Cuisina', tag:'Mobile app · Web system',
     context:'Team project',
     role:'Team Leader: Eliza Marie Rosario<br>Assistant Team Leader: Christine Elaine Oliverio<br>Developer: Marjon Vera<br>Assistant Developer: Carl Marco Vaporoso',
-    shot:'Images/web/cuisina/01-home.jpg',
-    shotAlt:'Cuisina home screen reading Find your perfect caterer, with a search bar, a Weddings worth remembering banner, and Featured Caterers below.',
+    shot:'Images/web/cuisina/card.jpg',
+    shotAlt:'The Cuisina caterer dashboard for Marjon Vera beside the Cuisina mobile app home screen reading Find your perfect caterer.',
     // Screens shown under the case study. Each opens full size in the lightbox.
     // Customers' phone numbers and emails are blurred; complaint screens are left out.
     galleryTitle:'Customer mobile app',
