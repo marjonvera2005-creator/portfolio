@@ -337,8 +337,8 @@ var PROJECTS = [
     shot:'Images/web/cuisina/01-home.jpg',
     shotAlt:'Cuisina home screen reading Find your perfect caterer, with a search bar, a Weddings worth remembering banner, and Featured Caterers below.',
     // Screens shown under the case study. Each opens full size in the lightbox.
-    // Screens with customers' phone numbers, emails or complaints are left out.
-    galleryTitle:'Inside the app',
+    // Customers' phone numbers and emails are blurred; complaint screens are left out.
+    galleryTitle:'Customer mobile app',
     gallery:[
       { src:'Images/web/cuisina/01-home.jpg', w:600, h:1168, title:'Home',
         text:'Search caterers or menus, browse by event type, and see featured caterers with their starting price per person.',
@@ -377,19 +377,46 @@ var PROJECTS = [
     chips:['Mobile app','Caterer web portal','Admin portal','OpenStreetMap','MapTiler','Leaflet'],
     blocks:[
       { h:'How a customer books', flow:{ steps:['Find a caterer by search or event type','Pick a package and the number of guests','Choose the menu, add-ons, and styling, with a live estimate','Pick an open date and pin the event location on the map','Review the booking while the date is held','Track it in My Bookings and Notifications'] } },
-      { h:'For caterers',
-        p:['Caterers register through the caterer portal, and an administrator reviews their details and documents before their business appears in the app. From the dashboard they see pending requests, upcoming events, total bookings, and estimated earnings.'],
-        figure:{ src:'Images/web/cuisina/caterer-dashboard.jpg', w:1400, h:642,
-          caption:'The caterer dashboard: pending requests, upcoming events, total bookings, estimated earnings, and the most booked package.',
-          alt:'Cuisina caterer dashboard for Marjon Vera with booking stat cards, a booking requests chart for the last six months, and the top package.' },
-        list:['<b>Booking requests</b> &mdash; accept, suggest changes, or reject each request, which expires if not answered within 48 hours.','<b>Calendar</b> &mdash; see bookings by day and mark dates as not available.','<b>Menu &amp; offerings</b> &mdash; food add-ons, event designs, themes, and color motifs, each with its own price.'] },
-      { h:'Packages and pricing',
-        p:['Each caterer sets the guest counts they serve (30, 50, 70, or 100 pax) and builds packages around them. The price is the rate per person times the number of guests, plus any add-ons, so a 350-peso package for 50 guests comes to 17,500 pesos.'],
-        figure:{ src:'Images/web/cuisina/caterer-packages.jpg', w:1400, h:819,
-          caption:'Packages in the caterer portal, with the pax options at the top and each live package&rsquo;s price, courses, and event types.',
-          alt:'Cuisina caterer Packages page with pax options 30, 50, 70 and 100, and three live packages priced at 350, 450 and 550 pesos per guest.' } },
-      { h:'For administrators', list:['<b>Business verification</b> &mdash; approve, reject, or suspend caterers.','<b>All bookings and users</b> &mdash; one view across every caterer.','<b>Complaints</b> &mdash; customers and caterers can report a problem, and the administrator replies in their notifications.','<b>Platform settings</b> &mdash; event categories and an audit log.'] },
+      { h:'For caterers (owners)',
+        p:['Caterers register through the caterer web portal, and an administrator reviews their details and documents before their business appears in the app. From then on they run their catering business from the portal.'],
+        list:['<b>Dashboard</b> &mdash; pending requests, upcoming events, total bookings, estimated earnings, and the most booked package.','<b>Booking requests</b> &mdash; accept, suggest changes, or reject each request, which expires if not answered within 48 hours.','<b>Calendar</b> &mdash; see bookings by day and mark dates as not available.','<b>Packages</b> &mdash; set the guest counts served (30, 50, 70, or 100 pax) and build packages around them.','<b>Menu &amp; offerings</b> &mdash; food add-ons, event designs, themes, and color motifs, each with its own price.'] },
+      { h:'Pricing', p:['The price is the rate per person times the number of guests, plus any add-ons, so a 350-peso package for 50 guests comes to 17,500 pesos. Styling options such as event designs and themes are added as a flat price.'] },
+      { h:'For administrators', list:['<b>Overview</b> &mdash; pending reviews, approved businesses, customers, and bookings this month, with booking activity over time.','<b>Business verification</b> &mdash; review each caterer&rsquo;s documents, then approve, reject, or suspend them.','<b>All bookings and users</b> &mdash; one view across every caterer.','<b>Complaints</b> &mdash; customers and caterers can report a problem, and the administrator replies in their notifications.','<b>Platform settings</b> &mdash; event categories and an audit log.'] },
       { h:'Details that matter', list:['<b>A held date</b> &mdash; the chosen date is held while the customer reviews, so two people cannot book the same slot.','<b>A new-customer warning</b> &mdash; caterers see a customer&rsquo;s booking history and are told to call a new customer before accepting.','<b>Distance to the venue</b> &mdash; each request shows the route and driving time from the caterer.','<b>Your own idea</b> &mdash; customers can describe a decoration idea with inspiration photos, and the caterer sends a price for it.'] }
+    ],
+    // Web portals, shown full width under the case study.
+    portals:[
+      { title:'Caterer (owner) portal', source:'caterer web portal', items:[
+        { src:'Images/web/cuisina/owner-1-register.jpg', w:1400, h:819, title:'Register a business',
+          text:'Caterers create an account with their business name and address. An administrator reviews it before it goes live.',
+          alt:'Cuisina caterer portal Create your account page with fields for owner name, mobile number, business name, business address, email and password.' },
+        { src:'Images/web/cuisina/owner-2-dashboard.jpg', w:1400, h:642, title:'Dashboard',
+          text:'Pending requests, upcoming events, total bookings, and estimated earnings, with booking requests over six months and the top package.',
+          alt:'Cuisina caterer dashboard for Marjon Vera with booking stat cards, a booking requests chart, and Package 3 as the top package.' },
+        { src:'Images/web/cuisina/owner-3-request.jpg', w:1400, h:819, title:'Booking request',
+          text:'Each request shows the event, the route to the venue, the chosen menu, and the price, with Accept, Suggest changes, or Reject. The customer&rsquo;s phone and email are blurred here for privacy.',
+          alt:'Cuisina booking request for a wedding for 50 guests with a route map, menu, and price of 22,500 pesos, and Accept booking, Suggest changes and Reject buttons. Contact details are blurred.' },
+        { src:'Images/web/cuisina/owner-4-calendar.jpg', w:1400, h:641, title:'Calendar',
+          text:'Bookings by day. A date can be marked as not available, with a private reason.',
+          alt:'Cuisina caterer calendar for November 2026 with a selected day and a Mark as not available button.' },
+        { src:'Images/web/cuisina/owner-5-packages.jpg', w:1400, h:819, title:'Packages',
+          text:'The guest counts served, and the live packages with their price per guest, courses, and event types.',
+          alt:'Cuisina caterer Packages page with pax options 30, 50, 70 and 100, and three live packages priced at 350, 450 and 550 pesos per guest.' },
+        { src:'Images/web/cuisina/owner-6-styling.jpg', w:1400, h:819, title:'Design &amp; styling',
+          text:'Event designs, themes, and color motifs that customers can add to a booking, each with its price.',
+          alt:'Cuisina caterer styling page listing a Wedding event design, a Royal Bloom Garden theme, and a Gold color motif with their prices.' }
+      ] },
+      { title:'Admin portal', source:'admin web portal', items:[
+        { src:'Images/web/cuisina/admin-1-login.jpg', w:1400, h:819, title:'Admin sign-in',
+          text:'A separate administrator portal, signed in with an assigned admin account.',
+          alt:'Cuisina Administrator portal sign-in page with email and password fields beside a photo of a catering buffet.' },
+        { src:'Images/web/cuisina/admin-2-overview.jpg', w:1400, h:819, title:'Overview',
+          text:'Pending reviews, approved businesses, customers, and bookings this month, with booking activity and businesses by status.',
+          alt:'Cuisina admin overview with cards for pending reviews, 2 approved businesses, 10 customers and 11 bookings this month, a booking activity chart, and a businesses by status chart.' },
+        { src:'Images/web/cuisina/admin-3-verification.jpg', w:1400, h:636, title:'Business verification',
+          text:'Every caterer with its owner, documents, and status, to review, reject, or suspend. Owners&rsquo; phone numbers are blurred here for privacy.',
+          alt:'Cuisina Business verification table with two approved caterers, RS Catering and Marjon&rsquo;s cater, and Review, Reject and Suspend buttons. Phone numbers are blurred.' }
+      ] }
     ],
     features:['Customer app, caterer portal, and admin portal','Packages priced per person by guest count','Menu, add-ons, and styling with a live estimate','Availability calendar, booked at least 2 days ahead','Event location pinned on the map','Caterers verified by an administrator','Booking requests answered within 48 hours','Report a problem, answered in notifications']
   }

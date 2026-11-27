@@ -918,6 +918,9 @@ section[tabindex='-1']:focus { outline:none; }
   .dgal__list--dense .dgal__p { font-size:14px; }
 }
 .dgal__list--phone .dgal__btn { aspect-ratio:1/2; }
+/* Full-width screen sets (web portals) under both columns of the case study */
+.dgal--full { grid-column:1 / -1; margin-top:0; }
+@media (min-width:1024px) { .dgal--full .dgal__list { grid-template-columns:repeat(3,minmax(0,1fr)); } }
 /* Wider than the frame (full-width pages): show the whole screen, letterboxed. */
 .dgal__btn img.is-wide { object-fit:contain; object-position:50% 50%; }
 .dgal__t { margin-top:12px; font-size:16px; font-weight:700; letter-spacing:-.01em; }

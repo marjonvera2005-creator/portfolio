@@ -762,7 +762,7 @@
         '<div class="dfeat"><h3>Key features</h3><ul class="dlist">' +
         p.features.map(function (f) { return '<li>' + f + '</li>'; }).join('') + '</ul></div>' +
         galleryFor(p) + '</div>' +
-        detectionsFor(p);
+        portalsFor(p) + detectionsFor(p);
     }
 
     // "Inside the system": real screens with a caption each, placed in the
@@ -771,14 +771,28 @@
     // registered with the lightbox (CERTS) so a click opens it full size.
     function galleryFor(p) {
       if (!p.gallery) return '';
-      var n = p.gallery.length;
-      // Phone apps get tall, narrow frames; web pages get 4:3 frames.
       var phone = p.gallery.every(function (g) { return g.h / g.w > 1.4; });
-      return '<section class="dgal" aria-labelledby="dGalT">' +
-        '<h3 class="dgal__h" id="dGalT">' + p.galleryTitle + '</h3>' +
-        '<p class="dgal__lede">' + n + ' screens from the ' + (phone ? 'app on a phone' : 'live system') + '. Select any screen to see it full size.</p>' +
-        '<ol class="dgal__list' + (phone ? ' dgal__list--phone' : '') + (phone && n > 6 ? ' dgal__list--dense' : '') + '">' + p.gallery.map(function (g, i) {
-          var key = p.id + '-screen-' + (i + 1);
+      return screensFor(p, p.gallery, p.galleryTitle, phone ? 'app on a phone' : 'live system', 'dGalT', 'screen', '');
+    }
+
+    // Extra screen sets, such as a project's web portals, full width under
+    // both columns so wide pages stay large enough to read.
+    function portalsFor(p) {
+      if (!p.portals) return '';
+      return p.portals.map(function (s, k) {
+        return screensFor(p, s.items, s.title, s.source, 'dPortT' + k, 'portal-' + k, ' dgal--full');
+      }).join('');
+    }
+
+    function screensFor(p, items, title, source, hid, keyPart, cls) {
+      var n = items.length;
+      // Phone apps get tall, narrow frames; web pages get 4:3 frames.
+      var phone = items.every(function (g) { return g.h / g.w > 1.4; });
+      return '<section class="dgal' + cls + '" aria-labelledby="' + hid + '">' +
+        '<h3 class="dgal__h" id="' + hid + '">' + title + '</h3>' +
+        '<p class="dgal__lede">' + n + ' screens from the ' + source + '. Select any screen to see it full size.</p>' +
+        '<ol class="dgal__list' + (phone ? ' dgal__list--phone' : '') + (phone && n > 6 ? ' dgal__list--dense' : '') + '">' + items.map(function (g, i) {
+          var key = p.id + '-' + keyPart + '-' + (i + 1);
           CERTS[key] = g.src;
           return '<li><figure class="dgal__item">' +
             '<button class="dgal__btn" type="button" data-cert="' + key + '" data-title="' + g.title + '"' +
