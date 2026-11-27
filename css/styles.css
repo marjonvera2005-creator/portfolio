@@ -547,16 +547,18 @@ section[tabindex='-1']:focus { outline:none; }
 .slider__play .i-play, .slider__play[data-playing='0'] .i-pause { display:none; }
 .slider__play[data-playing='0'] .i-play { display:block; }
 
-/* Tagline for Selected work: bold italic with an accent brush stroke under
-   it. Phones: under the section intro. Desktop: top right of the section,
-   level with the heading. */
+/* Section taglines: bold italic with an accent brush stroke under them.
+   Phones, and any section whose heading leaves no room: under the
+   section intro. Desktop: top right of the section head, level with the
+   heading (js/main.js adds .is-stacked when it would touch the heading). */
 .motto { position:relative; display:inline-block; margin-top:20px; padding-bottom:12px; font-size:clamp(17px,1.6vw,21px); font-weight:800; font-style:italic; letter-spacing:-.01em; }
 .motto__line { position:absolute; left:4%; bottom:0; width:96%; height:14px; overflow:visible; }
 .motto__line path { fill:none; stroke:var(--accent); stroke-width:3; stroke-linecap:round; stroke-linejoin:round; }
 @media (min-width:1024px) {
-  #work .sec__head { position:relative; }
-  #work .motto { position:absolute; right:0; top:14px; margin:0; }
+  .sec__head { position:relative; }
+  .sec__head > .motto:not(.is-stacked) { position:absolute; right:0; top:14px; margin:0; }
 }
+.ct__sub + .motto { margin-top:14px; }
 
 /* ═══ WORK ════════════════════════════════════════════════════════════ */
 /* A grid of projects: the screenshot on a panel tinted in the project's own

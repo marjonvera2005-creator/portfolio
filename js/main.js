@@ -749,6 +749,27 @@
       });
   })();
 
+  /* ── Section taglines: top right beside the heading, unless the heading
+     is too wide for both on this screen; then under the intro. ───────── */
+  (function () {
+    var heads = $$('.sec__head > .motto');
+    function place() {
+      heads.forEach(function (m) {
+        m.classList.remove('is-stacked');
+        if (getComputedStyle(m).position !== 'absolute') return;
+        // Measure the heading's letters (typed or not, they keep their
+        // space), not the heading's full-width box
+        var h = m.parentNode.querySelector('h2'), t = h.querySelector('.type') || h;
+        var text = t.getBoundingClientRect(), mb = m.getBoundingClientRect();
+        if (text.right + 24 > mb.left) m.classList.add('is-stacked');
+      });
+    }
+    place();
+    addEventListener('resize', place, { passive:true });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+    var side = $('#sideBtn'); if (side) side.addEventListener('click', function () { setTimeout(place, 50); });
+  })();
+
   /* ── Sidebar: chat with Mochi, and the time in Naval ───────────────── */
   (function () {
     $('#askBtn').addEventListener('click', function () {
