@@ -41,10 +41,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230A0A0A'/%3E%3Ctext x='50' y='70' font-family='Archivo,Arial' font-size='58' font-weight='800' fill='%23fff' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230A0A0A'/%3E%3Cpath d='M7 14V7h7M33 26v7h-7' fill='none' stroke='%23FF6B2C' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M12.5 28V13l7.5 9 7.5-9v15' fill='none' stroke='%23fff' stroke-width='3.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 
 <!-- ?v= makes browsers fetch the new file after a change; bump it on every update -->
-<link rel="stylesheet" href="css/styles.css?v=20261128i">
+<link rel="stylesheet" href="css/styles.css?v=20261128j">
 <!-- Apply the remembered sidebar state before the first paint, so it doesn't jump -->
 <script>try { if (localStorage.getItem('mv_side') === 'collapsed') document.documentElement.setAttribute('data-side', 'collapsed'); } catch (e) {}</script>
 <!-- Without JavaScript the loading screen could never leave, so it never shows -->
@@ -58,7 +58,7 @@
      and it removes itself after a few seconds whatever happens. -->
 <div class="loader" id="loader" aria-hidden="true">
   <div class="loader__in">
-    <span class="loader__m">M</span>
+    <span class="loader__m"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><rect class="mark__bg" width="40" height="40" rx="11"/><path class="mark__box" d="M7 14V7h7M33 26v7h-7"/><path class="mark__m" d="M12.5 28V13l7.5 9 7.5-9v15"/></svg></span>
     <span class="loader__name">MARJON</span>
     <span class="loader__bar"><i></i></span>
   </div>
@@ -95,7 +95,7 @@
   <div class="nav__in">
     <div class="nav__top">
       <a class="brand" href="#top" aria-label="Marjon C. Vera — back to top">
-        <span class="brand__m" aria-hidden="true">M</span><span class="brand__t">MARJON</span>
+        <span class="brand__m" aria-hidden="true"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><rect class="mark__bg" width="40" height="40" rx="11"/><path class="mark__box" d="M7 14V7h7M33 26v7h-7"/><path class="mark__m" d="M12.5 28V13l7.5 9 7.5-9v15"/></svg></span><span class="brand__t">MARJON</span>
       </a>
       <button class="icon-btn nav__fold" id="sideBtn" type="button" aria-expanded="true" aria-controls="navLinks" aria-label="Collapse sidebar">
         <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M9 4v16M15.5 10 13.5 12l2 2"/></svg>
