@@ -197,7 +197,7 @@ ul,ol { list-style:none; }
 
 /* Brand + collapse button. On phones the button is hidden and this is just the brand. */
 .nav__top { display:flex; align-items:center; gap:8px; }
-.nav__fold, .nav__idx, .nav__no, .nav__status, .nav__mochi, .nav__social { display:none; }
+.nav__fold, .nav__idx, .nav__no, .nav__ic, .nav__status, .nav__mochi, .nav__social { display:none; }
 .nav__row { display:contents; }
 .nav__row a.nav__sq, .hire__ic { display:none; }
 
@@ -294,13 +294,20 @@ ul,ol { list-style:none; }
   :root[data-side='collapsed'] .nav__fold svg { transform:scaleX(-1); }
   :root[data-side='collapsed'] .nav__links { margin-top:14px; }
   :root[data-side='collapsed'] .nav__links a { justify-content:center; padding-inline:0; }
-  :root[data-side='collapsed'] .nav__no { font-size:13px; }
+  /* Collapsed shows each section's icon in place of its number */
+  :root[data-side='collapsed'] .nav__no { display:none; }
+  :root[data-side='collapsed'] .nav__ic { display:block; flex:none; }
+  :root[data-side='collapsed'] .nav__links a { align-items:center; padding-block:11px; }
+  :root[data-side='collapsed'] .nav__links a[aria-current='true'] .nav__ic { color:var(--accent); }
   :root[data-side='collapsed'] .nav__lbl {
     position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;
   }
   :root[data-side='collapsed'] .nav__status { padding:12px 0; display:flex; justify-content:center; }
   :root[data-side='collapsed'] .nav__mochi { justify-content:center; padding-inline:0; }
   :root[data-side='collapsed'] .nav__row { grid-template-columns:1fr; }
+  /* Short screens: tighter icon rows so all eight still fit */
+  @media (max-height:760px) { :root[data-side='collapsed'] .nav__links a { padding-block:7px; } }
+  @media (max-height:640px) { :root[data-side='collapsed'] .nav__links a { padding-block:5px; } }
 }
 
 /* origin-aware mobile sheet */
