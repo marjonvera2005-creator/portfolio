@@ -1,8 +1,8 @@
 # Marjon C. Vera — Developer Portfolio
 
 A personal portfolio website for Marjon C. Vera, a BS Computer Science student at
-Biliran Province State University. It presents eight projects (IntelliGuide, Tingi, QuiteScan,
-CocoScan, CassavaCare, Banana Ripeness Detection, Face Recognition Attendance, Cuisina), skills, awards, trainings, and contact details.
+Biliran Province State University. It presents nine projects (IntelliGuide, Tingi, QuiteScan,
+CocoScan, CassavaCare, Banana Ripeness Detection, Face Recognition Attendance, Cuisina, TindahanTrack), skills, awards, trainings, and contact details.
 
 **Live site:** _add the Vercel URL here after deployment_
 
@@ -13,7 +13,7 @@ Built with plain HTML5, CSS3, and JavaScript. No frameworks and no build step.
 | Section | What it contains |
 |---|---|
 | Hero | Name, role, one-line summary, "View my work" button, award highlight, portrait |
-| Work | Slideshow of 8 project cards (screenshot, summary, tech); each opens a full case study |
+| Work | Slideshow of 9 project cards (screenshot, summary, tech); each opens a full case study |
 | Skills | Labelled tools grouped into Web & systems, Mobile, and AI & vision |
 | About | Bio, quick stats, current focus |
 | Awards | The international ML award for academic excellence (certificate + ceremony photos) |

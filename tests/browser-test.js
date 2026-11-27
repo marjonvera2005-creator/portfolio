@@ -103,7 +103,7 @@ const shots = process.argv.includes('--shots');
         const x2 = await page.$eval(sel + ' .slider__track', t => t.scrollLeft);
         if (!(s0.prevOff && s1.x > 0 && s1.count !== s0.count && x2 < 2)) c.sliders.push(`${sel} ${s0.count}->${s1.count} x=${s1.x}->${x2}`);
       }
-      // Work cards: all eight rendered, the third opens its case study
+      // Work cards: all nine rendered, the third opens its case study
       c.workCards = await page.$$eval('.work__open', b => b.length);
       await page.evaluate(() => document.querySelectorAll('.work__card')[2].scrollIntoView({ block: 'center' }));
       c.yBeforeDetail = await page.evaluate(() => scrollY);
@@ -158,7 +158,7 @@ const shots = process.argv.includes('--shots');
       c.botOpens = await page.$eval('#bot', b => b.getAttribute('data-open') === '1' && !!b.querySelector('.bot__chip'));
       c.botPanelFits = await page.$eval('#botPanel', p => { const r = p.getBoundingClientRect(), de = document.documentElement; return r.left >= 0 && r.right <= de.clientWidth && r.top >= 0 && p.scrollWidth <= p.clientWidth; });
       await page.evaluate(() => [...document.querySelectorAll('.bot__chip')].find(b => /built/.test(b.textContent)).click());
-      c.botChipAnswers = await page.evaluate(() => /built 8 projects/.test([...document.querySelectorAll('.bot__msg--bot')].pop().textContent));
+      c.botChipAnswers = await page.evaluate(() => /built 9 projects/.test([...document.querySelectorAll('.bot__msg--bot')].pop().textContent));
       c.botTypedAnswers = /open to internships/.test(await ask('is marjon available for an internship?'));
       c.botProjectAnswers = /QuiteScan/.test(await ask('what is quitescan'));
       c.botWhyHire = /bring to your team/.test(await ask('why should we hire marjon?'));
@@ -198,7 +198,7 @@ const shots = process.argv.includes('--shots');
     if (!c.heroIntro) bad.push('hero intro hidden/clipped');
     for (const k of ['sectionSwitch', 'detailOpens', 'detailImgOk', 'detailNoHScroll', 'detailClosesEsc', 'lightboxOpens', 'lightboxCloses', 'formRejectsBadEmail', 'deepLink', 'returnsToCard',
       'botVisible', 'botOpens', 'botPanelFits', 'botChipAnswers', 'botTypedAnswers', 'botProjectAnswers', 'botWhyHire', 'botHonestUnknown', 'botFallback', 'botClosesEsc', 'botYieldsToMsg']) if (!c[k]) bad.push(k + ' FAILED');
-    if (c.workCards !== 8) bad.push('work cards ' + c.workCards);
+    if (c.workCards !== 9) bad.push('work cards ' + c.workCards);
     if (c.sliders.length) bad.push('slideshow broken: ' + c.sliders.join(', '));
     if (!c.themeToggles) bad.push('theme toggle FAILED');
     if (c.errors.length) bad.push('errors: ' + c.errors.join(' | '));

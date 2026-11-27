@@ -419,6 +419,65 @@ var PROJECTS = [
       ] }
     ],
     features:['Customer app, caterer portal, and admin portal','Packages priced per person by guest count','Menu, add-ons, and styling with a live estimate','Availability calendar, booked at least 2 days ahead','Event location pinned on the map','Caterers verified by an administrator','Booking requests answered within 48 hours','Report a problem, answered in notifications']
+  },
+  {
+    id:'tindahantrack', title:'TindahanTrack', tag:'Mobile app · Offline-first',
+    context:'Personal project',
+    role:'Built alone, in four roles:<br>Product owner and designer<br>Project lead<br>Backend setup (Supabase)<br>Tester',
+    shot:'Images/web/tindahantrack/01-home.jpg',
+    shotAlt:'TindahanTrack home screen with today’s sales of 12 pesos, low stock and out of stock counts, utang, the restock list, and Add product and Record sale buttons.',
+    // Screens shown under the case study. Each opens full size in the lightbox.
+    // Screens with a customer's phone number, an email, or the owner's photo are left out.
+    galleryTitle:'Inside the app',
+    gallery:[
+      { src:'Images/web/tindahantrack/01-home.jpg', w:600, h:1181, title:'Home',
+        text:'Today’s sales and profit, what is low or out of stock, utang, and what to restock, at a glance.',
+        alt:'TindahanTrack home screen with today’s sales, 0 low stock and 113 out of stock, utang, the restock list, and Add product and Record sale buttons.' },
+      { src:'Images/web/tindahantrack/02-products.jpg', w:600, h:1181, title:'Products',
+        text:'Every product with its price, stock, and category. Search, or filter by low, out of stock, or available.',
+        alt:'TindahanTrack Products list with a search bar, stock and category filters, and products such as 7UP, Ajinomoto and Alaska Milk marked Out of stock.' },
+      { src:'Images/web/tindahantrack/03-product-history.jpg', w:600, h:1181, title:'Stock history',
+        text:'Every restock, sale, and correction is recorded, so the owner always knows where the stock went.',
+        alt:'TindahanTrack stock history for Milo listing reversals, sales and an adjustment for damaged or expired items, each with the stock before and after.' },
+      { src:'Images/web/tindahantrack/04-tingi-pack.jpg', w:600, h:1181, title:'Tingi',
+        text:'Buy by the box or pack, sell by the piece: the pack name and how many pieces are in one pack.',
+        alt:'TindahanTrack Edit product screen with Comes in packs (tingi) switched on, and fields for the pack name, pieces per pack, and the price of a whole pack.' },
+      { src:'Images/web/tindahantrack/05-record-sale-cash-change.jpg', w:600, h:1181, title:'Record a sale',
+        text:'Shows the stock before and after the sale, and works out the change from the cash received.',
+        alt:'TindahanTrack Record sale screen for 1 Milo at 12 pesos, paid in cash with 20 pesos received and 8 pesos change.' },
+      { src:'Images/web/tindahantrack/06-record-sale-utang.jpg', w:600, h:1181, title:'Sell on utang',
+        text:'Choose Utang and pick the customer. Partial payments and polite reminders come later from the utang list.',
+        alt:'TindahanTrack Record sale screen paid with Utang, asking to choose the customer.' },
+      { src:'Images/web/tindahantrack/07-sale-receipt.jpg', w:600, h:1181, title:'Receipt',
+        text:'Every sale keeps its receipt. A mistake is reversed, never erased, so the history stays honest.',
+        alt:'TindahanTrack sale receipt for 1 Milo at 12 pesos with the estimated gross profit and a Reverse sale button.' },
+      { src:'Images/web/tindahantrack/08-reports.jpg', w:600, h:1181, title:'Reports',
+        text:'Daily, weekly, and monthly sales and estimated profit, with best sellers by sales or by quantity.',
+        alt:'TindahanTrack Reports screen for today with sales revenue of 12 pesos, estimated gross profit of 4 pesos, an hourly chart, and best sellers.' },
+      { src:'Images/web/tindahantrack/09-restock-list.jpg', w:600, h:1181, title:'Restock list',
+        text:'What to buy and how much, suggested from the last 14 days of sales, ready to share with the supplier.',
+        alt:'TindahanTrack Restock list of out of stock products with Buy fields and a Share list button.' },
+      { src:'Images/web/tindahantrack/10-raise-prices.jpg', w:600, h:1181, title:'Edit prices',
+        text:'Change many prices at once, or raise every price shown by an amount in pesos or by a percentage.',
+        alt:'TindahanTrack Raise all shown dialog that adds an amount in pesos or a percentage to the selling price of 114 products.' },
+      { src:'Images/web/tindahantrack/11-sync-backup.jpg', w:600, h:1181, title:'Sync &amp; backup',
+        text:'The store is saved on the phone first, so it works without signal, and copies to the cloud when there is internet.',
+        alt:'TindahanTrack Sync and Backup screen reading Offline, your data is safe on this phone, with a backup file option.' },
+      { src:'Images/web/tindahantrack/12-taglish-home.jpg', w:600, h:1181, title:'Taglish',
+        text:'The whole app can switch to Taglish, here showing the home screen offline.',
+        alt:'TindahanTrack home screen in Taglish with Benta ngayon, Paubos na, Ubos na, and Listahan ng bibilhin, marked Offline.' }
+    ],
+    short:'A stock and sales app for sari-sari stores that works even without signal: sales, utang, tingi, restocking, and reports, saved on the phone first and backed up to the cloud.',
+    lede:'A stock and sales app for sari-sari stores that works even without signal. Everything is saved on the phone first and backs up to the cloud by itself when there is internet.',
+    meta:[['Project','Personal project'],['Built by','Me, alone'],['Users','Sari-sari store owners'],['Backend','Supabase']],
+    chips:['Mobile app','Offline-first','Supabase','Barcode scanner','Taglish'],
+    blocks:[
+      { h:'What it does', list:['<b>Record a sale</b> &mdash; scan a barcode or pick the product; the app shows the stock before and after and works out the change.','<b>Utang (listahan)</b> &mdash; sell on credit, record partial payments, and send a polite reminder.','<b>Tingi</b> &mdash; buy by the box, sell by the piece (&ldquo;1 box = 20 pcs&rdquo;).','<b>Products and stock</b> &mdash; price, cost, stock, and an alert level for each product, or import a whole list at once.','<b>Count stock</b> &mdash; type the shelf counts for many products, then save once.','<b>Restock list</b> &mdash; what to buy and how much, ready to send to the supplier.','<b>Reports</b> &mdash; daily, weekly, and monthly sales, profit, best sellers, and stock value.'] },
+      { h:'Works without signal', p:['Everything is saved on the phone first, so the store keeps running when there is no signal. When there is internet, it backs up to the cloud by itself, and two phones signed in to the same account stay up to date.','There is also a backup file the owner can keep in Google Drive, and a PIN lock for the phone.'] },
+      { h:'Details that matter', list:['<b>Mistakes are reversed, never erased</b> &mdash; every sale keeps its receipt, and stock history shows every restock, sale, and correction.','<b>A new barcode is learned once</b> &mdash; the app asks which product it is the first time, then sells it on every scan after.','<b>Stock alerts</b> &mdash; a phone notification when something runs low, even offline.','<b>A selling streak</b> &mdash; the owner&rsquo;s photo with a day count, so recording sales becomes a habit.','<b>Taglish</b> &mdash; the whole app can switch between English and Taglish.'] },
+      { h:'My part', p:['I built TindahanTrack alone, in four roles:'], list:['<b>Product owner and designer</b> &mdash; decided all the features (utang, tingi, the barcode scanner, two phones on one account, the selling streak, returns) and how the screens should look and work.','<b>Project lead</b> &mdash; planned the work in phases and approved each one before it started.','<b>Backend setup</b> &mdash; created the Supabase project and ran its SQL setup.','<b>Tester</b> &mdash; tested every version on a real phone and reported problems to fix.'] }
+    ],
+    features:['Works offline, backs up to the cloud','Sales with change, by scan or pick','Utang with partial payments and reminders','Tingi: buy by the box, sell by the piece','Stock history; mistakes reversed, never erased','Daily, weekly, and monthly reports','Restock list to share with the supplier','Stock alerts, PIN lock, and Taglish']
   }
 ];
 

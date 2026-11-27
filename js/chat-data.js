@@ -87,7 +87,8 @@ var CHAT = {
         '<li><b>CassavaCare:</b> a project given by one of Marjon&rsquo;s faculty instructors; Marjon trained both models and built the app</li>' +
         '<li><b>Banana Detector:</b> built during an international immersion program in Vietnam</li>' +
         '<li><b>Face Recognition Attendance:</b> a 6-member team project from 2nd year, 1st semester; Marjon was the assistant programmer</li>' +
-        '<li><b>Cuisina:</b> a 4-member team project, a catering booking platform; Marjon was the developer</li></ul>',
+        '<li><b>Cuisina:</b> a 4-member team project, a catering booking platform; Marjon was the developer</li>' +
+        '<li><b>TindahanTrack:</b> built alone, as product owner and designer, project lead, backend setup, and tester</li></ul>',
       next: ['hardest', 'why', 'contact'] },
 
     { id: 'hardest',
@@ -217,7 +218,8 @@ var CHAT = {
     cassavacare: ['cassavacare', 'cassava', 'leaf', 'leaves', 'disease', 'crop', 'plant'],
     banana: ['banana', 'ripe', 'ripeness', 'rotten', 'fruit'],
     faceattend: ['face', 'face recognition', 'facial', 'django', 'assistant programmer'],
-    cuisina: ['cuisina', 'catering', 'caterer', 'caterers', 'cater', 'event booking', 'wedding', 'debut', 'menu']
+    cuisina: ['cuisina', 'catering', 'caterer', 'caterers', 'cater', 'event booking', 'wedding', 'debut', 'menu'],
+    tindahantrack: ['tindahantrack', 'tindahan', 'sari-sari', 'sari sari', 'stock', 'inventory', 'utang', 'listahan', 'sales app', 'supabase']
   },
 
   fallback: {

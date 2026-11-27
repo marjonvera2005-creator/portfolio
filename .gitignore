@@ -18,3 +18,7 @@ Images/Beyond the Code/
 *.mp4
 # Original Cuisina screenshots (some show phone numbers and emails); the site uses Images/web/cuisina/
 Images/Cuisina/
+# Original TindahanTrack screenshots (some show a customer phone number, an email, and the store owner photo)
+Images/TindahanTrack/
+# Another person's resume, kept only as a layout guide
+Kurt-Michael-Salut-Resume.pdf
