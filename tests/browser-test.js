@@ -89,6 +89,14 @@ const shots = process.argv.includes('--shots');
         const top = document.querySelector('#trainings .h2').getBoundingClientRect().top;
         return top > 40 && top < 260 && location.hash === '#trainings' && document.activeElement.id === 'trainings';
       });
+      // Desktop sidebar: the collapse button narrows it to icons and back
+      c.sideToggle = sz.width < 1024 ? true : await page.evaluate(async () => {
+        const nav = document.querySelector('.nav'), btn = document.getElementById('sideBtn'), w0 = nav.offsetWidth;
+        btn.click(); await new Promise(r => setTimeout(r, 300));
+        const w1 = nav.offsetWidth, shut = btn.getAttribute('aria-expanded') === 'false';
+        btn.click(); await new Promise(r => setTimeout(r, 300));
+        return w1 < w0 && shut && nav.offsetWidth === w0 && btn.getAttribute('aria-expanded') === 'true';
+      });
       // Slideshows: Next moves the track and the counter, Previous brings it back.
       // Previous starts disabled, except on a looping (data-autoplay) slider, which has no start.
       c.sliders = [];
@@ -204,7 +212,7 @@ const shots = process.argv.includes('--shots');
     if (c.burger && !(c.sheetOpens && c.sheetClosesOnLink)) bad.push('sheet broken');
     if (!c.heroIntro) bad.push('hero intro hidden/clipped');
     for (const k of ['sectionSwitch', 'detailOpens', 'detailImgOk', 'detailNoHScroll', 'detailClosesEsc', 'lightboxOpens', 'lightboxCloses', 'formRejectsBadEmail', 'deepLink', 'returnsToCard',
-      'workShowAll', 'botVisible', 'botOpens', 'botPanelFits', 'botChipAnswers', 'botTypedAnswers', 'botProjectAnswers', 'botWhyHire', 'botHonestUnknown', 'botFallback', 'botClosesEsc', 'botYieldsToMsg']) if (!c[k]) bad.push(k + ' FAILED');
+      'workShowAll', 'sideToggle', 'botVisible', 'botOpens', 'botPanelFits', 'botChipAnswers', 'botTypedAnswers', 'botProjectAnswers', 'botWhyHire', 'botHonestUnknown', 'botFallback', 'botClosesEsc', 'botYieldsToMsg']) if (!c[k]) bad.push(k + ' FAILED');
     if (c.workCards !== 9) bad.push('work cards ' + c.workCards);
     if (c.sliders.length) bad.push('slideshow broken: ' + c.sliders.join(', '));
     if (!c.themeToggles) bad.push('theme toggle FAILED');

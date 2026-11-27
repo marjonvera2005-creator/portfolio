@@ -54,6 +54,9 @@ Open `index.html` in a browser. Everything works straight from disk, with no ser
 - **Section switch:** clicking a menu link (or the logo, hero buttons, or Back to top) changes section
   like changing pages: the content fades out, the page jumps, and the section's heading and content
   rise back in. Under reduced motion it jumps instantly.
+- **Sidebar navigation:** on laptops and desktops (1024px and up) the menu is a panel on the left with
+  an icon for each section. Its collapse button shrinks it to icons only, and the choice is remembered.
+  Phones and tablets keep a top bar with a menu button.
 - **Project grid (Work):** two columns on tablet and desktop, one on phones. Each screenshot sits on
   a panel tinted in that project's own colours (`tint` in `js/data.js`), with the title, year, type,
   and tech below. The first four show; "Show all 9 projects" reveals the rest.

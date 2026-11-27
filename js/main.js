@@ -86,6 +86,22 @@
     ids.forEach(function (id) { var s = document.getElementById(id); if (s) io.observe(s); });
   })();
 
+  /* ── Desktop sidebar: collapse to icons, and remember the choice ───── */
+  (function () {
+    var btn = $('#sideBtn'), root = document.documentElement;
+    function apply(collapsed) {
+      if (collapsed) root.setAttribute('data-side', 'collapsed'); else root.removeAttribute('data-side');
+      btn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+      btn.setAttribute('aria-label', collapsed ? 'Expand sidebar' : 'Collapse sidebar');
+    }
+    apply(root.getAttribute('data-side') === 'collapsed');
+    btn.addEventListener('click', function () {
+      var collapsed = root.getAttribute('data-side') !== 'collapsed';
+      apply(collapsed);
+      try { localStorage.setItem('mv_side', collapsed ? 'collapsed' : 'open'); } catch (e) {}
+    });
+  })();
+
   /* ── Mobile sheet, origin-aware ────────────────────────────────────── */
   (function () {
     var b = $('#burger'), s = $('#sheet'), sc = $('#scrim'), open = false;
