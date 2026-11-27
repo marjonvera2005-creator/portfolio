@@ -761,6 +761,16 @@
       try { t.textContent = new Date().toLocaleTimeString('en-PH', { hour:'numeric', minute:'2-digit', timeZone:'Asia/Manila' }); } catch (e) {}
     }
     tick(); setInterval(tick, 30000);
+
+    // On a very short screen the index scrolls: fade its bottom edge while
+    // more sections are hidden below, so visitors know to scroll.
+    var list = $('#navLinks');
+    function more() {
+      list.setAttribute('data-more', list.scrollTop + list.clientHeight < list.scrollHeight - 2 ? '1' : '0');
+    }
+    list.addEventListener('scroll', more, { passive:true });
+    addEventListener('resize', more, { passive:true });
+    more();
   })();
 
   /* ── Project detail ────────────────────────────────────────────────── */

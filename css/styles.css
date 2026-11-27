@@ -202,7 +202,9 @@ ul,ol { list-style:none; }
 
   /* The index */
   .nav__idx { display:block; margin:26px 4px 8px; font:500 11px/1 var(--mono); letter-spacing:.2em; text-transform:uppercase; color:var(--faint); }
-  .nav__links { flex:1 1 auto; min-height:0; flex-direction:column; align-items:stretch; gap:0; margin:0; overflow-y:auto; scrollbar-width:none; }
+  .nav__links { flex:1 1 auto; min-height:0; flex-direction:column; align-items:stretch; gap:0; margin:0; overflow-y:auto; scrollbar-width:thin; }
+  /* If the index still has to scroll, a fade at the bottom says there is more */
+  .nav__links[data-more='1'] { -webkit-mask-image:linear-gradient(#000 calc(100% - 36px), transparent); mask-image:linear-gradient(#000 calc(100% - 36px), transparent); }
   .nav__links a {
     display:flex; align-items:baseline; gap:14px; padding:10px 4px 10px 14px; border-radius:0;
     font-size:15px; font-weight:600; letter-spacing:.01em; text-transform:none; color:var(--muted);
@@ -246,8 +248,16 @@ ul,ol { list-style:none; }
   .nav__social a:hover { color:var(--text); background:var(--surface-2); }
   .nav__social svg { width:16px; height:16px; }
 
-  /* Short laptop screens: drop the time so the index keeps its room */
-  @media (max-height:740px) { .nav__time { display:none; } .nav__idx { margin-top:18px; } }
+  /* Short laptop screens: tighten the sidebar so all seven sections fit */
+  @media (max-height:760px) {
+    .nav__time { display:none; }
+    .nav__idx { margin:16px 4px 6px; }
+    .nav__links a { padding-block:7px; }
+    .nav__status { margin-top:10px; padding:9px 12px; }
+    .nav__right { gap:8px; margin-top:10px; }
+    .nav__row .nav__sq { height:38px; }
+  }
+  @media (max-height:640px) { .nav__social { display:none; } }
 
   /* Collapsed: the numbers only */
   :root[data-side='collapsed'] .brand__t,
@@ -627,10 +637,12 @@ section[tabindex='-1']:focus { outline:none; }
 }
 @media (min-width:1024px) {
   .feat { grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); }
-  /* The award card photo fills whatever height is left beside the
-     certificate, so its bottom lines up with the certificate's bottom.
-     contain:size keeps the photo from making the row taller. */
-  .feat__cert { align-self:end; }
+  /* The award card photo fills whatever height is left beside the text.
+     contain:size keeps the photo from making the row taller. The
+     certificate sits centred, so when the text column is the taller one
+     (narrow screens with the sidebar open) the space is shared above and
+     below it instead of piling up on top. */
+  .feat__cert { align-self:center; }
   .feat__body { align-self:stretch; display:flex; flex-direction:column; align-items:flex-start; }
   .feat .feat__photos { flex:1 1 auto; min-height:200px; contain:size; grid-template-columns:none; grid-template-rows:100%; }
   .feat .feat__photos li { height:100%; }
