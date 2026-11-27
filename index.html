@@ -18,7 +18,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230A0A0A'/%3E%3Ctext x='50' y='70' font-family='Archivo,Arial' font-size='58' font-weight='800' fill='%23fff' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
 
 <!-- ?v= makes browsers fetch the new file after a change; bump it on every update -->
-<link rel="stylesheet" href="css/styles.css?v=20261128a">
+<link rel="stylesheet" href="css/styles.css?v=20261128d">
 <!-- Apply the remembered sidebar state before the first paint, so it doesn't jump -->
 <script>try { if (localStorage.getItem('mv_side') === 'collapsed') document.documentElement.setAttribute('data-side', 'collapsed'); } catch (e) {}</script>
 </head>
@@ -45,20 +45,38 @@
       <a class="brand" href="#top" aria-label="Marjon C. Vera — back to top">
         <span class="brand__m" aria-hidden="true">M</span><span class="brand__t">MARJON</span>
       </a>
+      <!-- Desktop sidebar only: photo, name and role in place of the brand -->
+      <a class="nav__me" href="#top" aria-label="Marjon C. Vera, Software Developer — back to top">
+        <img src="Images/web/avatar.jpg" width="260" height="208" alt="" decoding="async">
+        <span class="nav__who"><b>Marjon C. Vera</b><span>Software Developer</span></span>
+      </a>
       <button class="icon-btn nav__fold" id="sideBtn" type="button" aria-expanded="true" aria-controls="navLinks" aria-label="Collapse sidebar">
         <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M9 4v16M15.5 10 13.5 12l2 2"/></svg>
       </button>
     </div>
     <nav class="nav__links" id="navLinks" aria-label="Sections">
-      <a href="#work" title="Work"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg><span class="nav__lbl">Work</span></a>
-      <a href="#capabilities" title="Skills"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg><span class="nav__lbl">Skills</span></a>
+      <p class="nav__grp">Portfolio</p>
+      <a href="#work" title="Work"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg><span class="nav__lbl">Work</span><span class="nav__count" data-count-of="work" aria-hidden="true"></span></a>
+      <a href="#capabilities" title="Skills"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg><span class="nav__lbl">Skills</span><span class="nav__count" data-count-of="capabilities" aria-hidden="true"></span></a>
       <a href="#about" title="About"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span class="nav__lbl">About</span></a>
-      <a href="#awards" title="Awards"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8v5a4 4 0 0 1-8 0V3Z"/><path d="M8 5H5v2a3 3 0 0 0 3 3M16 5h3v2a3 3 0 0 1-3 3M12 12v4M9 21h6l-.7-3.4H9.7L9 21Z"/></svg><span class="nav__lbl">Awards</span></a>
-      <a href="#trainings" title="Trainings"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5 12 3l9 3.5-9 3.5-9-3.5Z"/><path d="M7 11v5c0 1.7 2.2 3 5 3s5-1.3 5-3v-5"/></svg><span class="nav__lbl">Trainings</span></a>
-      <a href="#beyond" title="Beyond"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4V8Z"/><circle cx="12" cy="13" r="3.5"/></svg><span class="nav__lbl">Beyond</span></a>
-      <a href="#contact" title="Contact"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg><span class="nav__lbl">Contact</span></a>
+      <p class="nav__grp">Track record</p>
+      <a href="#awards" title="Awards"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8v5a4 4 0 0 1-8 0V3Z"/><path d="M8 5H5v2a3 3 0 0 0 3 3M16 5h3v2a3 3 0 0 1-3 3M12 12v4M9 21h6l-.7-3.4H9.7L9 21Z"/></svg><span class="nav__lbl">Awards</span><span class="nav__count" data-count-of="awards" aria-hidden="true"></span></a>
+      <a href="#trainings" title="Trainings"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5 12 3l9 3.5-9 3.5-9-3.5Z"/><path d="M7 11v5c0 1.7 2.2 3 5 3s5-1.3 5-3v-5"/></svg><span class="nav__lbl">Trainings</span><span class="nav__count" data-count-of="trainings" aria-hidden="true"></span></a>
+      <p class="nav__grp">Personal</p>
+      <a href="#beyond" title="Beyond"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4V8Z"/><circle cx="12" cy="13" r="3.5"/></svg><span class="nav__lbl">Beyond</span><span class="nav__count" data-count-of="beyond" aria-hidden="true"></span></a>
+      <p class="nav__grp">Get in touch</p>
+      <a href="#contact" title="Contact"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg><span class="nav__lbl">Contact</span><span class="nav__badge"><i aria-hidden="true"></i>Open to work</span></a>
     </nav>
     <div class="nav__right">
+      <!-- Desktop sidebar only: ask Mochi and the resume -->
+      <button class="nav__tool nav__ask" id="askBtn" type="button" title="Ask Mochi (Alt+K)" aria-keyshortcuts="Alt+K">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3ZM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15Z"/></svg>
+        <span class="nav__lbl">Ask about Marjon</span><kbd class="nav__kbd" aria-hidden="true">Alt</kbd><kbd class="nav__kbd" aria-hidden="true">K</kbd>
+      </button>
+      <a class="nav__tool nav__cv" href="cv/Marjon-Vera-CV.pdf" target="_blank" rel="noopener" title="Resume">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
+        <span class="nav__lbl">Resume</span><svg class="nav__ext" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
       <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch to light theme">
         <svg aria-hidden="true" class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg>
         <svg aria-hidden="true" class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 13.2A9 9 0 1 1 10.8 3a7 7 0 0 0 10.2 10.2Z"/></svg>
@@ -68,6 +86,8 @@
       </button>
       <a class="hire" href="#contact" title="Hire Me"><svg class="hire__ic" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></svg><span class="hire__lbl">Hire Me</span></a>
     </div>
+    <!-- Desktop sidebar only: profiles, filled in from the contact list in js/main.js -->
+    <ul class="nav__social" id="navSocial" aria-label="Profiles"></ul>
   </div>
 </header>
 
@@ -194,7 +214,6 @@
     </div>
 
     <div class="ab__top rv-d1" data-rv>
-      <div class="ab__pic"><img src="Images/web/avatar.jpg" width="260" height="208" loading="lazy" decoding="async" alt="Headshot of Marjon C. Vera."></div>
       <div>
         <p class="ab__name">MARJON C. VERA</p>
         <dl class="ab__stats">
@@ -518,7 +537,7 @@
 </div>
 
 <script src="js/data.js?v=20261127f"></script>
-<script src="js/main.js?v=20261128a"></script>
+<script src="js/main.js?v=20261128b"></script>
 <script src="js/chat-data.js?v=20261127c"></script>
 <script src="js/chat.js?v=20261031a"></script>
 </body>

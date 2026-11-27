@@ -732,6 +732,44 @@
       li.appendChild(a);
       host.appendChild(li);
     });
+
+    // The same profiles, small, at the foot of the desktop sidebar
+    var side = $('#navSocial'), SIDE = ['GitHub', 'LinkedIn', 'Facebook', 'Email'];
+    ROWS.filter(function (r) { return r[1] && SIDE.indexOf(r[0]) > -1; })
+      .sort(function (x, y) { return SIDE.indexOf(x[0]) - SIDE.indexOf(y[0]); })
+      .forEach(function (r) {
+        var paint = STROKED[r[2]] ? 'fill="none" stroke="currentColor" stroke-width="1.8"' : 'fill="currentColor"';
+        var li = document.createElement('li');
+        li.innerHTML = '<a href="' + r[1] + '"' + (/^mailto:/.test(r[1]) ? '' : ' target="_blank" rel="noopener noreferrer"') + '>' +
+          '<svg viewBox="0 0 24 24" ' + paint + ' aria-hidden="true">' + ICON[r[2]] + '</svg>' + r[0] + '</a>';
+        side.appendChild(li);
+      });
+  })();
+
+  /* ── Sidebar counts and "Ask about Marjon" ─────────────────────────── */
+  (function () {
+    var COUNT = {
+      work: PROJECTS.length,
+      capabilities: $$('#capabilities .pill').length,
+      awards: $$('#awards .feat').length,
+      trainings: $$('#trainings .tr__slide').length,
+      beyond: BEYOND.length
+    };
+    $$('[data-count-of]').forEach(function (el) {
+      var n = COUNT[el.getAttribute('data-count-of')];
+      if (n) el.textContent = n < 10 ? '0' + n : String(n);
+    });
+
+    // Opens Mochi from the sidebar button, or with Alt+K from anywhere.
+    function ask() {
+      var fab = $('#botFab');
+      if (fab.getAttribute('aria-expanded') !== 'true') fab.click();
+      setTimeout(function () { var i = $('#botIn'); if (i) i.focus(); }, 60);
+    }
+    $('#askBtn').addEventListener('click', ask);
+    addEventListener('keydown', function (e) {
+      if (e.altKey && !e.ctrlKey && !e.metaKey && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); ask(); }
+    });
   })();
 
   /* ── Project detail ────────────────────────────────────────────────── */
