@@ -235,6 +235,6 @@
       store('sessionStorage', 'mv_bot_hint', '1');
       root.setAttribute('data-hint', '1');
       hintT = setTimeout(hideHint, 6000);
-    }, 2500);
+    }, 8000);   // after the visitor has had time to read the hero
   }
 })();

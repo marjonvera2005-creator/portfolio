@@ -43,7 +43,8 @@
   --inv-bg:  #F5F5F5;
   --inv-tx:  #0A0A0A;
   --shadow:  0 24px 60px -24px rgba(0,0,0,.9);
-  --band:    #131313;   /* alternate section background */
+  --band:    #161616;   /* alternate section background */
+  --dot:     rgba(255,255,255,.075);   /* dot grid on the alternate sections */
   --accent:  #FF6B2C;   /* signal orange: 6.97:1 on --bg, 6.43:1 on --surface */
 }
 :root[data-theme='light'] {
@@ -60,6 +61,7 @@
   --inv-tx:  #F5F5F5;
   --shadow:  0 24px 60px -24px rgba(0,0,0,.22);
   --band:    #E4E4E4;   /* --accent 5.0:1 on it */
+  --dot:     rgba(0,0,0,.09);
   --accent:  #A93A0C;   /* 5.39:1 on --bg, 6.37:1 on --surface */
 }
 
@@ -376,7 +378,15 @@ section[tabindex='-1']:focus { outline:none; }
 .sec[id] { scroll-margin-top: calc(-1 * clamp(72px,10vh,124px)); }
 /* Alternating band: paints a full-bleed background behind a .wrap section
    without an extra wrapper element. */
-.sec--band { background:var(--band); box-shadow:0 0 0 100vmax var(--band); clip-path:inset(0 -100vmax); }
+.sec--band { background:var(--band); box-shadow:0 0 0 100vmax var(--band); clip-path:inset(0 -100vmax); position:relative; isolation:isolate; }
+/* A faint dot grid on each alternate section, like the grid of a camera's
+   detection view. It stays inside the section's own box (a full-bleed
+   layer would widen the page on phones) and fades out towards the edges. */
+.sec--band::before {
+  content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background-image:radial-gradient(var(--dot) 1.1px, transparent 1.6px); background-size:24px 24px;
+  -webkit-mask-image:radial-gradient(ellipse 75% 70% at 50% 50%, #000 35%, transparent 100%); mask-image:radial-gradient(ellipse 75% 70% at 50% 50%, #000 35%, transparent 100%);
+}
 .sec__head { margin-bottom:clamp(30px,4.5vh,52px); }
 /* One heading scale for every section title. */
 .h2 { font-size:clamp(34px,5.6vw,58px); font-weight:700; letter-spacing:-.03em; line-height:1.04; text-wrap:balance; }
@@ -421,18 +431,15 @@ section[tabindex='-1']:focus { outline:none; }
 }
 .hero__type {
   position:absolute; left:0; right:0; top:84px;
-  display:flex; white-space:nowrap; pointer-events:none;
-  /* Marquee: slow, and disabled entirely under reduced motion, where it
-     sits still and centred instead. */
-  animation:slide 34s linear infinite;
+  display:flex; justify-content:center; white-space:nowrap; pointer-events:none;
+  /* The name in outline, still and whole, fading out towards the bottom */
+  -webkit-mask-image:linear-gradient(#000 35%, transparent 105%); mask-image:linear-gradient(#000 35%, transparent 105%);
 }
 .hero__type span {
   font-size:clamp(84px,17vw,240px); font-weight:900; letter-spacing:-.02em; line-height:.9;
   color:transparent; -webkit-text-stroke:1.6px var(--line-2);
-  padding-right:.18em;
 }
 @supports not ((-webkit-text-stroke: 1px red)) { .hero__type span { color:var(--line); } }
-@keyframes slide { from { transform:translateX(0); } to { transform:translateX(-50%); } }
 
 .hero__intro {
   position:relative; z-index:2; width:100%; max-width:34rem;
@@ -460,6 +467,11 @@ section[tabindex='-1']:focus { outline:none; }
    that shows the page behind it, then the portrait on a solid disc.
    hero.webp has its background cut out, so the disc colour shows around
    the figure; the crop keeps the head and shoulders centred. */
+/* A warm accent glow behind the portrait */
+.hero__photo::before {
+  content:''; position:absolute; inset:-38%; z-index:-1; pointer-events:none; border-radius:50%;
+  background:radial-gradient(closest-side, color-mix(in srgb, var(--accent) 34%, transparent), color-mix(in srgb, var(--accent) 10%, transparent) 55%, transparent);
+}
 .hero__photo img {
   display:block; width:100%; height:auto; aspect-ratio:1;
   object-fit:cover; object-position:50% 0;
@@ -545,6 +557,12 @@ section[tabindex='-1']:focus { outline:none; }
     radial-gradient(120% 90% at 50% 115%, color-mix(in srgb, var(--t1) 55%, transparent), transparent 70%),
     linear-gradient(160deg, color-mix(in srgb, var(--t2) 70%, var(--surface)), color-mix(in srgb, var(--t2) 35%, var(--bg)));
   transition:border-color var(--t-ui) var(--ease-soft);
+}
+/* Light theme: brighter tints, so the panels read as colour, not grey */
+:root[data-theme='light'] .work__shot {
+  background:
+    radial-gradient(120% 90% at 50% 115%, color-mix(in srgb, var(--t1) 38%, transparent), transparent 70%),
+    linear-gradient(160deg, color-mix(in srgb, var(--t1) 14%, #fff), color-mix(in srgb, var(--t2) 22%, #f2f2f2));
 }
 .work__card:hover .work__shot { border-color:color-mix(in srgb, var(--t1) 70%, var(--line-2)); }
 .shot { width:100%; height:100%; object-fit:contain; border-radius:8px; filter:drop-shadow(0 14px 24px rgba(0,0,0,.35)); transition:transform 420ms var(--ease); }
@@ -826,7 +844,7 @@ section[tabindex='-1']:focus { outline:none; }
 @media (min-width:1024px) { .ct__grid { grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); } }
 /* Capped at 96px: "TOGETHER" is the longest word, and at 116px it needed
    ~575px inside a ~512px column, so it ran under the contact list. */
-.ct__big { font-size:clamp(42px,7.4vw,96px); font-weight:900; letter-spacing:-.045em; line-height:.92; text-transform:uppercase; }
+.ct__big { font-size:clamp(42px,7.4vw,96px); font-weight:800; letter-spacing:-.04em; line-height:.98; }
 .ct__sub { margin-top:22px; font-size:clamp(17px,2vw,21px); font-weight:700; letter-spacing:-.01em; max-width:22ch; }
 .ct__p { margin-top:12px; color:var(--muted); font-size:16px; max-width:46ch; }
 .ct__cta { margin-top:26px; display:flex; flex-wrap:wrap; gap:12px; }
@@ -1139,8 +1157,6 @@ section[tabindex='-1']:focus { outline:none; }
   *,*::before,*::after { animation-duration:1ms !important; animation-iteration-count:1 !important; transition-duration:1ms !important; scroll-behavior:auto !important; }
   [data-rv] { opacity:1 !important; transform:none !important; }
   .lb__load { animation:none !important; opacity:.85; }
-  /* Marquee stops and the name sits still, still fully legible. */
-  .hero__type { animation:none !important; justify-content:center; }
   .btn:active,.hire:active,.icon-btn:active,.brand:active,.ct__row:active,.link:active,.hero__award:active,.dgal__btn:active,.dout__btn:active,.bc__btn:active,.bc__chip:active,.bot__fab:hover,.bot__fab:active,.bot__act:active,.bot__send:active,.slider__btn:active { transform:none; }
   .work__card:hover .shot, .bc__btn:hover img { transform:none; }
   /* The reel lies flat and sharp: no turned frame, no blur. */
