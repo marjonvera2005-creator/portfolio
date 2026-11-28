@@ -807,7 +807,11 @@
       PROJECTS.forEach(function (x) { if (x.id === id) p = x; });
       if (!p) return;
       crumb.textContent = p.title;
-      var left = '<div><h2 class="detail__t" id="dTitle">' + p.title + '</h2>' +
+      // The case study takes the project's own colours (as on its card)
+      var t = p.tint || ['#FF6B2C', '#1c1c1c'];
+      view.style.setProperty('--t1', t[0]); view.style.setProperty('--t2', t[1]);
+      var left = '<div><p class="detail__eyebrow">' + p.context + (p.year ? ' · ' + p.year : '') + '</p>' +
+        '<h2 class="detail__t" id="dTitle">' + p.title + '</h2>' +
         (p.study ? '<p class="detail__study">' + (p.studyLabel || 'Research title') + ': <cite>' + p.study + '</cite></p>' : '') + '<p class="detail__lede">' + p.lede + '</p>' + roleFor(p);
       if (p.live) {
         left += '<p class="detail__live"><a class="btn btn--solid" href="' + p.live + '" target="_blank" rel="noopener noreferrer">Visit live site' +
@@ -816,8 +820,8 @@
       }
       left += '<dl class="dmeta">' + p.meta.map(function (m) { return '<div><dt>' + m[0] + '</dt><dd>' + m[1] + '</dd></div>'; }).join('') + '</dl>';
 
-      p.blocks.forEach(function (b) {
-        left += '<div class="dblock"><h3>' + b.h + '</h3>';
+      p.blocks.forEach(function (b, bi) {
+        left += '<div class="dblock"><h3><span class="dblock__n" aria-hidden="true">' + (bi < 9 ? '0' : '') + (bi + 1) + '</span>' + b.h + '</h3>';
         if (b.p) b.p.forEach(function (x) { left += '<p>' + x + '</p>'; });
         // A diagram for the block; opens full size in the lightbox like the screens.
         if (b.figure) {
@@ -855,6 +859,28 @@
         p.features.map(function (f) { return '<li>' + f + '</li>'; }).join('') + '</ul></div>' +
         galleryFor(p) + '</div>' +
         portalsFor(p) + detectionsFor(p);
+      reveal();
+    }
+
+    // Entrance: each part of the case study rises in as it comes into view
+    // inside the panel, a beat apart when several arrive together. Under
+    // reduced motion (or without IntersectionObserver) everything just shows.
+    var seen = null;
+    function reveal() {
+      var parts = $$('.detail__grid > div:first-child > *, .dside > *, .dgal--full, .dout, .dgal__list > li, .dout__list > li', body);
+      parts.forEach(function (el) { el.setAttribute('data-in', ''); });
+      if (reduced() || !('IntersectionObserver' in window)) { parts.forEach(function (el) { el.classList.add('is-in'); }); return; }
+      if (seen) seen.disconnect();
+      seen = new IntersectionObserver(function (en) {
+        var k = 0;
+        en.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          e.target.style.setProperty('--d', Math.min(k++, 8) * 70 + 'ms');
+          e.target.classList.add('is-in');
+          seen.unobserve(e.target);
+        });
+      }, { root:view, rootMargin:'0px 0px -6% 0px' });
+      parts.forEach(function (el) { seen.observe(el); });
     }
 
     // "Inside the system": real screens with a caption each, placed in the

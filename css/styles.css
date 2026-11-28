@@ -1147,6 +1147,54 @@ section[tabindex='-1']:focus { outline:none; }
 .dout__btn:active { transform:scale(.97); }
 .dout__btn img { width:100%; height:100%; object-fit:cover; object-position:50% 50%; }
 
+/* ── Case study in the project's colours ───────────────────────────────
+   main.js sets --t1 (glow) and --t2 (base) from the project's tint, the
+   same pair its card uses. The header glows in it, the screenshot sits on
+   the card's tinted panel, and small accents (role edge, detail rules,
+   section numbers, bullets, flow steps) pick it up. A readable version of
+   the tint for text: --tt. */
+.detail {
+  --t1:#FF6B2C; --t2:#1c1c1c;
+  --tt:color-mix(in srgb, var(--t1) 72%, var(--text));
+  background:
+    radial-gradient(70% 520px at 78% 0%, color-mix(in srgb, var(--t1) 22%, transparent), transparent 75%),
+    radial-gradient(50% 380px at 0% 0%, color-mix(in srgb, var(--t2) 55%, transparent), transparent 80%),
+    var(--bg);
+  background-attachment:local;
+}
+.detail__eyebrow { font:500 12px/1.4 var(--mono); letter-spacing:.16em; text-transform:uppercase; color:var(--tt); margin-bottom:10px; }
+.detail .role { border-left:3px solid var(--t1); background:color-mix(in srgb, var(--t1) 7%, var(--surface-2)); }
+.detail .dmeta > div { border-top:2px solid color-mix(in srgb, var(--t1) 70%, transparent); }
+.dblock h3 { display:flex; align-items:center; gap:10px; }
+.dblock h3::after { content:''; flex:0 0 28px; height:1px; background:color-mix(in srgb, var(--t1) 60%, transparent); }
+.dblock__n { color:var(--tt); }
+.detail .dlist li::before { background:var(--t1); }
+.detail .dflow__s { border-left:3px solid var(--t1); }
+.detail .dflow__a { color:var(--tt); }
+.detail .dfeat { border-top:2px solid color-mix(in srgb, var(--t1) 70%, transparent); }
+.detail .dchip { border-color:color-mix(in srgb, var(--t1) 35%, var(--line)); }
+/* The screenshot on the same tinted panel as its card */
+.detail .dshot {
+  padding:clamp(18px,3vw,32px); border-color:color-mix(in srgb, var(--t1) 35%, var(--line));
+  background:
+    radial-gradient(120% 90% at 50% 115%, color-mix(in srgb, var(--t1) 55%, transparent), transparent 70%),
+    linear-gradient(160deg, color-mix(in srgb, var(--t2) 70%, var(--surface)), color-mix(in srgb, var(--t2) 35%, var(--bg)));
+}
+:root[data-theme='light'] .detail .dshot {
+  background:
+    radial-gradient(120% 90% at 50% 115%, color-mix(in srgb, var(--t1) 38%, transparent), transparent 70%),
+    linear-gradient(160deg, color-mix(in srgb, var(--t1) 14%, #fff), color-mix(in srgb, var(--t2) 22%, #f2f2f2));
+}
+.detail .dshot .shot { margin-inline:auto; filter:drop-shadow(0 18px 30px rgba(0,0,0,.4)); border-radius:10px; }
+.detail .dgal__btn:hover, .detail .dout__btn:hover, .detail .dfig__btn:hover { border-color:var(--t1); }
+
+/* Entrance: parts rise in as they come into view (main.js adds .is-in) */
+.detail [data-in] { opacity:0; transform:translateY(22px); }
+.detail [data-in].is-in { opacity:1; transform:none; transition:opacity .6s var(--ease-soft) var(--d, 0ms), transform .7s var(--ease) var(--d, 0ms); }
+.detail .dshot[data-in] { transform:translateY(22px) scale(.96); }
+.detail .dshot[data-in].is-in { transform:none; }
+@media (prefers-reduced-motion: reduce) { .detail [data-in] { opacity:1 !important; transform:none !important; } }
+
 /* ═══ LIGHTBOX ════════════════════════════════════════════════════════ */
 .lb { position:fixed; inset:0; z-index:350; display:grid; place-items:center; padding:clamp(14px,3vw,44px); }
 .lb[hidden] { display:none; }
