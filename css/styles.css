@@ -474,6 +474,41 @@ section[tabindex='-1']:focus { outline:none; }
    that shows the page behind it, then the portrait on a solid disc.
    hero.webp has its background cut out, so the disc colour shows around
    the figure; the crop keeps the head and shoulders centred. */
+/* A light travels along the outline name, M to N, then rests and runs
+   again: an accent copy of the word on top, shown only through a narrow
+   moving window (mask). Still under reduced motion. */
+.hero__name { position:relative; display:block; }
+.hero__type .hero__shine {
+  position:absolute; inset:0; padding:0;
+  -webkit-text-stroke:2.4px color-mix(in srgb, var(--accent) 80%, #fff);
+  filter:drop-shadow(0 0 4px var(--accent)) drop-shadow(0 0 14px color-mix(in srgb, var(--accent) 70%, transparent));
+  -webkit-mask-image:linear-gradient(90deg, transparent, #000 40%, #000 60%, transparent);
+          mask-image:linear-gradient(90deg, transparent, #000 40%, #000 60%, transparent);
+  -webkit-mask-size:34% 100%; mask-size:34% 100%;
+  -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+  animation:name-light 5.5s cubic-bezier(.45,0,.25,1) infinite;
+}
+@keyframes name-light {
+  0%       { -webkit-mask-position:-40% 0; mask-position:-40% 0; }
+  70%,100% { -webkit-mask-position:140% 0; mask-position:140% 0; }
+}
+
+/* A light circling the portrait's ring: a bright arc of a conic gradient,
+   cut to a thin ring by a mask and turned continuously. */
+.hero__photo::after {
+  content:''; position:absolute; inset:-2px; z-index:2; pointer-events:none; border-radius:50%;
+  background:conic-gradient(from 0deg, transparent 0 62%, color-mix(in srgb, var(--accent) 40%, transparent) 78%, #fff 88%, var(--accent) 91%, transparent 96%);
+  -webkit-mask:radial-gradient(farthest-side, transparent calc(100% - 6px), #000 calc(100% - 5px), #000 calc(100% - 1px), transparent 100%);
+          mask:radial-gradient(farthest-side, transparent calc(100% - 6px), #000 calc(100% - 5px), #000 calc(100% - 1px), transparent 100%);
+  filter:drop-shadow(0 0 6px var(--accent));
+  animation:ring-light 4s linear infinite;
+}
+@keyframes ring-light { to { transform:rotate(1turn); } }
+@media (prefers-reduced-motion: reduce) {
+  .hero__type .hero__shine { animation:none; -webkit-mask-position:50% 0; mask-position:50% 0; opacity:.6; }
+  .hero__photo::after { animation:none; }
+}
+
 /* A warm accent glow behind the portrait */
 .hero__photo::before {
   content:''; position:absolute; inset:-38%; z-index:-1; pointer-events:none; border-radius:50%;
