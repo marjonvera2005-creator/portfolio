@@ -34,8 +34,9 @@ Each browser/size combination checks the following:
 18. Trainings slideshow: Previous starts disabled, Next moves the slides and updates the counter, and Previous brings them back. Slides waiting off to the side are excluded from check 1; the slideshow track itself is still checked for overflow.
 19. Section switch: a menu link lands its section's heading just under the nav bar, updates the address, and moves focus to the section
 20. Work grid: all nine projects render, four show at first, "Show all" reveals all nine, and pressing it again goes back to four
+21. Desktop sidebar: the collapse button narrows it to icons and back
 
-**Latest result (27 Nov 2026, after replacing the Work slideshow with a project grid): 10/10 combinations PASS.**
+**Latest result (28 Nov 2026, after the case-study redesign and the validator fixes): 10/10 combinations PASS.**
 
 ```
 chrome phone-360     PASS      edge phone-360     PASS
@@ -73,10 +74,10 @@ Rows 13–16 came from the design polish pass (hero, project cards, skill groups
 | 18 | Decorative icons inside buttons (theme, menu, close, certificate arrows) were read aloud by screen readers | Nav, Trainings, dialogs | Marked `aria-hidden="true"`; each button already has a text label or `aria-label`. |
 | 19 | With JavaScript off, the project list and contact list were empty, and "Send me a message" did nothing | Work, Contact | Added `<noscript>` fallbacks listing the projects, email, and GitHub; the message button is hidden without JavaScript. |
 | 20 | The slideshow's Next button sat at the bottom-right of the section, exactly where the floating Mochi button is, so on phones Mochi could cover it | Work, Trainings slideshows | The arrow buttons now sit on the left, before the counter. |
+| 21 | On a real phone the portrait came after the name and buttons, so the first screen showed text only | Hero, phones and tablets | The portrait now comes first above the intro below 1024px; desktop keeps it on the right. |
 
-## Manual checks on a real device (fill in after deploying)
+## Manual checks on a real device
 
 | Device / browser | Date | Result | Notes |
 |---|---|---|---|
-| | | | |
-| | | | |
+| Android phone, Messenger in-app browser (Wi-Fi) | 31 Oct 2026 | Pass | Live site loaded at marjon-vera-portfolio.vercel.app: top bar with menu and theme buttons, hero, award card, and Mochi all shown with no sideways scroll. The portrait sat below the name on the phone, so it was moved above it (row 21 below). |

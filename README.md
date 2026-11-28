@@ -4,7 +4,7 @@ A personal portfolio website for Marjon C. Vera, a BS Computer Science student a
 Biliran Province State University. It presents nine projects (IntelliGuide, Tingi, QuiteScan,
 CocoScan, CassavaCare, Banana Ripeness Detection, Face Recognition Attendance, Cuisina, TindahanTrack), skills, awards, trainings, and contact details.
 
-**Live site:** _add the Vercel URL here after deployment_
+**Live site:** https://marjon-vera-portfolio.vercel.app
 
 Built with plain HTML5, CSS3, and JavaScript. No frameworks and no build step.
 

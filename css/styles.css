@@ -671,6 +671,7 @@ section[tabindex='-1']:focus { outline:none; }
 .ab__stats dd { font-size:19px; font-weight:700; margin-top:2px; }
 .ab__bio { margin-top:18px; color:var(--muted); font-size:16px; line-height:1.75; max-width:74ch; }
 .ab__bio b { color:var(--text); font-weight:600; }
+.ab__bio + .ab__bio { margin-top:12px; }
 .ab__res { margin-top:14px; font-size:15px; color:var(--muted); }
 .ab__res a { font-weight:600; color:var(--text); border-bottom:1.5px solid currentColor; }
 

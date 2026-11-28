@@ -44,7 +44,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230A0A0A'/%3E%3Cpath d='M7 14V7h7M33 26v7h-7' fill='none' stroke='%23FF6B2C' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M12.5 28V13l7.5 9 7.5-9v15' fill='none' stroke='%23fff' stroke-width='3.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 
 <!-- ?v= makes browsers fetch the new file after a change; bump it on every update -->
-<link rel="stylesheet" href="css/styles.css?v=20261128w">
+<link rel="stylesheet" href="css/styles.css?v=20261128x">
 <!-- Apply the remembered sidebar state before the first paint, so it doesn't jump -->
 <script>try { if (localStorage.getItem('mv_side') === 'collapsed') document.documentElement.setAttribute('data-side', 'collapsed'); } catch (e) {}</script>
 <!-- Without JavaScript the loading screen could never leave, so it never shows -->
@@ -135,7 +135,7 @@
         <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
       <a class="hire" href="#contact" title="Hire Me"><svg class="hire__ic" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></svg><span class="hire__lbl">Hire Me</span></a>
-      <ul class="nav__social" id="navSocial" aria-label="Profiles"></ul>
+      <ul class="nav__social" id="navSocial"></ul>
     </div>
   </div>
 </header>
@@ -274,7 +274,9 @@
           <div><dt>Intl. award</dt><dd>1</dd></div>
           <div><dt>Based in</dt><dd>Naval, Biliran</dd></div>
         </dl>
-        <p class="ab__bio">I'm a BS Computer Science student who ended up on <b>both sides of the stack</b> because the projects I cared about needed both. The work I return to has a common shape: a judgement a person has to make in the moment, quickly and with incomplete information — is this student coming in or going out, what is in the path ahead and how far away, is this banana still worth keeping. Software is good at the repetition and the measuring; the interesting part is deciding how much of the judgement to take over, and where to leave the person in the loop. I received the <b>Best Emerging Markets Machine Learning Architect Award (International)</b> for academic excellence in my third year at Biliran Province State University, and I've completed training in IT immersion at the University of Danang and Cisco's Networking Basics.</p>
+        <p class="ab__bio">I'm a BS Computer Science student who ended up on <b>both sides of the stack</b> because the projects I cared about needed both.</p>
+        <p class="ab__bio">The work I return to has a common shape: a judgment a person has to make in the moment, quickly and with incomplete information — is this student coming in or going out, what is in the path ahead and how far away, is this banana still worth keeping. Software is good at the repetition and the measuring; the interesting part is deciding how much of the judgment to take over, and where to leave the person in the loop.</p>
+        <p class="ab__bio">I received the <b>Best Emerging Markets Machine Learning Architect Award (International)</b> for academic excellence in my third year at Biliran Province State University, and I've completed training in IT immersion at the University of Danang and Cisco's Networking Basics.</p>
         <p class="ab__res">Want the one-page version? <a href="cv/Marjon-Vera-CV.pdf" target="_blank" rel="noopener">Download my CV (PDF)</a></p>
       </div>
     </div>
@@ -364,7 +366,7 @@
       <div class="feat__body">
         <p class="feat__meta">International · 25 May 2026</p>
         <h3 class="feat__t">Best Emerging Markets Machine Learning Architect Award</h3>
-        <p class="feat__p">Given for achieving Academic Excellence in the third year level of the BS Computer Science programme, at the Biliran Province State University Recognition Program.</p>
+        <p class="feat__p">Given for achieving Academic Excellence in the third year level of the BS Computer Science program, at the Biliran Province State University Recognition Program.</p>
         <button class="link" type="button" data-cert="ml" data-title="Best Emerging Markets Machine Learning Architect Award (International)" data-sub="Biliran Province State University · 25 May 2026">View certificate <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></button>
         <ul class="feat__photos">
             <li><button type="button" data-cert="award-4" data-title="Best Emerging Markets Machine Learning Architect Award (International)" data-sub="The Recognition Day award card · BiPSU, May 2026" aria-label="View photo: The Recognition Day award card"><img src="Images/web/award-4.jpg" data-certkey="award-4" width="750" height="1000" alt="The Recognition Day award card naming Marjon C. Vera." loading="lazy" decoding="async"></button></li>
@@ -382,7 +384,7 @@
       <p class="motto">Always learning.<svg class="motto__line" viewBox="0 0 220 16" preserveAspectRatio="none" aria-hidden="true"><path d="M3 12C48 5 118 2 217 6c-62 1-118 3-168 8"/></svg></p>
     </div>
 
-    <div class="slider slider--tr" data-slider data-depth data-noun="trainings" data-rv role="region" aria-roledescription="carousel" aria-label="Trainings and certifications">
+    <section class="slider slider--tr" data-slider data-depth data-noun="trainings" data-rv aria-roledescription="carousel" aria-label="Trainings and certifications">
       <div class="tr slider__track">
         <div class="tr__slide"><article class="tr__row">
           <div class="tr__txt">
@@ -482,7 +484,7 @@
         <p class="slider__count"><span data-count aria-hidden="true"></span><span class="sr-only" data-live aria-live="polite"></span></p>
         <span class="slider__bar" aria-hidden="true"><span></span></span>
       </div>
-    </div>
+    </section>
   </section>
 
   <!-- ═══ BEYOND THE CODE ═══ -->
@@ -497,7 +499,7 @@
          sideways without stopping (see BEYOND THE CODE in styles.css). -->
     <div class="bc" data-rv>
       <div class="bc__filters" id="bcFilters" role="group" aria-label="Filter photos"></div>
-      <div class="reel" id="bcReel" role="region" aria-roledescription="carousel" aria-label="Beyond the code photos">
+      <section class="reel" id="bcReel" aria-roledescription="carousel" aria-label="Beyond the code photos">
         <div class="reel__stage">
           <div class="reel__plane" id="bcPlane">
             <div class="reel__inner" id="bcInner"><ul class="reel__track" id="bcGrid"></ul></div>
@@ -514,7 +516,7 @@
             <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
           <p class="slider__count" id="bcCount" aria-live="polite"></p>
         </div>
-      </div>
+      </section>
     </div>
     <noscript><p class="nojs-list">Turn on JavaScript to see the photo gallery.</p></noscript>
   </section>
@@ -649,9 +651,9 @@
   </section>
 </div>
 
-<script src="js/data.js?v=20261128j"></script>
+<script src="js/data.js?v=20261128k"></script>
 <script src="js/main.js?v=20261128i"></script>
-<script src="js/chat-data.js?v=20261128a"></script>
+<script src="js/chat-data.js?v=20261128b"></script>
 <script src="js/chat.js?v=20261128a"></script>
 </body>
 </html>

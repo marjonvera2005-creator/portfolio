@@ -445,7 +445,7 @@ var PROJECTS = [
     meta:[['Project','Immersion program, Vietnam'],['Role','Developer'],['Model','YOLOv8 · 4 ripeness stages'],['Status','Built &amp; Demonstrated']],
     chips:['YOLOv8','Python','OpenCV','Google Colab','Kaggle','Dataset annotation'],
     blocks:[
-      { h:'The problem', p:['Banana ripeness is commonly evaluated through visual inspection, which can vary between people and environmental conditions. Differences in lighting, banana appearance, and individual judgement can make manual ripeness grading inconsistent.','The goal of the system is to provide a <strong>consistent and repeatable method for identifying banana ripeness</strong> using computer vision.'] },
+      { h:'The problem', p:['Banana ripeness is commonly evaluated through visual inspection, which can vary between people and environmental conditions. Differences in lighting, banana appearance, and individual judgment can make manual ripeness grading inconsistent.','The goal of the system is to provide a <strong>consistent and repeatable method for identifying banana ripeness</strong> using computer vision.'] },
       { h:'Why detection, not classification', p:['A traditional image classifier answers a question such as <em>&ldquo;What is the ripeness of this image?&rdquo;</em> That becomes limiting when an image contains multiple bananas at different stages.','<strong>YOLOv8 performs object detection</strong>, providing both a bounding box and a class for each detected banana. This allows a single image to contain multiple results:'],
         pipes:['Banana 1 <b>&rarr;</b> Unripe','Banana 2 <b>&rarr;</b> Ripe','Banana 3 <b>&rarr;</b> Overripe'],
         after:['Each banana can therefore be evaluated independently.'] },
