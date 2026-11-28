@@ -1188,6 +1188,60 @@ section[tabindex='-1']:focus { outline:none; }
 .detail .dshot .shot { margin-inline:auto; filter:drop-shadow(0 18px 30px rgba(0,0,0,.4)); border-radius:10px; }
 .detail .dgal__btn:hover, .detail .dout__btn:hover, .detail .dfig__btn:hover { border-color:var(--t1); }
 
+/* Title in two tones, the project's line, and its tags as tinted pills */
+.detail__t2 { color:var(--tt); }
+.detail__tagline { margin-top:10px; font-size:clamp(18px,1.8vw,21px); font-weight:600; letter-spacing:-.01em; }
+.detail .dchips { margin-top:18px; }
+.detail .dchip {
+  font:600 13px/1 var(--font); padding:8px 13px; border-radius:999px; color:var(--text);
+  background:color-mix(in srgb, var(--t1) 12%, var(--surface)); border-color:color-mix(in srgb, var(--t1) 35%, var(--line));
+}
+.detail .dchips + .role { margin-top:20px; }
+/* Detail boxes with an icon tile */
+@media (max-width:599px) { .detail .dmeta { grid-template-columns:1fr; } }
+.detail .dmeta > div { position:relative; padding-left:62px; min-height:64px; display:flex; flex-direction:column; justify-content:center; }
+.dmeta__ic {
+  position:absolute; left:14px; top:50%; transform:translateY(-50%); width:36px; height:36px; border-radius:10px;
+  display:grid; place-items:center; color:var(--tt); background:color-mix(in srgb, var(--t1) 15%, var(--surface-2));
+}
+/* Key features with checkmarks */
+.detail .dlist--check li { padding-left:28px; }
+.detail .dlist--check li::before {
+  left:0; top:4px; width:18px; height:18px; border-radius:0; background:var(--t1);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1.2 14.2-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4-7 7Z'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1.2 14.2-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4-7 7Z'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+/* How it works: numbered steps joined by a line */
+.detail .dflow { gap:0; margin-top:16px; }
+.detail .dflow__s { position:relative; display:flex; align-items:flex-start; gap:14px; padding:0 0 18px; border:0; background:none; border-radius:0; line-height:1.5; }
+.detail .dflow__s:last-of-type { padding-bottom:0; }
+.dflow__n {
+  flex:none; width:30px; height:30px; border-radius:50%; display:grid; place-items:center;
+  font:700 13px/1 var(--mono); color:#0A0A0A; background:var(--t1);
+  box-shadow:0 0 0 5px color-mix(in srgb, var(--t1) 16%, transparent);
+}
+.dflow__s > span:last-child { padding-top:4px; }
+.detail .dflow__s:not(:last-of-type)::after {
+  content:''; position:absolute; left:14px; top:34px; bottom:4px; width:2px; border-radius:2px;
+  background:color-mix(in srgb, var(--t1) 40%, transparent);
+}
+/* Closing banner in the project colours */
+.dend {
+  grid-column:1 / -1; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:20px 28px;
+  padding:clamp(24px,4vw,40px); border-radius:22px; color:#fff;
+  background:
+    radial-gradient(80% 140% at 100% 100%, color-mix(in srgb, var(--t1) 65%, transparent), transparent 70%),
+    linear-gradient(120deg, color-mix(in srgb, var(--t2) 85%, #000), color-mix(in srgb, var(--t2) 60%, var(--t1)));
+  border:1px solid color-mix(in srgb, var(--t1) 45%, transparent);
+}
+.dend__t { font-size:clamp(26px,3.4vw,38px); font-weight:800; letter-spacing:-.03em; line-height:1.05; }
+.dend__s { margin-top:6px; font-size:17px; opacity:.88; }
+.dend__cta { display:flex; flex-wrap:wrap; gap:10px; }
+.dend .btn { color:#fff; border-color:rgba(255,255,255,.45); }
+.dend .btn:hover { background:rgba(255,255,255,.12); }
+.dend .btn--solid { background:#fff; color:#0A0A0A; border-color:#fff; }
+.dend .btn--solid:hover { background:#fff; opacity:.9; }
+
 /* Entrance: parts rise in as they come into view (main.js adds .is-in) */
 .detail [data-in] { opacity:0; transform:translateY(22px); }
 .detail [data-in].is-in { opacity:1; transform:none; transition:opacity .6s var(--ease-soft) var(--d, 0ms), transform .7s var(--ease) var(--d, 0ms); }

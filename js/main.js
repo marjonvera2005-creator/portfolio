@@ -802,6 +802,42 @@
     var bg = [$('.nav'), $('#main'), $('.ftr')];
     function inert(on) { bg.forEach(function (n) { if (n) { try { n.inert = on; } catch (e) {} } }); }
 
+    // "TindahanTrack" -> Tindahan + Track, "Banana Detector" -> Banana + Detector:
+    // the second part takes the project colour. One-word titles stay plain.
+    function twoTone(t) {
+      var m = /^([A-Z][a-z]+)([A-Z][A-Za-z]+)$/.exec(t) || /^(.+ )(\S+)$/.exec(t);
+      return m ? m[1] + '<span class="detail__t2">' + m[2] + '</span>' : t;
+    }
+
+    var MI = {
+      project:'<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/>',
+      person:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+      users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6.5 6.5 0 0 1 3.5 6"/>',
+      type:'<path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/>',
+      status:'<path d="M3 12h4l3-7 4 14 3-7h4"/>',
+      data:'<ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
+      course:'<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/>',
+      when:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/>',
+      place:'<path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/>',
+      model:'<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>'
+    };
+    var MK = { 'Project':'project', 'Role':'person', 'My role':'person', 'Built by':'person', 'Users':'users', 'Type':'type',
+      'Status':'status', 'Backend':'data', 'Course':'course', 'When':'when', 'Location':'place', 'Model':'model' };
+    function metaIcon(label) {
+      return '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + MI[MK[label] || 'project'] + '</svg>';
+    }
+
+    // Closing banner in the project colours: name, its line, and where to go next.
+    function bannerFor(p) {
+      return '<section class="dend" aria-label="' + p.title + '">' +
+        '<div><p class="dend__t">' + p.title + '</p><p class="dend__s">' + (p.tagline || p.tag) + '</p></div>' +
+        '<div class="dend__cta">' +
+          (p.live ? '<a class="btn btn--solid" href="' + p.live + '" target="_blank" rel="noopener noreferrer">Visit live site</a>' : '') +
+          '<button class="btn' + (p.live ? '' : ' btn--solid') + '" type="button" data-dclose="contact">Contact me</button>' +
+          '<button class="btn" type="button" data-dclose="work">Back to projects</button>' +
+        '</div></section>';
+    }
+
     function render(id) {
       var p = null;
       PROJECTS.forEach(function (x) { if (x.id === id) p = x; });
@@ -811,14 +847,18 @@
       var t = p.tint || ['#FF6B2C', '#1c1c1c'];
       view.style.setProperty('--t1', t[0]); view.style.setProperty('--t2', t[1]);
       var left = '<div><p class="detail__eyebrow">' + p.context + (p.year ? ' · ' + p.year : '') + '</p>' +
-        '<h2 class="detail__t" id="dTitle">' + p.title + '</h2>' +
-        (p.study ? '<p class="detail__study">' + (p.studyLabel || 'Research title') + ': <cite>' + p.study + '</cite></p>' : '') + '<p class="detail__lede">' + p.lede + '</p>' + roleFor(p);
+        '<h2 class="detail__t" id="dTitle">' + twoTone(p.title) + '</h2>' +
+        (p.tagline ? '<p class="detail__tagline">' + p.tagline + '</p>' : '') +
+        (p.study ? '<p class="detail__study">' + (p.studyLabel || 'Research title') + ': <cite>' + p.study + '</cite></p>' : '') + '<p class="detail__lede">' + p.lede + '</p>' +
+        '<div class="dchips">' + p.chips.map(function (c) { return '<span class="dchip">' + c + '</span>'; }).join('') + '</div>' + roleFor(p);
       if (p.live) {
         left += '<p class="detail__live"><a class="btn btn--solid" href="' + p.live + '" target="_blank" rel="noopener noreferrer">Visit live site' +
           '<svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></a></p>' +
           '<p class="msg__note">Hosted on a free server, so the first visit can take up to a minute to load.</p>';
       }
-      left += '<dl class="dmeta">' + p.meta.map(function (m) { return '<div><dt>' + m[0] + '</dt><dd>' + m[1] + '</dd></div>'; }).join('') + '</dl>';
+      left += '<dl class="dmeta">' + p.meta.map(function (m) {
+        return '<div><dt><span class="dmeta__ic" aria-hidden="true">' + metaIcon(m[0]) + '</span>' + m[0] + '</dt><dd>' + m[1] + '</dd></div>';
+      }).join('') + '</dl>';
 
       p.blocks.forEach(function (b, bi) {
         left += '<div class="dblock"><h3><span class="dblock__n" aria-hidden="true">' + (bi < 9 ? '0' : '') + (bi + 1) + '</span>' + b.h + '</h3>';
@@ -838,8 +878,7 @@
           var f = b.flow;
           left += '<div class="dflow">';
           f.steps.forEach(function (s, i) {
-            if (i) left += '<span class="dflow__a" aria-hidden="true">&darr;</span>';
-            left += '<p class="dflow__s">' + s + '</p>';
+            left += '<p class="dflow__s"><span class="dflow__n" aria-hidden="true">' + (i + 1) + '</span><span>' + s + '</span></p>';
           });
           if (f.decision) left += '<span class="dflow__a" aria-hidden="true">&darr;</span><p class="dflow__q">' + f.decision + '</p>';
           left += '</div>';
@@ -852,13 +891,20 @@
         if (b.after) b.after.forEach(function (x) { left += '<p class="dafter">' + x + '</p>'; });
         left += '</div>';
       });
-      left += '<div class="dchips">' + p.chips.map(function (c) { return '<span class="dchip">' + c + '</span>'; }).join('') + '</div></div>';
+      left += '</div>';
 
       body.innerHTML = left + '<div class="dside"><div class="dshot">' + shotFor(p) + '</div>' +
-        '<div class="dfeat"><h3>Key features</h3><ul class="dlist">' +
+        '<div class="dfeat"><h3>Key features</h3><ul class="dlist dlist--check">' +
         p.features.map(function (f) { return '<li>' + f + '</li>'; }).join('') + '</ul></div>' +
         galleryFor(p) + '</div>' +
-        portalsFor(p) + detectionsFor(p);
+        portalsFor(p) + detectionsFor(p) + bannerFor(p);
+      $$('[data-dclose]', body).forEach(function (b) {
+        b.addEventListener('click', function () {
+          var to = b.getAttribute('data-dclose');
+          close(false);
+          if (to) setTimeout(function () { var t = document.getElementById(to); if (t) t.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth' }); }, 80);
+        });
+      });
       reveal();
     }
 
@@ -867,7 +913,7 @@
     // reduced motion (or without IntersectionObserver) everything just shows.
     var seen = null;
     function reveal() {
-      var parts = $$('.detail__grid > div:first-child > *, .dside > *, .dgal--full, .dout, .dgal__list > li, .dout__list > li', body);
+      var parts = $$('.detail__grid > div:first-child > *, .dside > *, .dgal--full, .dout, .dend, .dgal__list > li, .dout__list > li', body);
       parts.forEach(function (el) { el.setAttribute('data-in', ''); });
       if (reduced() || !('IntersectionObserver' in window)) { parts.forEach(function (el) { el.classList.add('is-in'); }); return; }
       if (seen) seen.disconnect();
