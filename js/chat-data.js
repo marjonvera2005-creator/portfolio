@@ -84,7 +84,7 @@ var CHAT = {
         '<li><b>Tingi:</b> a team startup; Marjon is part of the founding team</li>' +
         '<li><b>IntelliGuide:</b> Marjon’s thesis, building the app and detection pipeline</li>' +
         '<li><b>CocoScan:</b> a 5-member team project for Design and Analysis of Algorithms; Marjon built the app</li>' +
-        '<li><b>CassavaCare:</b> a project given by one of Marjon&rsquo;s faculty instructors; Marjon trained both models and built the app</li>' +
+        '<li><b>CassavaCare:</b> a mobile application Marjon built for a client, training both models and building the app</li>' +
         '<li><b>Banana Detector:</b> built during an international immersion program in Vietnam</li>' +
         '<li><b>Face Recognition Attendance:</b> a 6-member team project from 2nd year, 1st semester; Marjon was the assistant programmer</li>' +
         '<li><b>Cuisina:</b> a 4-member team project for Parallel and Distributed Computing, a catering booking platform built with Flutter and Supabase; Marjon was the developer</li>' +
